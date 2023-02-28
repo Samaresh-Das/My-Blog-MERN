@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Source+Sans+Pro:wght@600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #374151 0%, #111827 100%);
+  min-height: 100vh;
+}
+
+.source-sans__pro {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.patrick-hand {
+  font-family: "Patrick Hand", cursive;
+}
+
+.logo-box {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.navBox {
+  background-image: linear-gradient(
+    295deg,
+    hsl(217deg 19% 27%) 0%,
+    hsl(219deg 25% 19%) 56%,
+    hsl(221deg 39% 11%) 100%
+  );
+}
+
+.markdown-img img {
+  /* width: 100px; */
+}
