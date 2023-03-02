@@ -65,7 +65,23 @@ const Auth = () => {
         // console.log("Form submitted successfully");
         console.log(email, password);
 
-        // your code to submit the form goes here
+        const res = await fetch("http://localhost:5000/api/user/login", {
+          method: "POST",
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+        if (!res.ok) {
+          setHttpError(data.message);
+        } else {
+          setHttpError("");
+        }
       }
     } else {
       if (!emailError && !passwordError && !nameError) {
@@ -87,8 +103,9 @@ const Auth = () => {
         console.log(data);
         if (!res.ok) {
           setHttpError(data.message);
+        } else {
+          setHttpError("");
         }
-        setEmailError("");
       }
     }
   };
@@ -100,14 +117,14 @@ const Auth = () => {
 
   return (
     <Fragment>
-      <div className="hidden md:inline-block relative ">
+      <div className="hidden md:inline-block md:relative ">
         <div className=" absolute top-[80px] left-[180px]">
           <Link to="/">
             <IoIosArrowBack className="text-white text-[24px] " />
           </Link>
         </div>
       </div>
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-screen">
         <form
           className="mx-auto auth-form px-[30px] md:px-[150px] py-[40px] md:py-[80px] rounded-[29px] border border-white shadow-xl shadow-blue-500/20"
           onSubmit={handleSubmit}
@@ -225,7 +242,7 @@ const Auth = () => {
               type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Submit
+              {login ? "Login" : "Sign Up"}
             </button>
           </div>
           <h3 className="text-center text-white text-[15px] mt-[20px]">

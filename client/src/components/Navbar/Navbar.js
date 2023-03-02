@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IconContext } from "react-icons";
 import { HiMenu } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
@@ -7,6 +7,19 @@ import NavItems from "./NavItems";
 
 const Navbar = (props) => {
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Set breakpoint value for desktop/mobile
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Call handleResize on initial load
+    handleResize();
+
+    // Cleanup listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const showNavMenuHandler = () => {
     setShowNavMenu(!showNavMenu);
@@ -74,7 +87,7 @@ const Navbar = (props) => {
           </div>
         </IconContext.Provider>
       </div>
-      {showNavMenu && <NavItems />}
+      {showNavMenu && !isDesktop && <NavItems />}
     </div>
   );
 };

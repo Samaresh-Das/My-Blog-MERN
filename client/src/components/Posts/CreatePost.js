@@ -44,16 +44,32 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="mt-[100px] md:mx-[10%] ">
+    <div className="mt-[100px] md:mx-[10%] h-screen">
       <div className="md:grid md:grid-cols-3">
         <div className="md:col-span-1">
           <div className="px-4 sm:px-0 text-white">
-            <h3 className="text-base font-semibold leading-6">
-              Personal Information
+            <h3 className="text-[20px] font-semibold leading-6 mb-5">
+              Some info for text formatting
             </h3>
-            <p className="mt-1 text-sm">
-              Use a permanent address where you can receive mail.
-            </p>
+            <ul className="text-[16px] opacity-70 leading-loose">
+              <li>*Italic*</li>
+              <li>**Bold**</li>
+              <li># Heading 1</li>
+              <li>## Heading 2</li>
+              <li>For Links - [Link](http://a.com)</li>
+              <li> For Images - ![Image](http://url/a.png)</li>
+              <li> For Blockquote - &gt; Blockquote</li>
+              <li> For List "* List"</li>
+              <li> Horizontal rule - _ _ _</li>
+              <li> For `Inline code` with backticks</li>
+              <li>
+                {" "}
+                For Code Bloc - <br /> ``` # code block <br /> print '3
+                backticks or' <br />
+                print 'indent 4 spaces' <br />
+                ```
+              </li>
+            </ul>
           </div>
         </div>
         <div className="mt-5 md:col-span-2 md:mt-0 shadow-xl">
@@ -72,7 +88,7 @@ const CreatePost = () => {
                       type="text"
                       name="headline"
                       id="headline"
-                      className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px]"
+                      className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
                       onChange={titleChange}
                     />
                   </div>
@@ -106,7 +122,7 @@ const CreatePost = () => {
                       type="text"
                       name="tag"
                       id="tag"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px]"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px] text-black"
                       onChange={tagChange}
                     />
                   </div>
