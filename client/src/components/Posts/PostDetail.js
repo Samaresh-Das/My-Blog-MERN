@@ -95,7 +95,7 @@ const PostDetail = () => {
           alt="cover"
           className="mx-auto px-[20px] mt-[40px] md:h-[594px]"
         />
-        <div className="text-white patrick-hand text-left mx-[20px] md:mx-[200px] mt-[30px]">
+        <div className="text-white patrick-hand text-left mx-[20px] md:mx-[200px] mt-[30px] md:text-[20px]">
           {description &&
             description.split("\\n").map((paragraph, index) => (
               <ReactMarkdown key={index} className="markdown-img">

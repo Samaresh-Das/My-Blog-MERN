@@ -45,9 +45,9 @@ const Navbar = (props) => {
           <li>UI Design</li>
           <li>Front-End</li>
           <li>Back-End</li>
-          <li>
-            <button>Logout</button>
-          </li>
+          <Link to="/auth">
+            <button>Sign Up</button>
+          </Link>
           <Link to="/create">Create Post</Link>
         </ul>
         <div className="hidden md:block relative">
