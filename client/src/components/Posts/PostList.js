@@ -67,7 +67,7 @@ const PostList = ({ showNav }) => {
     <Link to={`/post/${posts[0].id}`}>
       <div className="hidden md:grid md:grid-cols-3 md:space-x-2 md:mx-[200px] md:mt-[60px] ">
         <img
-          src="/Assets/post1.png"
+          src={`http://localhost:5000/${posts[0].image}`}
           alt="banner"
           className="md:col-span-2  md:h-[450px] md:w-11/12"
         />
@@ -103,7 +103,7 @@ const PostList = ({ showNav }) => {
     ? posts.map(
         ({
           id,
-
+          image,
           headline,
           profilePicture,
           creatorName,
@@ -111,6 +111,7 @@ const PostList = ({ showNav }) => {
           description,
           isLastItem,
         }) => {
+          const imageUrl = `http://localhost:5000/${image.replace(/\\/g, "/")}`;
           const shortDescription =
             description.slice(0, Max_Length_Of_Description) + "...";
           return (
@@ -121,7 +122,9 @@ const PostList = ({ showNav }) => {
                   <Link to={`/post/${id}`}>
                     <div
                       className="h-48 rounded-lg text-center flex-none bg-cover mb-[10px]"
-                      style={{ backgroundImage: `url('/Assets/post1.png')` }}
+                      style={{
+                        backgroundImage: `url(${imageUrl})`,
+                      }}
                       title="Woman holding a mug"
                     ></div>
                     <div className="p-4 flex flex-col justify-between leading-normal">
@@ -162,68 +165,77 @@ const PostList = ({ showNav }) => {
           );
         }
       )
-    : posts.slice(1).map(
-        ({
-          id,
+    : posts
+        .slice(1)
+        .map(
+          ({
+            id,
+            image,
+            headline,
+            profilePicture,
+            creatorName,
+            tagline,
+            description,
+            isLastItem,
+          }) => {
+            const imageUrl = `http://localhost:5000/${image.replace(
+              /\\/g,
+              "/"
+            )}`;
 
-          headline,
-          profilePicture,
-          creatorName,
-          tagline,
-          description,
-          isLastItem,
-        }) => {
-          const shortDescription =
-            description.slice(0, Max_Length_Of_Description) + "...";
-          return (
-            <Fragment key={id}>
-              {showNav && <NavItems />}
-              <li>
-                <div className="px-[20px] text  md:w-[300px]">
-                  <Link to={`/post/${id}`}>
-                    <div
-                      className="h-48 rounded-lg text-center flex-none bg-cover mb-[10px]"
-                      style={{ backgroundImage: `url('/Assets/post1.png` }}
-                      title="Woman holding a mug"
-                    ></div>
-                    <div className="p-4 flex flex-col justify-between leading-normal">
-                      <div className="mb-8">
-                        {/* <p className="text-white flex items-center opacity-40">
+            const shortDescription =
+              description.slice(0, Max_Length_Of_Description) + "...";
+            return (
+              <Fragment key={id}>
+                {showNav && <NavItems />}
+                <li>
+                  <div className="px-[20px] text  md:w-[300px]">
+                    <Link to={`/post/${id}`}>
+                      <div
+                        className="h-48 rounded-lg text-center flex-none bg-cover mb-[10px]"
+                        style={{
+                          backgroundImage: `url(${imageUrl})`,
+                        }}
+                        title="Woman holding a mug"
+                      ></div>
+                      <div className="p-4 flex flex-col justify-between leading-normal">
+                        <div className="mb-8">
+                          {/* <p className="text-white flex items-center opacity-40">
                           {tag}
                         </p> */}
-                        <div className="text-white mb-2 patrick-hand text-[20px]">
-                          {headline}
-                        </div>
-                        <p className="text-white text-[16px] opacity-50">
-                          {description.length > Max_Length_Of_Description
-                            ? shortDescription
-                            : description}
-                        </p>
-                      </div>
-                      <div className="flex items-center">
-                        <img
-                          className="w-10 h-10 rounded-full mr-3"
-                          src={profilePicture}
-                          alt="Avatar of Jonathan Reinink"
-                        />
-                        <div className="text-sm">
-                          <p className="text-white leading-none">
-                            {creatorName}
+                          <div className="text-white mb-2 patrick-hand text-[20px]">
+                            {headline}
+                          </div>
+                          <p className="text-white text-[16px] opacity-50">
+                            {description.length > Max_Length_Of_Description
+                              ? shortDescription
+                              : description}
                           </p>
-                          <p className="text-white opacity-50">{tagline}</p>
+                        </div>
+                        <div className="flex items-center">
+                          <img
+                            className="w-10 h-10 rounded-full mr-3"
+                            src={profilePicture}
+                            alt="Avatar of Jonathan Reinink"
+                          />
+                          <div className="text-sm">
+                            <p className="text-white leading-none">
+                              {creatorName}
+                            </p>
+                            <p className="text-white opacity-50">{tagline}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                </div>
-                {!isLastItem && (
-                  <hr className="mx-[30px] mb-[30px] border-2 border-gray-400 opacity-50 md:hidden" />
-                )}
-              </li>
-            </Fragment>
-          );
-        }
-      );
+                    </Link>
+                  </div>
+                  {!isLastItem && (
+                    <hr className="mx-[30px] mb-[30px] border-2 border-gray-400 opacity-50 md:hidden" />
+                  )}
+                </li>
+              </Fragment>
+            );
+          }
+        );
   return (
     <Fragment>
       {featuredPost}

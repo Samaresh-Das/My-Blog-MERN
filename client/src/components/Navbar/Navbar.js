@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IconContext } from "react-icons";
 import { HiMenu } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import NavItems from "./NavItems";
+import { AuthContext } from "../context/auth-context";
 
 const Navbar = (props) => {
+  const auth = useContext(AuthContext);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
@@ -21,6 +23,8 @@ const Navbar = (props) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const userPhoto = localStorage.getItem("userPhoto");
+
   const showNavMenuHandler = () => {
     setShowNavMenu(!showNavMenu);
   };
@@ -28,7 +32,7 @@ const Navbar = (props) => {
   return (
     <div
       className="mt-[36px] flex flex-row  justify-around mb-[27px]
-      md:block md:mx-[200px]"
+      md:block md:mx-[100px]"
     >
       <div className="opacity-40 md:hidden">
         <IconContext.Provider
@@ -58,10 +62,17 @@ const Navbar = (props) => {
           <li>UI Design</li>
           <li>Front-End</li>
           <li>Back-End</li>
-          <Link to="/auth">
-            <button>Sign Up</button>
-          </Link>
-          <Link to="/create">Create Post</Link>
+          {!auth.isLoggedIn && (
+            <Link to="/auth">
+              <button>Sign Up</button>
+            </Link>
+          )}
+          {auth.isLoggedIn && <Link to="/create">Create Post</Link>}
+          {auth.isLoggedIn && (
+            <li>
+              <button onClick={auth.logout}>Logout</button>
+            </li>
+          )}
         </ul>
         <div className="hidden md:block relative">
           <input
@@ -69,10 +80,21 @@ const Navbar = (props) => {
             className="rounded-full bg-[#1F2937] pl-[40px] pb-1 text-white h-[40px]"
             placeholder="search"
           />
-          <span className="absolute inset-y-1 left-0 flex items-center pl-3">
+          <span className="absolute top-3 left-0 flex items-center pl-3">
             <FiSearch className="text-white opacity-50" />
           </span>
         </div>
+        {auth.isLoggedIn && (
+          <div className="hidden md:block">
+            <Link to="/profile">
+              <img
+                className="w-[61px] h-[61px] rounded-full mr-3"
+                src={userPhoto}
+                alt="Avatar of Jonathan Reinink"
+              />
+            </Link>
+          </div>
+        )}
       </div>
       <div className="my-auto opacity-40 md:hidden">
         <IconContext.Provider

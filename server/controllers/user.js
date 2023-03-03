@@ -1,7 +1,17 @@
 const HttpError = require("../models/http-error");
 const User = require("../models/user");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { validationResult } = require("express-validator");
 
 const createNewUser = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError("Invalid inputs passed, please check your data", 422)
+    );
+  }
+
   const { name, email, password, tagline } = req.body;
 
   let existingUser;
@@ -14,7 +24,16 @@ const createNewUser = async (req, res, next) => {
 
   if (existingUser) {
     const error = new HttpError("Could not signup, user already exists", 422);
-    return res.status(422).json({
+    return next(error);
+  }
+
+  //hashing the password
+  let hashedPassword;
+  try {
+    hashedPassword = await bcrypt.hash(password, 12);
+  } catch (err) {
+    const error = new HttpError("Could not signup, please try again", 500);
+    return res.status(500).json({
       message: error.message,
     });
   }
@@ -24,7 +43,7 @@ const createNewUser = async (req, res, next) => {
     createdUser = new User({
       name,
       email,
-      password,
+      password: hashedPassword,
       tagline,
       profilePicture:
         "https://www.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg",
@@ -39,10 +58,25 @@ const createNewUser = async (req, res, next) => {
     });
   }
 
-  // const createdPost =
+  // generating jwt token
+  let token;
+  try {
+    token = jwt.sign(
+      { userId: createdUser.id, email: createdUser.email },
+      "volodimir",
+      { expiresIn: "2h" }
+    );
+  } catch (err) {
+    const error = new HttpError("Could not create user", 500);
+    return res.status(422).json({
+      message: error.message,
+    });
+  }
 
   res.status(201).json({
-    user: createdUser,
+    userId: createdUser.id,
+    email: createdUser.email,
+    token: token,
   });
 };
 
@@ -67,10 +101,38 @@ const login = async (req, res, next) => {
     });
   }
 
-  if (existingUser.password !== password) {
-    //checking if the existing user password matches with the body password
+  //checking password validity
+  let isValidPassword = false;
+  try {
+    isValidPassword = await bcrypt.compare(password, existingUser.password);
+  } catch (err) {
+    const error = new HttpError("Unknown error occurred", 422);
+    return res.status(422).json({
+      message: error.message,
+    });
+  }
+
+  if (!isValidPassword) {
     const error = new HttpError("Invalid credentials", 401);
     return res.status(401).json({
+      message: error.message,
+    });
+  }
+
+  //generating jwt token
+  try {
+    token = jwt.sign(
+      {
+        userId: existingUser.id,
+        email: existingUser.email,
+        profilePicture: existingUser.profilePicture,
+      },
+      "volodimir",
+      { expiresIn: "2h" }
+    );
+  } catch (err) {
+    const error = new HttpError("Login failed", 500);
+    return res.status(500).json({
       message: error.message,
     });
   }
@@ -79,6 +141,8 @@ const login = async (req, res, next) => {
     userId: existingUser.id,
     email: existingUser.email,
     message: "Successfully logged in",
+    token: token,
+    profilePicture: existingUser.profilePicture,
   });
 };
 

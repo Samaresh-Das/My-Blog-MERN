@@ -19,7 +19,7 @@ const getPosts = async (req, res, next) => {
 
   const postList = posts.map((post) => {
     //to get the details of the user
-    const { id, headline, description, tag, creator } = post;
+    const { id, headline, description, tag, creator, image } = post;
     const { name, profilePicture, tagline } = creator;
     return {
       id,
@@ -30,6 +30,7 @@ const getPosts = async (req, res, next) => {
       creatorName: name,
       profilePicture,
       tagline,
+      image,
     }; // Include user name in response
   });
 
@@ -60,7 +61,7 @@ const getPostsById = async (req, res, next) => {
     });
   }
   //to get the details of the user
-  const { id, headline, description, tag, creator, createdAt } = post;
+  const { id, headline, description, tag, creator, createdAt, image } = post;
   const { name, profilePicture, tagline } = creator;
   const postData = {
     id,
@@ -72,6 +73,7 @@ const getPostsById = async (req, res, next) => {
     creatorName: name,
     profilePicture,
     tagline,
+    image,
   }; // Include user name in response
 
   res.status(200).json({
@@ -108,7 +110,7 @@ const getPostsByUserId = async (req, res, next) => {
 
 const createPosts = async (req, res, next) => {
   const { headline, description, creator, tag } = req.body; //get the required details from the body
-
+  console.log(headline, description, creator, tag);
   let createdPost;
   try {
     createdPost = new Post({
@@ -116,14 +118,13 @@ const createPosts = async (req, res, next) => {
       description,
       creator,
       tag,
+      image: req.file.path,
     }); //create new post. You need to save later
 
     // await createdPost.save();
   } catch (err) {
     const error = new HttpError("Posts creation failed", 500);
-    return res.status(500).json({
-      message: error.message || "An unknown error occurred",
-    });
+    return next(error);
   }
 
   let user;
@@ -131,9 +132,7 @@ const createPosts = async (req, res, next) => {
     user = await User.findById(creator); //finding if the user exists in the db for the provided id
   } catch (err) {
     const error = new HttpError("Posts creation failed", 500);
-    return res.status(500).json({
-      message: error.message || "An unknown error occurred",
-    });
+    return next(error);
   }
 
   if (!user) {
@@ -141,9 +140,7 @@ const createPosts = async (req, res, next) => {
       "Could not find the user for the provided id",
       500
     );
-    return res.status(500).json({
-      message: error.message || "An unknown error occurred",
-    });
+    return next(error);
   }
 
   try {
@@ -155,9 +152,7 @@ const createPosts = async (req, res, next) => {
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError("Posts creation failed", 500);
-    return res.status(500).json({
-      message: error.message || "An unknown error occurred",
-    });
+    return next(error);
   }
 
   res.status(201).json({

@@ -1,8 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../context/auth-context";
 
-const Auth = () => {
+const Auth = (props) => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
   const [login, setLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,9 +65,6 @@ const Auth = () => {
     validateTagline(tagline);
     if (login) {
       if (!emailError && !passwordError) {
-        // console.log("Form submitted successfully");
-        console.log(email, password);
-
         const res = await fetch("http://localhost:5000/api/user/login", {
           method: "POST",
           body: JSON.stringify({
@@ -76,11 +76,13 @@ const Auth = () => {
           },
         });
         const data = await res.json();
-        console.log(data);
         if (!res.ok) {
-          setHttpError(data.message);
+          return setHttpError(data.message);
         } else {
           setHttpError("");
+          auth.login(data.userId, data.token);
+          localStorage.setItem("userPhoto", data.profilePicture);
+          history.push("/");
         }
       }
     } else {
@@ -102,9 +104,11 @@ const Auth = () => {
         const data = await res.json();
         console.log(data);
         if (!res.ok) {
-          setHttpError(data.message);
+          return setHttpError(data.message);
         } else {
           setHttpError("");
+          auth.login(data.userId, data.token);
+          history.push("/");
         }
       }
     }

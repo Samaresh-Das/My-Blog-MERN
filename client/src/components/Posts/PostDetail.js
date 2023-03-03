@@ -57,6 +57,7 @@ const PostDetail = () => {
     profilePicture,
     tagline,
     tag,
+    image,
   } = postDetails.post;
 
   const dateString = createdAt;
@@ -91,7 +92,7 @@ const PostDetail = () => {
           </div>
         </div>
         <img
-          src="/Assets/post1.png"
+          src={`http://localhost:5000/${image}`}
           alt="cover"
           className="mx-auto px-[20px] mt-[40px] md:h-[594px]"
         />

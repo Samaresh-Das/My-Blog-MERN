@@ -1,39 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/auth-context";
+import ImageUpload from "../shared/ImageUpload";
 
 const CreatePost = () => {
+  console.log("rendering");
+  const { userId } = useContext(AuthContext);
   const history = useHistory();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [tag, setTag] = useState("");
+  const [image, setImage] = useState();
 
-  const titleChange = (e) => {
-    setTitle(e.target.value);
-    // console.log(title);
-  };
-  const descriptionChange = (e) => {
-    setDescription(e.target.value);
-    // console.log(description);
-  };
-  const tagChange = (e) => {
-    setTag(e.target.value);
-    // console.log(tag);
+  // const titleChange = useCallback((e) => {
+  //   setTitle(e.target.value);
+  //   // console.log(title);
+  // }, []);
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+  const tagRef = useRef();
+
+  const imageHandler = (e) => {
+    setImage(e);
+    console.log(image);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("headline", titleRef.current.value);
+      formData.append("description", descriptionRef.current.value);
+      formData.append("tag", tagRef.current.value);
+      formData.append("image", image);
+      formData.append("creator", userId);
+      console.log([...formData.entries()]);
       const response = await fetch("http://localhost:5000/api/posts/new", {
         method: "POST",
-        body: JSON.stringify({
-          headline: title,
-          description,
-          creator: "63ff692d913cd115b1efc996",
-          tag,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        body: formData,
       });
       const data = await response.json();
       console.log(data);
@@ -44,7 +45,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="mt-[100px] md:mx-[10%] h-screen">
+    <div className="mt-[50px] md:mx-[10%] h-screen">
       <div className="md:grid md:grid-cols-3">
         <div className="md:col-span-1">
           <div className="px-4 sm:px-0 text-white">
@@ -89,7 +90,7 @@ const CreatePost = () => {
                       name="headline"
                       id="headline"
                       className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
-                      onChange={titleChange}
+                      ref={titleRef}
                     />
                   </div>
 
@@ -106,8 +107,8 @@ const CreatePost = () => {
                       name="description"
                       id="description"
                       autoComplete="street-address"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[150px] text-black"
-                      onChange={descriptionChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[100px] text-black"
+                      ref={descriptionRef}
                     />
                   </div>
 
@@ -123,10 +124,11 @@ const CreatePost = () => {
                       name="tag"
                       id="tag"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px] text-black"
-                      onChange={tagChange}
+                      ref={tagRef}
                     />
                   </div>
                 </div>
+                <ImageUpload onInput={imageHandler} />
               </div>
               <div className="px-4 py-3 flex justify-center sm:px-6">
                 <button

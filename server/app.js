@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const fs = require("fs");
+const path = require("path");
+
 const HttpError = require("./models/http-error");
 
 const postsRoute = require("./routes/posts-routes");
@@ -9,6 +12,8 @@ const usersRoute = require("./routes/user-routes");
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,7 +34,20 @@ app.use("/api/user", usersRoute);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route.", 404);
-  res.status(404).json({
+  throw error;
+});
+
+app.use((error, req, res, next) => {
+  if (req.file) {
+    //deleting the image if any error happens or rolling it back
+    fs.unlink(req.file.path, (err) => {
+      console.log(err);
+    });
+  }
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500).json({
     message: error.message || "An unknown error occurred",
   });
 });
