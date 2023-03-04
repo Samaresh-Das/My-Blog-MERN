@@ -45,11 +45,11 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="mt-[50px] md:mx-[10%] h-screen">
-      <div className="md:grid md:grid-cols-3">
-        <div className="md:col-span-1">
+    <div className="mt-[50px] md:mx-[10%] h-full md:h-screen">
+      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-3">
+        <div className="md:col-span-1 mx-[20px] md:mx-0">
           <div className="px-4 sm:px-0 text-white">
-            <h3 className="text-[20px] font-semibold leading-6 mb-5">
+            <h3 className="text-[20px] text-center md:text-left font-semibold leading-6 mb-5">
               Some info for text formatting
             </h3>
             <ul className="text-[16px] opacity-70 leading-loose">
@@ -75,10 +75,10 @@ const CreatePost = () => {
         </div>
         <div className="mt-5 md:col-span-2 md:mt-0 shadow-xl">
           <form onSubmit={handleSubmit}>
-            <div className=" drop-shadow-xl sm:rounded-md ">
+            <div className=" drop-shadow-xl sm:rounded-md">
               <div className=" text-white sm:p-6 ">
                 <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-4 md:col-span-5">
+                  <div className="col-start-2 col-span-4 md:col-span-5 ">
                     <label
                       htmlFor="headline"
                       className="block text-sm font-medium"
@@ -94,7 +94,7 @@ const CreatePost = () => {
                     />
                   </div>
 
-                  <div className="col-span-4 md:col-span-5">
+                  <div className="col-start-2 col-span-4 md:col-span-5">
                     <label
                       htmlFor="description"
                       className="block text-sm font-medium text-white"
@@ -112,7 +112,7 @@ const CreatePost = () => {
                     />
                   </div>
 
-                  <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <div className="col-start-2 col-span-4 sm:col-span-6 lg:col-span-2">
                     <label
                       htmlFor="tag"
                       className="block text-sm font-medium text-white"
@@ -130,7 +130,7 @@ const CreatePost = () => {
                 </div>
                 <ImageUpload onInput={imageHandler} />
               </div>
-              <div className="px-4 py-3 flex justify-center sm:px-6">
+              <div className="px-4 py-3 flex justify-center sm:px-6 mb-[30px] md:mb-0">
                 <button
                   type="submit"
                   className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
-
+const fileUpload = require("../middleware/file-upload");
 const userController = require("../controllers/user");
+
+router.get("/profile/:uid", userController.getUserById);
 
 router.post(
   "/new",
@@ -15,5 +17,11 @@ router.post(
   userController.createNewUser
 );
 router.post("/login", userController.login);
+
+router.post(
+  "/update/:uid",
+  fileUpload.single("image"),
+  userController.updateUserById
+);
 
 module.exports = router;

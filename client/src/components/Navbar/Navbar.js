@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import NavItems from "./NavItems";
 import { AuthContext } from "../context/auth-context";
 
-const Navbar = (props) => {
+const Navbar = () => {
   const auth = useContext(AuthContext);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -29,6 +29,10 @@ const Navbar = (props) => {
     setShowNavMenu(!showNavMenu);
   };
 
+  const hideNav = (e) => {
+    setShowNavMenu(e);
+  };
+
   return (
     <div
       className="mt-[36px] flex flex-row  justify-around mb-[27px]
@@ -47,7 +51,7 @@ const Navbar = (props) => {
           </div>
         </IconContext.Provider>
       </div>
-      <div className="md:flex md:fle-row md:justify-between">
+      <div className="md:flex md:flex-row md:justify-between">
         <Link to="/">
           <div className="flex flex-row h-[40px]">
             <h1 className="py-[6px] px-[12px] bg-[#4B5563] logo-box  text-white source-sans__pro text-[18px]">
@@ -88,7 +92,7 @@ const Navbar = (props) => {
           <div className="hidden md:block">
             <Link to="/profile">
               <img
-                className="w-[61px] h-[61px] rounded-full mr-3"
+                className="w-[51px] h-[51px] rounded-full mr-3"
                 src={userPhoto}
                 alt="Avatar of Jonathan Reinink"
               />
@@ -109,7 +113,7 @@ const Navbar = (props) => {
           </div>
         </IconContext.Provider>
       </div>
-      {showNavMenu && !isDesktop && <NavItems />}
+      {showNavMenu && !isDesktop && <NavItems onHide={hideNav} />}
     </div>
   );
 };

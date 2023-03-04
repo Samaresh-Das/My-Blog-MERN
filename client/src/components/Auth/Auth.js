@@ -108,6 +108,7 @@ const Auth = (props) => {
         } else {
           setHttpError("");
           auth.login(data.userId, data.token);
+          localStorage.setItem("userPhoto", data.profilePicture);
           history.push("/");
         }
       }
