@@ -46,7 +46,7 @@ const createNewUser = async (req, res, next) => {
       password: hashedPassword,
       tagline,
       profilePicture:
-        "https://www.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg",
+        "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg",
       posts: [],
     });
 
@@ -76,6 +76,7 @@ const createNewUser = async (req, res, next) => {
   res.status(201).json({
     userId: createdUser.id,
     email: createdUser.email,
+    profilePicture: createdUser.profilePicture,
     token: token,
   });
 };
@@ -146,7 +147,69 @@ const login = async (req, res, next) => {
   });
 };
 
+const getUserById = async (req, res, next) => {
+  const userId = req.params.uid;
+
+  let user;
+  try {
+    user = await User.findById(userId).select("-password");
+  } catch (err) {
+    const error = new HttpError("User not found", 404);
+    return next(error);
+  }
+  if (!user) {
+    const error = new HttpError("User not found", 404);
+    return next(error);
+  }
+  res.status(200).json(user.toObject({ getters: true }));
+  // if (req.user && req.user.id === userId) {
+  //   const user = await User.findById(userId).select("-password");
+  //   if (!user) {
+  //     res.status(404).send("User not found");
+  //   } else {
+  //     res.json(user);
+  //   }
+  // } else {
+  //   res.status(401).send("Unauthorized");
+  // }
+};
+
+const updateUserById = async (req, res, next) => {
+  const userId = req.params.uid;
+  const { name, email, tagline } = req.body;
+  let user;
+  try {
+    user = await User.findById(userId);
+  } catch (err) {
+    const error = new HttpError("User not found", 404);
+    return next(error);
+  }
+  if (!user) {
+    const error = new HttpError("User not found", 404);
+    return next(error);
+  }
+
+  //the user might not want to update all the fields so we used the OR operator.
+  user.name = name || user.name;
+  user.email = email || user.email;
+  user.tagline = tagline || user.tagline;
+  user.profilePicture =
+    `http://localhost:5000/${req.file.path}` ||
+    "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
+
+  let updatedUser;
+  try {
+    updatedUser = await user.save();
+  } catch (err) {
+    const error = new HttpError("Could not update the user details", 500);
+    return next(error);
+  }
+  res.status(200).json(updatedUser.toObject({ getters: true }));
+};
+
 module.exports = {
   createNewUser,
   login,
+  getUserById,
+  updateUserById,
 };
