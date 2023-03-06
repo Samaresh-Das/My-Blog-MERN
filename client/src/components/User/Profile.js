@@ -296,7 +296,7 @@ const Profile = () => {
                         </p>
                       </div>
                       <button
-                        className="absolute md:top-1/2 md:left-3/4 md:transform md:-translate-x-3/4 md:-translate-y-1/2 md:px-2 md:py-1 md:bg-red-500 md:text-white md:opacity-0 md:transition-all md:duration-300 md:ease-out md:group-hover:opacity-100 md:group-hover:-translate-y-full"
+                        className="hidden md:block absolute md:top-1/2 md:left-3/4 md:transform md:-translate-x-3/4 md:-translate-y-1/2 md:px-2 md:py-1 md:bg-red-500 md:text-white md:opacity-0 md:transition-all md:duration-300 md:ease-out md:group-hover:opacity-100 md:group-hover:-translate-y-full"
                         onClick={() => postDeleteHandler(id)}
                       >
                         Delete
@@ -309,11 +309,22 @@ const Profile = () => {
                       </Link>
                     </div>
                     <div className="flex justify-center md:hidden">
-                      <button className="relative inline-flex items-center justify-center p-0.5 mb-[20px] mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                      <button
+                        className="relative inline-flex items-center justify-center p-0.5 mb-[20px] mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
+                        onClick={() => postDeleteHandler(id)}
+                      >
                         <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                           Delete
                         </span>
                       </button>
+                      <Link
+                        to={`/update/${id}`}
+                        className="relative inline-flex items-center justify-center p-0.5 mb-[20px] mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
+                      >
+                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                          Update
+                        </span>
+                      </Link>
                     </div>
                   </div>
                 </li>

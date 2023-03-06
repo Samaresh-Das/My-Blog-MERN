@@ -21,6 +21,7 @@ router.post(
 );
 
 router.use(checkAuth);
+router.patch("/update/:pid", postController.updatePostById);
 router.delete("/del/:pid", postController.deletePost);
 
 module.exports = router;

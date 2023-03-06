@@ -158,6 +158,42 @@ const createPosts = async (req, res, next) => {
   });
 };
 
+const updatePostById = async (req, res, next) => {
+  const postId = req.params.pid;
+  const { headline, description, tag } = req.body;
+  console.log(description);
+  let post;
+  try {
+    post = await Post.findById(postId);
+  } catch (err) {
+    const error = new HttpError("Post not found", 404);
+    return next(error);
+  }
+  if (!post) {
+    const error = new HttpError("Post not found", 404);
+    return next(error);
+  }
+
+  if (post.creator.toString() !== req.userData.userId) {
+    const error = new HttpError("You are not allowed to do that", 401);
+    return next(error);
+  }
+
+  //the user might not want to update all the fields so we used the OR operator.
+  post.headline = headline || post.headline;
+  post.description = description || post.description;
+  post.tag = tag || post.tag;
+
+  let updatedPost;
+  try {
+    updatedPost = await post.save();
+  } catch (err) {
+    const error = new HttpError("Could not update the post", 500);
+    return next(error);
+  }
+  res.status(200).json(updatedPost.toObject({ getters: true }));
+};
+
 const deletePost = async (req, res, next) => {
   const postId = req.params.pid;
   let post;
@@ -208,5 +244,6 @@ module.exports = {
   getPostsById,
   getPostsByUserId,
   createPosts,
+  updatePostById,
   deletePost,
 };
