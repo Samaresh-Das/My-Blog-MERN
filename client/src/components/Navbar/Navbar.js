@@ -51,7 +51,7 @@ const Navbar = () => {
           </div>
         </IconContext.Provider>
       </div>
-      <div className="md:flex md:flex-row md:justify-between">
+      <div className="md:flex md:flex-row md:justify-between ">
         <Link to="/">
           <div className="flex flex-row h-[40px]">
             <h1 className="py-[6px] px-[12px] bg-[#4B5563] logo-box  text-white source-sans__pro text-[18px]">
@@ -62,7 +62,7 @@ const Navbar = () => {
             </h1>
           </div>
         </Link>
-        <ul className="md:flex md:flex-row hidden md:space-x-20 patrick-hand text-white">
+        <ul className="md:flex md:flex-row hidden md:space-x-20 patrick-hand text-white my-auto">
           <li>UI Design</li>
           <li>Front-End</li>
           <li>Back-End</li>

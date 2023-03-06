@@ -91,6 +91,7 @@ const CreatePost = () => {
                       id="headline"
                       className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
                       ref={titleRef}
+                      required
                     />
                   </div>
 
@@ -109,6 +110,7 @@ const CreatePost = () => {
                       autoComplete="street-address"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[100px] text-black"
                       ref={descriptionRef}
+                      required
                     />
                   </div>
 
@@ -125,6 +127,7 @@ const CreatePost = () => {
                       id="tag"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px] text-black"
                       ref={tagRef}
+                      required
                     />
                   </div>
                 </div>

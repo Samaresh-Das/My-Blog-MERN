@@ -10,6 +10,7 @@ import Auth from "./components/Auth/Auth";
 import { AuthContext } from "./components/context/auth-context";
 import { useAuth } from "./components/hooks/auth-hook";
 import Profile from "./components/User/Profile";
+import UpdatePost from "./components/Posts/UpdatePost";
 
 function App() {
   const { login, logout, token, userId } = useAuth();
@@ -47,6 +48,9 @@ function Routes() {
         </Route>
         <Route path="/post/:postId" exact>
           <PostDetail />
+        </Route>
+        <Route path="/update/:postId" exact>
+          <UpdatePost />
         </Route>
         <Route path="/auth" exact>
           <Auth />

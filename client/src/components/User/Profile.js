@@ -1,8 +1,16 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
-// import { AuthContext } from "../context/auth-context";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  Fragment,
+  useContext,
+} from "react";
+import { AuthContext } from "../context/auth-context";
+import { Link } from "react-router-dom";
 import LoadingSpinner from "../shared/LoadingSpinner";
 const Max_Length_Of_Description = 100;
 const Profile = () => {
+  const auth = useContext(AuthContext);
   const [user, setUser] = useState();
   const userRef = useRef();
   const [userPosts, setUserPosts] = useState([]);
@@ -13,6 +21,7 @@ const Profile = () => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(false);
+  const [hover, setHover] = useState();
 
   const filePickerRef = useRef();
   const pickImageHandler = () => {
@@ -92,9 +101,56 @@ const Profile = () => {
     localStorage.setItem("userPhoto", data.profilePicture);
     window.location.reload();
   };
+
+  if (!userPosts) {
+    return (
+      <div className="h-screen">
+        <div className="md:w-[600px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mx-auto mt-[100px]">
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-center">
+            No posts found for you, Create One?
+          </p>
+          <div className="flex justify-center">
+            <Link
+              to="/create"
+              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Create Post
+              <svg
+                aria-hidden="true"
+                className="w-4 h-4 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (userPosts.length === 0) {
     return <LoadingSpinner />;
   }
+
+  const postDeleteHandler = async (postId) => {
+    const response = await fetch(
+      `http://localhost:5000/api/posts/del/${postId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + auth.token,
+        },
+      }
+    );
+    window.location.reload();
+  };
 
   // const userPhoto = localStorage.getItem("userPhoto");
   return (
@@ -198,7 +254,7 @@ const Profile = () => {
         <h2 className="text-center text-[24px] patrick-hand mb-[30px]">
           Your posts
         </h2>
-        <ul className="md:flex md:flex-row md:justify-center md:mt-[60px] ">
+        <ul className="md:flex md:flex-row md:justify-center md:mt-[60px] space-x-4">
           {userPosts.map(({ id, image, description, headline }) => {
             const imageUrl = `http://localhost:5000/${image.replace(
               /\\/g,
@@ -209,8 +265,15 @@ const Profile = () => {
               description.slice(0, Max_Length_Of_Description) + "...";
             return (
               <Fragment key={id}>
-                <li>
-                  <div className="px-[20px] text  md:w-[300px]">
+                <li
+                  onMouseEnter={() => setHover(id)}
+                  onMouseLeave={() => setHover()}
+                >
+                  <div
+                    className={`${
+                      hover === id ? "md:hover:opacity-70" : ""
+                    }  md:relative group px-[20px] text  md:w-[300px]`}
+                  >
                     <div
                       className="h-48 rounded-lg text-center flex-none bg-cover mb-[10px]"
                       style={{
@@ -232,10 +295,22 @@ const Profile = () => {
                             : description}
                         </p>
                       </div>
+                      <button
+                        className="absolute md:top-1/2 md:left-3/4 md:transform md:-translate-x-3/4 md:-translate-y-1/2 md:px-2 md:py-1 md:bg-red-500 md:text-white md:opacity-0 md:transition-all md:duration-300 md:ease-out md:group-hover:opacity-100 md:group-hover:-translate-y-full"
+                        onClick={() => postDeleteHandler(id)}
+                      >
+                        Delete
+                      </button>
+                      <Link
+                        to={`/update/${id}`}
+                        className="absolute top-1/2 left-1/4 transform -translate-x-1/4 -translate-y-1/2 px-2 py-1 bg-red-500 text-white opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:-translate-y-full"
+                      >
+                        Update
+                      </Link>
                     </div>
                     <div className="flex justify-center md:hidden">
-                      <button class="relative inline-flex items-center justify-center p-0.5 mb-[20px] mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                      <button className="relative inline-flex items-center justify-center p-0.5 mb-[20px] mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                           Delete
                         </span>
                       </button>

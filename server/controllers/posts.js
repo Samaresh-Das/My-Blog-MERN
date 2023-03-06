@@ -2,6 +2,7 @@ const { mongoose } = require("mongoose");
 const HttpError = require("../models/http-error");
 const Post = require("../models/post");
 const User = require("../models/user");
+const fs = require("fs");
 
 const getPosts = async (req, res, next) => {
   let posts;
@@ -55,7 +56,7 @@ const getPostsById = async (req, res, next) => {
   }
 
   if (!post) {
-    const error = new HttpError("Could not find the place", 404);
+    const error = new HttpError("Could not find the post", 404);
     return res.status(500).json({
       message: error.message || "Cannot find the selected post",
     });
@@ -87,19 +88,16 @@ const getPostsByUserId = async (req, res, next) => {
   try {
     userWithPost = await User.findById(userId).populate("posts"); //checking the posts with field with the specified users id
   } catch (err) {
-    const error = new HttpError("Could not find the place with this user", 500);
+    const error = new HttpError("Could not find the post with this user", 500);
     return res.status(500).json({
-      message: error.message || "Could not find the place with this user",
+      message: error.message || "Could not find the post with this user",
     });
   }
 
   if (!userWithPost || userWithPost.posts.length === 0) {
-    const error = new HttpError(
-      "Could not find any places with this user",
-      404
-    );
+    const error = new HttpError("Could not find any posts with this user", 404);
     return res.status(500).json({
-      message: error.message || "Cannot find any places with this user",
+      message: error.message || "Cannot find any posts with this user",
     });
   }
 
@@ -160,9 +158,55 @@ const createPosts = async (req, res, next) => {
   });
 };
 
+const deletePost = async (req, res, next) => {
+  const postId = req.params.pid;
+  let post;
+  try {
+    post = await Post.findById(postId).populate("creator");
+  } catch (err) {
+    const error = new HttpError("Something went wrong", 500);
+    return next(error);
+  }
+
+  if (!post) {
+    const error = new HttpError("Could not find this post", 500);
+    return next(error);
+  }
+
+  if (post.creator.id !== req.userData.userId) {
+    const error = new HttpError("You are not allowed to do that", 401);
+    return next(error);
+  }
+
+  const imagePath = post.image;
+
+  let deletedPost;
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    deletedPost = await post.remove({ session: sess });
+    post.creator.posts.pull(post);
+    await post.creator.save({ session: sess });
+    await sess.commitTransaction();
+  } catch (err) {
+    const error = new HttpError("Could not delete the post", 500);
+    return next(error);
+  }
+
+  fs.unlink(imagePath, (err) => {
+    console.log(err);
+  });
+
+  res.status(200).json({
+    message: "Deleted",
+    deletedPost: deletedPost.toObject({ getters: true }),
+  });
+};
+
 module.exports = {
   getPosts,
   getPostsById,
   getPostsByUserId,
   createPosts,
+  deletePost,
 };
