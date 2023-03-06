@@ -3,6 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const postController = require("../controllers/posts");
 const fileUpload = require("../middleware/file-upload");
+const checkAuth = require("../middleware/check-auth");
 
 router.get("/", postController.getPosts);
 router.get("/:pid", postController.getPostsById);
@@ -18,5 +19,8 @@ router.post(
   ],
   postController.createPosts
 );
+
+router.use(checkAuth);
+router.delete("/del/:pid", postController.deletePost);
 
 module.exports = router;
