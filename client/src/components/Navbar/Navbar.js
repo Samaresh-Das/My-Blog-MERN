@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { IconContext } from "react-icons";
 import { HiMenu } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import NavItems from "./NavItems";
 import { AuthContext } from "../context/auth-context";
 
 const Navbar = () => {
+  const history = useHistory();
+  const location = useLocation();
   const auth = useContext(AuthContext);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -33,10 +35,25 @@ const Navbar = () => {
     setShowNavMenu(e);
   };
 
+  const ifNotOnHomepage = location.pathname !== "/";
+  const isAuthPage = location.pathname === "/auth";
+
+  const logoutHandler = () => {
+    //if on the homepage no need to redirect.
+    if (ifNotOnHomepage) {
+      history.push("/");
+      auth.logout();
+    } else {
+      auth.logout();
+    }
+  };
+
   return (
     <div
-      className="mt-[36px] flex flex-row  justify-around mb-[27px]
-      md:block md:mx-[100px]"
+      className={`${
+        isAuthPage && "md:hidden"
+      } mt-[36px] flex flex-row  justify-around mb-[27px]
+      md:block md:mx-[100px]`}
     >
       <div className="opacity-40 md:hidden">
         <IconContext.Provider
@@ -74,7 +91,7 @@ const Navbar = () => {
           {auth.isLoggedIn && <Link to="/create">Create Post</Link>}
           {auth.isLoggedIn && (
             <li>
-              <button onClick={auth.logout}>Logout</button>
+              <button onClick={logoutHandler}>Logout</button>
             </li>
           )}
         </ul>
@@ -92,7 +109,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link to="/profile">
               <img
-                className="w-[51px] h-[51px] rounded-full mr-3"
+                className="w-[51px] h-[51px] rounded-full mr-3 object-cover"
                 src={userPhoto}
                 alt="Avatar of Jonathan Reinink"
               />

@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import Button from "../shared/Button";
 
 const Auth = (props) => {
   const auth = useContext(AuthContext);
@@ -87,7 +88,6 @@ const Auth = (props) => {
       }
     } else {
       if (!emailError && !passwordError && !nameError) {
-        console.log(email, password, name, tagline);
         // your code to submit the form goes here
         const res = await fetch("http://localhost:5000/api/user/new", {
           method: "POST",
@@ -102,7 +102,6 @@ const Auth = (props) => {
           },
         });
         const data = await res.json();
-        console.log(data);
         if (!res.ok) {
           return setHttpError(data.message);
         } else {
@@ -243,12 +242,12 @@ const Auth = (props) => {
           </label>
         </div> */}
           <div className="flex justify-center">
-            <button
+            <Button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className=" w-full sm:w-auto px-5 py-2.5 text-center "
             >
               {login ? "Login" : "Sign Up"}
-            </button>
+            </Button>
           </div>
           <h3 className="text-center text-white text-[15px] mt-[20px]">
             {login ? "Don't have an account?" : "Already Signed up?"}{" "}

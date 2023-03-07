@@ -3,6 +3,9 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { validationResult } = require("express-validator");
+const Post = require("../models/post");
+const fs = require("fs");
+const mongoose = require("mongoose");
 
 const createNewUser = async (req, res, next) => {
   const errors = validationResult(req);
@@ -193,9 +196,11 @@ const updateUserById = async (req, res, next) => {
   user.name = name || user.name;
   user.email = email || user.email;
   user.tagline = tagline || user.tagline;
-  user.profilePicture =
-    `http://localhost:5000/${req.file.path}` ||
-    "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
+  if (req.file) {
+    user.profilePicture = `http://localhost:5000/${req.file.path}`;
+  } else {
+    user.profilePicture = user.profilePicture;
+  }
 
   let updatedUser;
   try {
@@ -207,9 +212,59 @@ const updateUserById = async (req, res, next) => {
   res.status(200).json(updatedUser.toObject({ getters: true }));
 };
 
+const deleteUser = async (req, res, next) => {
+  const userId = req.params.uid;
+  let deletedUser;
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    let user;
+    user = await User.findById(userId).populate("posts");
+    if (!user) {
+      const error = new HttpError("Could not find this post", 500);
+      return next(error);
+    }
+
+    const profileImage = user.profilePicture.replace(
+      "http://localhost:5000/",
+      ""
+    );
+
+    console.log(profileImage);
+
+    fs.unlink(profileImage, (err) => {
+      console.log(err);
+    });
+    for (const postId of user.posts) {
+      const post = await Post.findById(postId);
+      if (!post) continue;
+
+      const postImagePath = post.image;
+      fs.unlink(postImagePath, (err) => {
+        if (err) console.error(err);
+      });
+
+      await post.remove({ session: sess });
+    }
+    deletedUser = await user.remove({ session: sess });
+
+    await sess.commitTransaction();
+  } catch (err) {
+    await sess.abortTransaction();
+    const error = new HttpError("Could not delete the user", 500);
+    return next(error);
+  }
+
+  // res.status(200).json({
+  //   message: "Deleted",
+  //   deletedUser: deletedUser.toObject({ getters: true }),
+  // });
+};
+
 module.exports = {
   createNewUser,
   login,
   getUserById,
   updateUserById,
+  deleteUser,
 };

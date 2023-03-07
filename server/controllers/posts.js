@@ -34,9 +34,6 @@ const getPosts = async (req, res, next) => {
       image,
     }; // Include user name in response
   });
-
-  // console.log(postList);
-
   res.status(200).json(postList);
 };
 
@@ -108,7 +105,6 @@ const getPostsByUserId = async (req, res, next) => {
 
 const createPosts = async (req, res, next) => {
   const { headline, description, creator, tag } = req.body; //get the required details from the body
-  console.log(headline, description, creator, tag);
   let createdPost;
   try {
     createdPost = new Post({
@@ -161,7 +157,6 @@ const createPosts = async (req, res, next) => {
 const updatePostById = async (req, res, next) => {
   const postId = req.params.pid;
   const { headline, description, tag } = req.body;
-  console.log(description);
   let post;
   try {
     post = await Post.findById(postId);

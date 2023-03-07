@@ -2,17 +2,13 @@ import React, { useContext, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
 import ImageUpload from "../shared/ImageUpload";
+import Input from "../shared/Input";
 
 const CreatePost = () => {
-  console.log("rendering");
   const { userId } = useContext(AuthContext);
   const history = useHistory();
   const [image, setImage] = useState();
 
-  // const titleChange = useCallback((e) => {
-  //   setTitle(e.target.value);
-  //   // console.log(title);
-  // }, []);
   const titleRef = useRef();
   const descriptionRef = useRef();
   const tagRef = useRef();
@@ -24,6 +20,7 @@ const CreatePost = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const formData = new FormData();
       formData.append("headline", titleRef.current.value);
@@ -31,17 +28,12 @@ const CreatePost = () => {
       formData.append("tag", tagRef.current.value);
       formData.append("image", image);
       formData.append("creator", userId);
-      console.log([...formData.entries()]);
-      const response = await fetch("http://localhost:5000/api/posts/new", {
+      await fetch("http://localhost:5000/api/posts/new", {
         method: "POST",
         body: formData,
       });
-      const data = await response.json();
-      console.log(data);
       history.push("/");
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) {}
   };
 
   return (
@@ -79,55 +71,38 @@ const CreatePost = () => {
               <div className=" text-white sm:p-6 ">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-start-2 col-span-4 md:col-span-5 ">
-                    <label
-                      htmlFor="headline"
-                      className="block text-sm font-medium"
-                    >
-                      Title
-                    </label>
-                    <input
+                    <Input
+                      labelClass="block text-sm font-medium"
+                      label="Title"
                       type="text"
-                      name="headline"
+                      element="input"
                       id="headline"
                       className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
                       ref={titleRef}
-                      required
                     />
                   </div>
 
                   <div className="col-start-2 col-span-4 md:col-span-5">
-                    <label
-                      htmlFor="description"
-                      className="block text-sm font-medium text-white"
-                    >
-                      Post Content
-                    </label>
-                    <textarea
-                      rows="7"
-                      type="textarea"
-                      name="description"
+                    <Input
+                      labelClass="block text-sm font-medium"
+                      label="Description"
+                      type="text"
+                      element="textarea"
                       id="description"
-                      autoComplete="street-address"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[100px] text-black"
                       ref={descriptionRef}
-                      required
                     />
                   </div>
 
                   <div className="col-start-2 col-span-4 sm:col-span-6 lg:col-span-2">
-                    <label
-                      htmlFor="tag"
-                      className="block text-sm font-medium text-white"
-                    >
-                      Tag
-                    </label>
-                    <input
+                    <Input
+                      labelClass="block text-sm font-medium text-white"
+                      label="Tag"
                       type="text"
-                      name="tag"
+                      element="input"
                       id="tag"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px] text-black"
                       ref={tagRef}
-                      required
                     />
                   </div>
                 </div>

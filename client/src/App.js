@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -15,6 +15,48 @@ import UpdatePost from "./components/Posts/UpdatePost";
 function App() {
   const { login, logout, token, userId } = useAuth();
 
+  let routes;
+
+  if (token) {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <PostList />
+        </Route>
+        <Route path="/create" exact>
+          <CreatePost />
+        </Route>
+        <Route path="/update/:postId" exact>
+          <UpdatePost />
+        </Route>
+        <Route path="/profile" exact>
+          <Profile />
+        </Route>
+        <Route path="/" exact>
+          <PostList />
+        </Route>
+        <Route path="/post/:postId" exact>
+          <PostDetail />
+        </Route>
+        <Redirect to="/" exact />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <PostList />
+        </Route>
+        <Route path="/post/:postId" exact>
+          <PostDetail />
+        </Route>
+        <Route path="/auth" exact>
+          <Auth />
+        </Route>
+        <Redirect to="/auth" exact />
+      </Switch>
+    );
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -26,41 +68,10 @@ function App() {
       }}
     >
       <Router>
-        <Routes />
+        <Navbar />
+        {routes}
       </Router>
     </AuthContext.Provider>
-  );
-}
-
-function Routes() {
-  const location = useLocation();
-  const isAuthPage = location.pathname === "/auth";
-
-  return (
-    <>
-      {!isAuthPage && <Navbar />}
-      <Switch>
-        <Route path="/" exact>
-          <PostList />
-        </Route>
-        <Route path="/create" exact>
-          <CreatePost />
-        </Route>
-        <Route path="/post/:postId" exact>
-          <PostDetail />
-        </Route>
-        <Route path="/update/:postId" exact>
-          <UpdatePost />
-        </Route>
-        <Route path="/auth" exact>
-          <Auth />
-        </Route>
-        <Route path="/profile" exact>
-          <Profile />
-        </Route>
-        <Redirect to="/" exact />
-      </Switch>
-    </>
   );
 }
 
