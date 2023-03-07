@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import Button from "../shared/Button";
+import Input from "../shared/Input";
 import LoadingSpinner from "../shared/LoadingSpinner";
 
 const UpdatePost = () => {
-  console.log("...rendering");
   const history = useHistory();
   const { token } = useContext(AuthContext);
   const [postDetails, setPostDetails] = useState({ post: {} });
@@ -55,14 +56,11 @@ const UpdatePost = () => {
       <form onSubmit={formSubmitHandler}>
         <div className="md:w-[500px] md:mx-auto mt-[50px] ">
           <div className="relative z-0  mb-6 group">
-            <label
-              htmlFor="headline"
-              className="text-white text-center block md:inline-block"
-            >
-              Headline
-            </label>
-            <input
+            <Input
+              labelClass="text-white text-center block md:inline-block"
+              label="Headline"
               type="text"
+              element="input"
               id="headline"
               className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={postDetails.post.headline}
@@ -71,42 +69,36 @@ const UpdatePost = () => {
           </div>
 
           <div className="relative z-0 md:w-full mb-6 ">
-            <label
-              htmlFor="description"
-              className="text-white text-center block md:inline-block my-2 md:my-0"
-            >
-              Description
-            </label>
-            <textarea
-              id="description"
+            <Input
+              labelClass="text-white text-center block md:inline-block my-2 md:my-0"
+              label="Description"
               type="text"
-              className="block py-2.5 px-0 w-[300px] h-[100px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              element="textarea"
+              id="description"
+              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={postDetails.post.description}
               ref={descriptionRef}
             />
           </div>
           <div className="relative z-0 md:w-full mb-6">
-            <label
-              htmlFor="tagline"
-              className="text-white text-center block my-2 md:my-0 md:inline-block"
-            >
-              Tag
-            </label>
-            <input
-              id="tagline"
+            <Input
+              labelClass="text-white text-center block my-2 md:my-0 md:inline-block"
+              label="Tag"
               type="text"
+              element="input"
+              id="tag"
               className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={postDetails.post.tag}
               ref={tagRef}
             />
           </div>
           <div className="flex justify-center">
-            <button
+            <Button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0"
+              className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0"
             >
               Update
-            </button>
+            </Button>
           </div>
         </div>
       </form>

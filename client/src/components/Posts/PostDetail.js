@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 import LoadingSpinner from "../shared/LoadingSpinner";
 
 const PostDetail = () => {
-  console.log("...rendering");
   const [postDetails, setPostDetails] = useState({ post: {} });
   const [isLoading, setIsLoading] = useState(true);
   const { postId } = useParams();
