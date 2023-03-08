@@ -3,8 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 const fileUpload = require("../middleware/file-upload");
 const userController = require("../controllers/user");
-
-router.get("/profile/:uid", userController.getUserById);
+const checkAuth = require("../middleware/check-auth");
 
 router.post(
   "/new",
@@ -18,12 +17,15 @@ router.post(
 );
 router.post("/login", userController.login);
 
+router.use(checkAuth);
+
+router.get("/profile/user", userController.getUserById);
 router.post(
-  "/update/:uid",
+  "/update",
   fileUpload.single("image"),
   userController.updateUserById
 );
 
-router.delete("/delete/:uid", userController.deleteUser);
+router.delete("/delete", userController.deleteUser);
 
 module.exports = router;

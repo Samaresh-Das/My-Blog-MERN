@@ -7,6 +7,9 @@ const Post = require("../models/post");
 const fs = require("fs");
 const mongoose = require("mongoose");
 
+const defaultImageUrl =
+  "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
+
 const createNewUser = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -48,8 +51,7 @@ const createNewUser = async (req, res, next) => {
       email,
       password: hashedPassword,
       tagline,
-      profilePicture:
-        "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg",
+      profilePicture: defaultImageUrl,
       posts: [],
     });
 
@@ -151,7 +153,7 @@ const login = async (req, res, next) => {
 };
 
 const getUserById = async (req, res, next) => {
-  const userId = req.params.uid;
+  const userId = req.userData.userId;
 
   let user;
   try {
@@ -178,7 +180,13 @@ const getUserById = async (req, res, next) => {
 };
 
 const updateUserById = async (req, res, next) => {
-  const userId = req.params.uid;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError("Invalid inputs passed, please check your data", 422)
+    );
+  }
+  const userId = req.userData.userId;
   const { name, email, tagline } = req.body;
   let user;
   try {
@@ -213,7 +221,7 @@ const updateUserById = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {
-  const userId = req.params.uid;
+  const userId = req.userData.userId;
   let deletedUser;
   try {
     const sess = await mongoose.startSession();
@@ -221,20 +229,20 @@ const deleteUser = async (req, res, next) => {
     let user;
     user = await User.findById(userId).populate("posts");
     if (!user) {
-      const error = new HttpError("Could not find this post", 500);
+      const error = new HttpError("Could not find this user", 500);
       return next(error);
     }
 
-    const profileImage = user.profilePicture.replace(
-      "http://localhost:5000/",
-      ""
-    );
+    if (user.profilePicture !== defaultImageUrl) {
+      const profileImage = user.profilePicture.replace(
+        "http://localhost:5000/",
+        ""
+      );
 
-    console.log(profileImage);
-
-    fs.unlink(profileImage, (err) => {
-      console.log(err);
-    });
+      fs.unlink(profileImage, (err) => {
+        console.log(err);
+      });
+    }
     for (const postId of user.posts) {
       const post = await Post.findById(postId);
       if (!post) continue;
@@ -255,10 +263,10 @@ const deleteUser = async (req, res, next) => {
     return next(error);
   }
 
-  // res.status(200).json({
-  //   message: "Deleted",
-  //   deletedUser: deletedUser.toObject({ getters: true }),
-  // });
+  res.status(200).json({
+    message: "Deleted",
+    deletedUser: deletedUser.toObject({ getters: true }),
+  });
 };
 
 module.exports = {
