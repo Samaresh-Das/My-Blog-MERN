@@ -11,6 +11,7 @@ import LoadingSpinner from "../shared/LoadingSpinner";
 import Card from "../shared/Card";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
+import Modal from "../shared/Modal";
 const Max_Length_Of_Description = 100;
 const Profile = () => {
   const auth = useContext(AuthContext);
@@ -25,6 +26,7 @@ const Profile = () => {
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(false);
   const [hover, setHover] = useState();
+  const [modal, setModal] = useState(false);
 
   const filePickerRef = useRef();
   const pickImageHandler = () => {
@@ -123,9 +125,16 @@ const Profile = () => {
     window.location.reload();
   };
 
+  const modalOpenHandler = () => {
+    setModal(true);
+  };
+  const modalCloseHandler = () => {
+    setModal(false);
+  };
   // const userPhoto = localStorage.getItem("userPhoto");
   return (
     <div className="h-full bg-no-repeat">
+      {modal && <Modal onClose={modalCloseHandler} />}
       <form onSubmit={formSubmitHandler}>
         <div>
           <input
@@ -158,7 +167,7 @@ const Profile = () => {
               type="text"
               element="input"
               id="name"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={user.name}
               ref={nameRef}
             />
@@ -171,7 +180,7 @@ const Profile = () => {
               type="text"
               element="input"
               id="email"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={user.email}
               ref={emailRef}
             />
@@ -183,18 +192,25 @@ const Profile = () => {
               type="text"
               element="input"
               id="tag"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={user.tagline}
               ref={taglineRef}
             />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center space-x-4">
             <Button
               type="submit"
               className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0"
             >
               Update
             </Button>
+            <button
+              className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              type="button"
+              onClick={modalOpenHandler}
+            >
+              Delete Account
+            </button>
           </div>
         </div>
       </form>
