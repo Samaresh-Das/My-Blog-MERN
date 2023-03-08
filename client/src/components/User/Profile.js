@@ -33,18 +33,22 @@ const Profile = () => {
   //getting user id from session
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userId = userData.userId;
-
   useEffect(() => {
     const getUserDetail = async () => {
       const response = await fetch(
-        `http://localhost:5000/api/user/profile/${userId}`
+        `http://localhost:5000/api/user/profile/user`,
+        {
+          headers: {
+            Authorization: "Bearer " + auth.token,
+          },
+        }
       );
       const data = await response.json();
       userRef.current = data;
       setUser(userRef.current);
     };
     getUserDetail();
-  }, [userId]);
+  }, [auth.token]);
 
   useEffect(() => {
     const getPostsByUserId = async () => {
@@ -97,13 +101,13 @@ const Profile = () => {
       formData.append("image", file);
     }
 
-    const response = await fetch(
-      `http://localhost:5000/api/user/update/${userId}`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const response = await fetch("http://localhost:5000/api/user/update", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: "Bearer " + auth.token,
+      },
+    });
     const data = await response.json();
     localStorage.setItem("userPhoto", data.profilePicture);
     window.location.reload();

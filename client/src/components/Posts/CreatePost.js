@@ -5,7 +5,7 @@ import ImageUpload from "../shared/ImageUpload";
 import Input from "../shared/Input";
 
 const CreatePost = () => {
-  const { userId } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const history = useHistory();
   const [image, setImage] = useState();
 
@@ -27,10 +27,12 @@ const CreatePost = () => {
       formData.append("description", descriptionRef.current.value);
       formData.append("tag", tagRef.current.value);
       formData.append("image", image);
-      formData.append("creator", userId);
       await fetch("http://localhost:5000/api/posts/new", {
         method: "POST",
         body: formData,
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       });
       history.push("/");
     } catch (err) {}

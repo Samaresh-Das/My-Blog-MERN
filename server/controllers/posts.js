@@ -3,6 +3,7 @@ const HttpError = require("../models/http-error");
 const Post = require("../models/post");
 const User = require("../models/user");
 const fs = require("fs");
+const { validationResult } = require("express-validator");
 
 const getPosts = async (req, res, next) => {
   let posts;
@@ -104,7 +105,14 @@ const getPostsByUserId = async (req, res, next) => {
 };
 
 const createPosts = async (req, res, next) => {
-  const { headline, description, creator, tag } = req.body; //get the required details from the body
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError("Invalid inputs passed, please check your data", 422)
+    );
+  }
+  const { headline, description, tag } = req.body; //get the required details from the body
+  const creator = req.userData.userId;
   let createdPost;
   try {
     createdPost = new Post({
