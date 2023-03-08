@@ -205,6 +205,17 @@ const updateUserById = async (req, res, next) => {
   user.email = email || user.email;
   user.tagline = tagline || user.tagline;
   if (req.file) {
+    if (user.profilePicture !== defaultImageUrl) {
+      //if the user updates the profile picture, the last profile picture will be deleted and new will be added in the file system
+      const profileImage = user.profilePicture.replace(
+        "http://localhost:5000/",
+        ""
+      );
+
+      fs.unlink(profileImage, (err) => {
+        console.log(err);
+      });
+    }
     user.profilePicture = `http://localhost:5000/${req.file.path}`;
   } else {
     user.profilePicture = user.profilePicture;

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
-    <div className="h-screen">
-      <div className="md:w-[600px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mx-auto mt-[100px]">
+    <div className="h-full pb-[60px]">
+      <div className="md:w-[600px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mx-auto mt-[50px]">
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-center">
           {props.heading}
         </p>
@@ -22,9 +22,9 @@ const Card = (props) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </Link>
