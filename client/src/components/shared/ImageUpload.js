@@ -42,7 +42,7 @@ const ImageUpload = (props) => {
       <label className="block text-sm font-medium leading-6 text-white">
         Cover photo
       </label>
-      <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+      <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 md:w-[500px] mx-auto">
         <div className="space-y-1 text-center">
           <svg
             className="mx-auto h-12 w-12 text-gray-400"
@@ -82,11 +82,11 @@ const ImageUpload = (props) => {
         </div>
       </div>
       <div>
-        <div className="w-[200px]">
+        <div className="w-[200px] mx-auto">
           {previewUrl ? (
             <img src={previewUrl} alt="Preview" />
           ) : (
-            <p>Please pick and image</p>
+            <p className="md:text-center">Please pick and image</p>
           )}
         </div>
       </div>

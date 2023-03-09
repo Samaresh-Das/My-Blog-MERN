@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 import Footer from "../Footer";
 import NavItems from "../Navbar/NavItems";
 import Card from "../shared/Card";
@@ -52,8 +53,14 @@ const PostList = ({ showNav }) => {
     return <Card heading="No posts found here, Create One?">Create One?</Card>;
   }
 
+  const sanitizedDescription = DOMPurify.sanitize(posts[0].description);
+  const div = document.createElement("div");
+  div.innerHTML = sanitizedDescription;
+  const textContent = div.textContent || div.innerText || "";
   const shortDescription =
-    posts[0].description.slice(0, Max_Length_Of_Description) + "...";
+    textContent.length > Max_Length_Of_Description
+      ? textContent.slice(0, Max_Length_Of_Description) + "..."
+      : textContent;
 
   const featuredPost = (
     <Link to={`/post/${posts[0].id}`}>
@@ -104,8 +111,14 @@ const PostList = ({ showNav }) => {
           isLastItem,
         }) => {
           const imageUrl = `http://localhost:5000/${image.replace(/\\/g, "/")}`;
+          const sanitizedDescription = DOMPurify.sanitize(description);
+          const div = document.createElement("div");
+          div.innerHTML = sanitizedDescription;
+          const textContent = div.textContent || div.innerText || "";
           const shortDescription =
-            description.slice(0, Max_Length_Of_Description) + "...";
+            textContent.length > Max_Length_Of_Description
+              ? textContent.slice(0, Max_Length_Of_Description) + "..."
+              : textContent;
           return (
             <Fragment key={id}>
               {showNav && <NavItems />}
@@ -128,9 +141,9 @@ const PostList = ({ showNav }) => {
                           {headline}
                         </div>
                         <p className="text-white text-[16px] opacity-50">
-                          {description.length > Max_Length_Of_Description
+                          {textContent.length > Max_Length_Of_Description
                             ? shortDescription
-                            : description}
+                            : textContent}
                         </p>
                       </div>
                       <div className="flex items-center">
@@ -175,8 +188,14 @@ const PostList = ({ showNav }) => {
               "/"
             )}`;
 
+            const sanitizedDescription = DOMPurify.sanitize(description);
+            const div = document.createElement("div");
+            div.innerHTML = sanitizedDescription;
+            const textContent = div.textContent || div.innerText || "";
             const shortDescription =
-              description.slice(0, Max_Length_Of_Description) + "...";
+              textContent.length > Max_Length_Of_Description
+                ? textContent.slice(0, Max_Length_Of_Description) + "..."
+                : textContent;
             return (
               <Fragment key={id}>
                 {showNav && <NavItems />}
@@ -199,9 +218,9 @@ const PostList = ({ showNav }) => {
                             {headline}
                           </div>
                           <p className="text-white text-[16px] opacity-50">
-                            {description.length > Max_Length_Of_Description
+                            {textContent.length > Max_Length_Of_Description
                               ? shortDescription
-                              : description}
+                              : textContent}
                           </p>
                         </div>
                         <div className="flex items-center">
@@ -231,7 +250,7 @@ const PostList = ({ showNav }) => {
   return (
     <Fragment>
       {featuredPost}
-      <ul className="md:flex md:flex-row md:mx-[200px] md:mt-[60px] ">
+      <ul className="md:flex md:flex-row md:flex-wrap md:mx-[200px] md:mt-[60px] ">
         {postItems}
       </ul>
       <Footer />
