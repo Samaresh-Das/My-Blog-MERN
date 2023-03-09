@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser";
+import DOMPurify from "dompurify";
+
 import Footer from "../Footer";
-import ReactMarkdown from "react-markdown";
 import LoadingSpinner from "../shared/LoadingSpinner";
 
 const PostDetail = () => {
@@ -43,6 +45,8 @@ const PostDetail = () => {
   const options = { month: "short", day: "numeric", year: "numeric" };
   const formattedDate = date.toLocaleDateString("en-US", options);
 
+  const sanitizedDescription = DOMPurify.sanitize(description);
+
   return (
     <Fragment>
       <div className="h-full relative">
@@ -56,7 +60,7 @@ const PostDetail = () => {
         </div>
         <div className="flex items-center justify-center  mt-[30px]">
           <img
-            className="w-[61px] h-[61px] rounded-full mr-3"
+            className="w-[61px] h-[61px] rounded-full mr-3 object-cover"
             src={profilePicture}
             alt="Avatar of Jonathan Reinink"
           />
@@ -74,13 +78,15 @@ const PostDetail = () => {
           alt="cover"
           className="mx-auto px-[20px] mt-[40px] md:h-[594px]"
         />
-        <div className="text-white patrick-hand text-left mx-[20px] md:mx-[200px] mt-[30px] md:text-[20px]">
-          {description &&
+        <div className="text-white patrick-hand text-left mx-[20px] md:calc-margin-400 mt-[30px] md:text-[20px] htmlParsed">
+          {/* {description &&
             description.split("\\n").map((paragraph, index) => (
               <ReactMarkdown key={index} className="markdown-img">
                 {paragraph}
               </ReactMarkdown>
-            ))}
+            ))} */}
+          {parse(sanitizedDescription)}
+          {/* <div dangerouslySetInnerHTML={{ __html: description }} /> */}
         </div>
       </div>
       <Footer />

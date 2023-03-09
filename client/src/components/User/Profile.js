@@ -5,6 +5,7 @@ import React, {
   Fragment,
   useContext,
 } from "react";
+import DOMPurify from "dompurify";
 import { AuthContext } from "../context/auth-context";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -218,7 +219,7 @@ const Profile = () => {
         <h2 className="text-center text-[24px] patrick-hand mb-[30px]">
           Your posts
         </h2>
-        <ul className="md:flex md:flex-row md:justify-center md:mt-[60px] space-x-4">
+        <ul className="md:flex md:flex-row md:justify-center md:flex-wrap md:mt-[60px] space-x-4">
           {!userPosts ? (
             <Card heading="No posts found for you, Create One?">
               Create One?
@@ -230,8 +231,14 @@ const Profile = () => {
                 "/"
               )}`;
 
+              const sanitizedDescription = DOMPurify.sanitize(description);
+              const div = document.createElement("div");
+              div.innerHTML = sanitizedDescription;
+              const textContent = div.textContent || div.innerText || "";
               const shortDescription =
-                description.slice(0, Max_Length_Of_Description) + "...";
+                textContent.length > Max_Length_Of_Description
+                  ? textContent.slice(0, Max_Length_Of_Description) + "..."
+                  : textContent;
               return (
                 <Fragment key={id}>
                   <li
@@ -259,9 +266,9 @@ const Profile = () => {
                             {headline}
                           </div>
                           <p className="text-white text-[16px] opacity-50">
-                            {description.length > Max_Length_Of_Description
+                            {textContent.length > Max_Length_Of_Description
                               ? shortDescription
-                              : description}
+                              : textContent}
                           </p>
                         </div>
                         <button
