@@ -68,7 +68,7 @@ const createNewUser = async (req, res, next) => {
   try {
     token = jwt.sign(
       { userId: createdUser.id, email: createdUser.email },
-      "volodimir",
+      process.env.SESSION_KEY,
       { expiresIn: "2h" }
     );
   } catch (err) {
@@ -133,7 +133,7 @@ const login = async (req, res, next) => {
         email: existingUser.email,
         profilePicture: existingUser.profilePicture,
       },
-      "volodimir",
+      process.env.SESSION_KEY,
       { expiresIn: "2h" }
     );
   } catch (err) {
