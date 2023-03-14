@@ -118,7 +118,7 @@ const Profile = () => {
     );
     const data = await response.json();
     localStorage.setItem("userPhoto", data.profilePicture);
-    history.go(0);
+    history.push("/profile");
   };
 
   const postDeleteHandler = async (postId) => {
