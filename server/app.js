@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -54,9 +55,7 @@ app.use((error, req, res, next) => {
 
 mongoose.set("strictQuery", true);
 mongoose
-  .connect(
-    "mongodb+srv://samaresh679:K4B3u9Uxj5JQ8g2c@blog.m9gbhjy.mongodb.net/devBlog?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(5000);
   })
