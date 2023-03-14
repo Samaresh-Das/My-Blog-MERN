@@ -138,7 +138,6 @@ const Profile = () => {
     setModal(false);
   };
   // const userPhoto = localStorage.getItem("userPhoto");
-  console.log(user.profilePicture);
   return (
     <div className="h-full bg-no-repeat">
       {modal && <Modal onClose={modalCloseHandler} />}

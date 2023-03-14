@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -20,9 +20,6 @@ function App() {
   if (token) {
     routes = (
       <Switch>
-        <Route path="/" exact>
-          <PostList />
-        </Route>
         <Route path="/create" exact>
           <CreatePost />
         </Route>
@@ -38,7 +35,6 @@ function App() {
         <Route path="/post/:postId" exact>
           <PostDetail />
         </Route>
-        <Redirect to="/" exact />
       </Switch>
     );
   } else {
@@ -53,7 +49,10 @@ function App() {
         <Route path="/auth" exact>
           <Auth />
         </Route>
-        <Redirect to="/auth" exact />
+        <Route path="*" exact>
+          <Auth />
+        </Route>
+        {/* <Redirect to="/auth" exact /> */}
       </Switch>
     );
   }
