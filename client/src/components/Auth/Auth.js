@@ -66,16 +66,19 @@ const Auth = (props) => {
     validateTagline(tagline);
     if (login) {
       if (!emailError && !passwordError) {
-        const res = await fetch("http://localhost:5000/api/user/login", {
-          method: "POST",
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          "https://dev-blog-p5s9.onrender.com/api/user/login",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await res.json();
         if (!res.ok) {
           return setHttpError(data.message);
@@ -89,18 +92,21 @@ const Auth = (props) => {
     } else {
       if (!emailError && !passwordError && !nameError) {
         // your code to submit the form goes here
-        const res = await fetch("http://localhost:5000/api/user/new", {
-          method: "POST",
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-            tagline,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          "https://dev-blog-p5s9.onrender.com/api/user/new",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              name,
+              email,
+              password,
+              tagline,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await res.json();
         if (!res.ok) {
           return setHttpError(data.message);

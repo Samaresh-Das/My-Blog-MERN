@@ -8,12 +8,15 @@ const Modal = (props) => {
   const { logout, token } = useContext(AuthContext);
 
   const deactivateHandler = async () => {
-    const response = await fetch("http://localhost:5000/api/user/delete", {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    const response = await fetch(
+      "https://dev-blog-p5s9.onrender.com/api/user/delete",
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     const data = await response.json();
     console.log(data);
     history.push("/");

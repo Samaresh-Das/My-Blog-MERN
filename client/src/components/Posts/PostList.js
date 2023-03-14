@@ -28,7 +28,9 @@ const PostList = ({ showNav }) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await fetch("http://localhost:5000/api/posts");
+      const response = await fetch(
+        "https://dev-blog-p5s9.onrender.com/api/posts/"
+      );
       const data = await response.json();
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       setPosts(dataRef.current);
@@ -66,7 +68,7 @@ const PostList = ({ showNav }) => {
     <Link to={`/post/${posts[0].id}`}>
       <div className="hidden md:grid md:grid-cols-3 md:space-x-2 md:mx-[200px] md:mt-[60px] ">
         <img
-          src={`http://localhost:5000/${posts[0].image}`}
+          src={`https://dev-blog-p5s9.onrender.com/${posts[0].image}`}
           alt="banner"
           className="md:col-span-2 md:h-[450px] md:w-11/12 object-cover"
         />
@@ -110,7 +112,10 @@ const PostList = ({ showNav }) => {
           description,
           isLastItem,
         }) => {
-          const imageUrl = `http://localhost:5000/${image.replace(/\\/g, "/")}`;
+          const imageUrl = `https://dev-blog-p5s9.onrender.com/${image.replace(
+            /\\/g,
+            "/"
+          )}`;
           const sanitizedDescription = DOMPurify.sanitize(description);
           const div = document.createElement("div");
           div.innerHTML = sanitizedDescription;
@@ -183,7 +188,7 @@ const PostList = ({ showNav }) => {
             description,
             isLastItem,
           }) => {
-            const imageUrl = `http://localhost:5000/${image.replace(
+            const imageUrl = `https://dev-blog-p5s9.onrender.com/${image.replace(
               /\\/g,
               "/"
             )}`;

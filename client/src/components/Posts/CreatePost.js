@@ -32,7 +32,7 @@ const CreatePost = () => {
       formData.append("description", description);
       formData.append("tag", tagRef.current.value);
       formData.append("image", image);
-      await fetch("http://localhost:5000/api/posts/new", {
+      await fetch("https://dev-blog-p5s9.onrender.com/api/posts/new", {
         method: "POST",
         body: formData,
         headers: {

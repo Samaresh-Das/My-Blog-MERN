@@ -39,7 +39,7 @@ const Profile = () => {
   useEffect(() => {
     const getUserDetail = async () => {
       const response = await fetch(
-        `http://localhost:5000/api/user/profile/user`,
+        `https://dev-blog-p5s9.onrender.com/api/user/profile/user`,
         {
           headers: {
             Authorization: "Bearer " + auth.token,
@@ -56,7 +56,7 @@ const Profile = () => {
   useEffect(() => {
     const getPostsByUserId = async () => {
       const response = await fetch(
-        `http://localhost:5000/api/posts/user/${userId}`
+        `https://dev-blog-p5s9.onrender.com/api/posts/user/${userId}`
       );
       const data = await response.json();
       postsRef.current = data.posts;
@@ -104,20 +104,23 @@ const Profile = () => {
       formData.append("image", file);
     }
 
-    const response = await fetch("http://localhost:5000/api/user/update", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Authorization: "Bearer " + auth.token,
-      },
-    });
+    const response = await fetch(
+      "https://dev-blog-p5s9.onrender.com/api/user/update",
+      {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: "Bearer " + auth.token,
+        },
+      }
+    );
     const data = await response.json();
     localStorage.setItem("userPhoto", data.profilePicture);
     window.location.reload();
   };
 
   const postDeleteHandler = async (postId) => {
-    await fetch(`http://localhost:5000/api/posts/del/${postId}`, {
+    await fetch(`https://dev-blog-p5s9.onrender.com/api/posts/del/${postId}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + auth.token,
@@ -226,7 +229,7 @@ const Profile = () => {
             </Card>
           ) : (
             userPosts.map(({ id, image, description, headline }) => {
-              const imageUrl = `http://localhost:5000/${image.replace(
+              const imageUrl = `https://dev-blog-p5s9.onrender.com/${image.replace(
                 /\\/g,
                 "/"
               )}`;
