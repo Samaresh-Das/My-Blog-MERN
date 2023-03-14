@@ -208,7 +208,7 @@ const updateUserById = async (req, res, next) => {
     if (user.profilePicture !== defaultImageUrl) {
       //if the user updates the profile picture, the last profile picture will be deleted and new will be added in the file system
       const profileImage = user.profilePicture.replace(
-        "http://localhost:5000/",
+        "https://dev-blog-p5s9.onrender.com/",
         ""
       );
 
@@ -216,7 +216,7 @@ const updateUserById = async (req, res, next) => {
         console.log(err);
       });
     }
-    user.profilePicture = `http://localhost:5000/${req.file.path}`;
+    user.profilePicture = `https://dev-blog-p5s9.onrender.com/${req.file.path}`;
   } else {
     user.profilePicture = user.profilePicture;
   }

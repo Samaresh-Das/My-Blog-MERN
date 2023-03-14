@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import DOMPurify from "dompurify";
 import { AuthContext } from "../context/auth-context";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import Card from "../shared/Card";
 import Button from "../shared/Button";
@@ -28,6 +28,8 @@ const Profile = () => {
   const [isValid, setIsValid] = useState(false);
   const [hover, setHover] = useState();
   const [modal, setModal] = useState(false);
+
+  const history = useHistory();
 
   const filePickerRef = useRef();
   const pickImageHandler = () => {
@@ -116,7 +118,7 @@ const Profile = () => {
     );
     const data = await response.json();
     localStorage.setItem("userPhoto", data.profilePicture);
-    window.location.reload();
+    history.go(0);
   };
 
   const postDeleteHandler = async (postId) => {
@@ -136,6 +138,7 @@ const Profile = () => {
     setModal(false);
   };
   // const userPhoto = localStorage.getItem("userPhoto");
+  console.log(user.profilePicture);
   return (
     <div className="h-full bg-no-repeat">
       {modal && <Modal onClose={modalCloseHandler} />}
