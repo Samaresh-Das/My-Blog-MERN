@@ -77,7 +77,7 @@ const PostList = ({ showNav }) => {
           <div className="text-white mb-2 patrick-hand text-[20px] md:text-[30px]">
             {posts[0].headline}
           </div>
-          <p className="text-white text-[16px] opacity-50">
+          <p className="text-white s text-[16px] opacity-50">
             {posts[0].description.length > Max_Length_Of_Description
               ? shortDescription
               : posts[0].description}
