@@ -81,14 +81,7 @@ const PostDetail = () => {
           className="mx-auto px-[20px] mt-[40px] md:h-[594px] md:mb-[30px]"
         />
         <div className="text-white patrick-hand text-left mx-[20px] md:calc-margin-400 mt-[30px] md:text-[20px]  htmlParsed">
-          {/* {description &&
-            description.split("\\n").map((paragraph, index) => (
-              <ReactMarkdown key={index} className="markdown-img">
-                {paragraph}
-              </ReactMarkdown>
-            ))} */}
-          {parse(sanitizedDescription)}
-          {/* <div dangerouslySetInnerHTML={{ __html: description }} /> */}
+          {parse(sanitizedDescription.toString())}
         </div>
       </div>
       <Footer />

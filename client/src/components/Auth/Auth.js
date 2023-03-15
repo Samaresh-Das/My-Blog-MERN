@@ -1,78 +1,156 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, {
+  Fragment,
+  useCallback,
+  useContext,
+  useReducer,
+  useState,
+} from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import AuthInputs from "../shared/AuthInputs";
 import Button from "../shared/Button";
+import LoadingSpinner from "../shared/LoadingSpinner";
 
-const Auth = (props) => {
+const initialState = {
+  email: "",
+  password: "",
+  name: "",
+  tagline: "",
+  emailError: "",
+  passwordError: "",
+  nameError: "",
+  taglineError: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_EMAIL":
+      return { ...state, email: action.payload, emailError: "" };
+    case "SET_PASSWORD":
+      return { ...state, password: action.payload, passwordError: "" };
+    case "SET_NAME":
+      return { ...state, name: action.payload, nameError: "" };
+    case "SET_TAGLINE":
+      return { ...state, tagline: action.payload, taglineError: "" };
+    case "SET_EMAIL_ERROR":
+      return { ...state, emailError: action.payload };
+    case "SET_PASSWORD_ERROR":
+      return { ...state, passwordError: action.payload };
+    case "SET_NAME_ERROR":
+      return { ...state, nameError: action.payload };
+    case "SET_TAGLINE_ERROR":
+      return { ...state, taglineError: action.payload };
+    default:
+      return state;
+  }
+}
+
+const Auth = () => {
   const auth = useContext(AuthContext);
   const history = useHistory();
   const [login, setLogin] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [tagline, setTagline] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [taglineError, setTaglineError] = useState("");
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [httpError, setHttpError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const validateEmail = (email) => {
+  const handleEmailChange = useCallback(
+    (e) => {
+      dispatch({ type: "SET_EMAIL", payload: e.target.value });
+      setHttpError("");
+    },
+    [dispatch]
+  );
+  const handlePasswordChange = useCallback(
+    (e) => {
+      dispatch({ type: "SET_PASSWORD", payload: e.target.value });
+      setHttpError("");
+    },
+    [dispatch]
+  );
+  const handleNameChange = useCallback(
+    (e) => {
+      dispatch({ type: "SET_NAME", payload: e.target.value });
+      setHttpError("");
+    },
+    [dispatch]
+  );
+  const handleTaglineChange = useCallback(
+    (e) => {
+      dispatch({ type: "SET_TAGLINE", payload: e.target.value });
+      setHttpError("");
+    },
+    [dispatch]
+  );
+
+  const validateEmail = () => {
     const emailRegex = /\S+@\S+\.\S+/;
-    if (!email) {
-      setEmailError("Email is required");
-    } else if (!emailRegex.test(email)) {
-      setEmailError("Invalid email format");
+    if (!state.email) {
+      dispatch({ type: "SET_EMAIL_ERROR", payload: "Email is required" });
+      setLoading(false);
+    } else if (!emailRegex.test(state.email)) {
+      dispatch({
+        type: "SET_EMAIL_ERROR",
+        payload: "Invalid email format",
+      });
+      setLoading(false);
     } else {
-      setEmailError("");
+      dispatch({ type: "SET_EMAIL_ERROR", payload: "" });
     }
   };
 
-  const validateName = (name) => {
+  const validateName = () => {
     if (!login) {
-      if (!name) {
-        setNameError("Name is required");
+      if (!state.name) {
+        dispatch({ type: "SET_NAME_ERROR", payload: "Name is required" });
+        setLoading(false);
       } else {
-        setNameError("");
+        dispatch({ type: "SET_NAME_ERROR", payload: "" });
       }
     }
   };
-  const validateTagline = (name) => {
+  const validateTagline = () => {
     if (!login) {
-      if (!tagline) {
-        setTaglineError("Name is required");
+      if (!state.tagline) {
+        dispatch({ type: "SET_TAGLINE_ERROR", payload: "Tagline is required" });
+        setLoading(false);
       } else {
-        setTaglineError("");
+        dispatch({ type: "SET_TAGLINE_ERROR", payload: "" });
       }
     }
   };
 
-  const validatePassword = (password) => {
-    if (!password) {
-      setPasswordError("Password is required");
-    } else if (password.length < 8) {
-      setPasswordError("Password should be at least 8 characters long");
+  const validatePassword = () => {
+    if (!state.password) {
+      dispatch({ type: "SET_PASSWORD_ERROR", payload: "Password is required" });
+      setLoading(false);
+    } else if (state.password.length < 8) {
+      dispatch({
+        type: "SET_PASSWORD_ERROR",
+        payload: "Password should be at least 8 characters long",
+      });
+      setLoading(false);
     } else {
-      setPasswordError("");
+      dispatch({ type: "SET_PASSWORD_ERROR", payload: "" });
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    validateEmail(email);
-    validatePassword(password);
-    validateName(name);
-    validateTagline(tagline);
+    setLoading(true);
+    validateEmail();
+    validatePassword();
+    validateName();
+    validateTagline();
     if (login) {
-      if (!emailError && !passwordError) {
+      if (!state.emailError && !state.passwordError) {
         const res = await fetch(
           "https://dev-blog-p5s9.onrender.com/api/user/login",
           {
             method: "POST",
             body: JSON.stringify({
-              email,
-              password,
+              email: state.email,
+              password: state.password,
             }),
             headers: {
               "Content-Type": "application/json",
@@ -81,26 +159,32 @@ const Auth = (props) => {
         );
         const data = await res.json();
         if (!res.ok) {
+          setLoading(false);
           return setHttpError(data.message);
         } else {
-          setHttpError("");
           auth.login(data.userId, data.token);
           localStorage.setItem("userPhoto", data.profilePicture);
           history.push("/");
+          return setHttpError("");
         }
       }
     } else {
-      if (!emailError && !passwordError && !nameError) {
+      if (
+        !state.emailError &&
+        !state.passwordError &&
+        !state.nameError &&
+        !state.taglineError
+      ) {
         // your code to submit the form goes here
         const res = await fetch(
           "https://dev-blog-p5s9.onrender.com/api/user/new",
           {
             method: "POST",
             body: JSON.stringify({
-              name,
-              email,
-              password,
-              tagline,
+              name: state.name,
+              email: state.email,
+              password: state.password,
+              tagline: state.tagline,
             }),
             headers: {
               "Content-Type": "application/json",
@@ -109,8 +193,10 @@ const Auth = (props) => {
         );
         const data = await res.json();
         if (!res.ok) {
+          setLoading(false);
           return setHttpError(data.message);
         } else {
+          setLoading(true);
           setHttpError("");
           auth.login(data.userId, data.token);
           localStorage.setItem("userPhoto", data.profilePicture);
@@ -143,117 +229,86 @@ const Auth = (props) => {
             {login ? "Login" : "Sign Up"}
           </h1>
           <div className="mb-6 md:w-[350px] w-[250px]">
-            <label
-              htmlFor="email"
-              className="block mb-2 text-[16px] md:text-[18px] font-medium text-gray-900 dark:text-white"
-            >
-              Your email
-            </label>
-            <input
+            <AuthInputs
+              label="Email"
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={state.email}
+              onChange={handleEmailChange}
               onBlur={(event) => validateEmail(event.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="name@gmail.com"
             />
-            {emailError && (
-              <div className="mt-1 text-sm text-[#e01e37]">{emailError}</div>
+            {state.emailError && (
+              <div className="mt-1 text-sm text-[#e01e37]">
+                {state.emailError}
+              </div>
             )}
           </div>
           {!login && (
             <Fragment>
               <div className="mb-6 md:w-[350px]">
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-[16px] md:text-[18px] font-medium text-gray-900 dark:text-white"
-                >
-                  Your Name
-                </label>
-                <input
+                <AuthInputs
+                  label="Your Name"
                   type="name"
                   id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={state.name}
+                  onChange={handleNameChange}
                   onBlur={(event) => validateName(event.target.value)}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Your name"
                 />
-                {nameError && (
-                  <div className="mt-1 text-sm text-[#e01e37]">{nameError}</div>
+                {state.nameError && (
+                  <div className="mt-1 text-sm text-[#e01e37]">
+                    {state.nameError}
+                  </div>
                 )}
               </div>
               <div className="mb-6 md:w-[350px]">
-                <label
-                  htmlFor="tagline"
-                  className="block mb-2 text-[16px] md:text-[18px] font-medium text-gray-900 dark:text-white"
-                >
-                  Your Designation or Tagline
-                </label>
-                <input
+                <AuthInputs
+                  label="Your Designation or Tagline"
                   type="tagline"
                   id="tagline"
-                  value={tagline}
-                  onChange={(e) => setTagline(e.target.value)}
+                  value={state.tagline}
+                  onChange={handleTaglineChange}
                   onBlur={(event) => validateTagline(event.target.value)}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="MERN Developer"
                 />
-                {taglineError && (
+                {state.taglineError && (
                   <div className="mt-1 text-sm text-[#e01e37]">
-                    {taglineError}
+                    {state.taglineError}
                   </div>
                 )}
               </div>
             </Fragment>
           )}
           <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block mb-2 text-[16px] md:text-[18px] font-medium text-gray-900 dark:text-white"
-            >
-              Your password
-            </label>
-            <input
+            <AuthInputs
+              label="Your Password"
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={state.password}
+              onChange={handlePasswordChange}
               onBlur={(event) => validatePassword(event.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-            {passwordError && (
-              <div className="mt-1 text-sm text-[#e01e37]">{passwordError}</div>
+            {state.passwordError && (
+              <div className="mt-1 text-sm text-[#e01e37]">
+                {state.passwordError}
+              </div>
             )}
           </div>
           {httpError && (
             <h3 className="text-center text-[#caf0f8] my-4">{httpError}</h3>
           )}
-          {/* <div className="flex items-start mb-6">
-          <div className="flex items-center h-5">
-            <input
-              id="remember"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-              required
-            />
-          </div>
-          <label
-            htmlFor="remember"
-            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Remember me
-          </label>
-        </div> */}
           <div className="flex justify-center">
-            <Button
-              type="submit"
-              className=" w-full sm:w-auto px-5 py-2.5 text-center "
-            >
-              {login ? "Login" : "Sign Up"}
-            </Button>
+            {!loading ? (
+              <Button
+                type="submit"
+                className=" w-full sm:w-auto px-5 py-2.5 text-center "
+              >
+                {login ? "Login" : "Sign Up"}
+              </Button>
+            ) : (
+              <LoadingSpinner />
+            )}
           </div>
           <h3 className="text-center text-white text-[15px] mt-[20px]">
             {login ? "Don't have an account?" : "Already Signed up?"}{" "}
