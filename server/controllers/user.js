@@ -206,11 +206,13 @@ const updateUserById = async (req, res, next) => {
   user.tagline = tagline || user.tagline;
   if (req.file) {
     if (user.profilePicture !== defaultImageUrl) {
+      console.log(user.profilePicture);
       //if the user updates the profile picture, the last profile picture will be deleted and new will be added in the file system
       const profileImage = user.profilePicture.replace(
         "https://dev-blog-p5s9.onrender.com/",
         ""
       );
+      console.log(profileImage);
 
       fs.unlink(profileImage, (err) => {
         console.log(err);

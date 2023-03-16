@@ -9,7 +9,8 @@ const PostList = ({ showNav }) => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [posts, setPosts] = useState([]);
   const dataRef = useRef(null);
-  const [showSpinner, setShowSpinner] = useState(true);
+  // const [showSpinner, setShowSpinner] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,21 +33,27 @@ const PostList = ({ showNav }) => {
       const data = await response.json();
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       setPosts(dataRef.current);
+      setLoading(false);
     };
     getPosts();
   }, []);
 
-  useEffect(() => {
-    // show the spinner for 3 sec and if no post found, show the card otherwise show the data
-    const timer = setTimeout(() => {
-      setShowSpinner(false);
-    }, 2000);
+  // useEffect(() => {
+  //   // show the spinner for 3 sec and if no post found, show the card otherwise show the data
+  //   const timer = setTimeout(() => {
+  //     setShowSpinner(false);
+  //   }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showSpinner) {
+  if (loading) {
     return <LoadingSpinner />;
+  }
+
+  if (!posts) {
+    setLoading(false);
+    return <Card heading="Something wrong happened, Please check Later"></Card>;
   }
 
   if (posts.length === 0) {
