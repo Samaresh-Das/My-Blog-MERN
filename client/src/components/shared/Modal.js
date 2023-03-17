@@ -2,21 +2,19 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/auth-context";
 import ReactDOM from "react-dom";
 import { useHistory } from "react-router-dom";
+import { linkSite } from "../linkSite";
 
 const Modal = (props) => {
   const history = useHistory();
   const { logout, token } = useContext(AuthContext);
 
   const deactivateHandler = async () => {
-    const response = await fetch(
-      "https://dev-blog-p5s9.onrender.com/api/user/delete",
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
+    const response = await fetch(`${linkSite}/api/user/delete`, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
     const data = await response.json();
     console.log(data);
     history.push("/");

@@ -1,5 +1,6 @@
 import React, { memo, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { linkSite } from "../linkSite";
 import { shortingDesc } from "./shortDesc";
 
 const PostItems = memo(
@@ -13,10 +14,7 @@ const PostItems = memo(
     tagline,
     isLastItem,
   }) => {
-    const imageUrl = `https://dev-blog-p5s9.onrender.com/${image.replace(
-      /\\/g,
-      "/"
-    )}`;
+    const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
     const { shortDescription, Max_Length_Of_Description, textContent } =
       shortingDesc(description);
     return (

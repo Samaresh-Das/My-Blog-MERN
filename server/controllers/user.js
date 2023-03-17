@@ -6,6 +6,30 @@ const { validationResult } = require("express-validator");
 const Post = require("../models/post");
 const fs = require("fs");
 const mongoose = require("mongoose");
+const {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+  DeleteObjectCommand,
+} = require("@aws-sdk/client-s3");
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+
+const bucketName = process.env.BUCKET_NAME;
+const bucketRegion = process.env.BUCKET_REGION;
+const accessKey = process.env.ACCESS_KEY;
+const secretAccesskey = process.env.SECRET_ACCESS_KEY;
+
+const s3 = new S3Client({
+  credentials: {
+    accessKeyId: accessKey,
+    secretAccessKey: secretAccesskey,
+  },
+  region: bucketRegion,
+});
+
+const linkSite = "https://dev-blog-p5s9.onrender.com/";
+//https://dev-blog-p5s9.onrender.com/
+//http://localhost:5000/
 
 const defaultImageUrl =
   "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
@@ -166,6 +190,15 @@ const getUserById = async (req, res, next) => {
     const error = new HttpError("User not found", 404);
     return next(error);
   }
+
+  // const getObjectParams = {
+  //   Bucket: bucketName,
+  //   Key: user.profilePicture,
+  // };
+  // const command = new GetObjectCommand(getObjectParams);
+  // const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+  // user.profilePicture = url;
+  // await user.save();
   res.status(200).json(user.toObject({ getters: true }));
   // if (req.user && req.user.id === userId) {
   //   const user = await User.findById(userId).select("-password");
@@ -180,12 +213,6 @@ const getUserById = async (req, res, next) => {
 };
 
 const updateUserById = async (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return next(
-      new HttpError("Invalid inputs passed, please check your data", 422)
-    );
-  }
   const userId = req.userData.userId;
   const { name, email, tagline } = req.body;
   let user;
@@ -204,21 +231,45 @@ const updateUserById = async (req, res, next) => {
   user.name = name || user.name;
   user.email = email || user.email;
   user.tagline = tagline || user.tagline;
+  let newProfilePicture;
   if (req.file) {
     if (user.profilePicture !== defaultImageUrl) {
-      console.log(user.profilePicture);
-      //if the user updates the profile picture, the last profile picture will be deleted and new will be added in the file system
+      //if the user updates the profile picture, the last profile picture will be deleted and new will be added in the s3 bucket
       const profileImage = user.profilePicture.replace(
-        "https://dev-blog-p5s9.onrender.com/",
+        "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
         ""
       );
-      console.log(profileImage);
+      const deleteParams = {
+        Bucket: bucketName,
+        Key: profileImage,
+      };
+      const deleteCommand = new DeleteObjectCommand(deleteParams);
+      await s3.send(deleteCommand);
 
-      fs.unlink(profileImage, (err) => {
-        console.log(err);
-      });
+      //replace the image with the new one
+      const replaceParams = {
+        Bucket: bucketName,
+        Key: req.file.originalname,
+        Body: req.file.buffer,
+        ContentType: req.file.mimetype,
+      };
+      const replaceCommand = new PutObjectCommand(replaceParams);
+      await s3.send(replaceCommand);
+      newProfilePicture = `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`;
+      user.profilePicture = newProfilePicture;
+    } else {
+      //if the user updating the image for the first time
+      const params = {
+        Bucket: bucketName,
+        Key: req.file.originalname,
+        Body: req.file.buffer,
+        ContentType: req.file.mimetype,
+      };
+      const command = new PutObjectCommand(params);
+      await s3.send(command);
+      newProfilePicture = `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`;
+      user.profilePicture = newProfilePicture;
     }
-    user.profilePicture = `https://dev-blog-p5s9.onrender.com/${req.file.path}`;
   } else {
     user.profilePicture = user.profilePicture;
   }
@@ -236,8 +287,8 @@ const updateUserById = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
   const userId = req.userData.userId;
   let deletedUser;
+  const sess = await mongoose.startSession();
   try {
-    const sess = await mongoose.startSession();
     sess.startTransaction();
     let user;
     user = await User.findById(userId).populate("posts");
@@ -245,17 +296,19 @@ const deleteUser = async (req, res, next) => {
       const error = new HttpError("Could not find this user", 500);
       return next(error);
     }
-
     if (user.profilePicture !== defaultImageUrl) {
-      const profileImage = user.profilePicture.replace(
-        "http://localhost:5000/",
+      const key = user.profilePicture.replace(
+        "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
         ""
       );
-
-      fs.unlink(profileImage, (err) => {
-        console.log(err);
-      });
+      const params = {
+        Bucket: bucketName,
+        Key: key,
+      };
+      const command = new DeleteObjectCommand(params);
+      const ress3 = await s3.send(command);
     }
+
     for (const postId of user.posts) {
       const post = await Post.findById(postId);
       if (!post) continue;

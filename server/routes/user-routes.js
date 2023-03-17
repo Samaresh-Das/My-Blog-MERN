@@ -4,6 +4,10 @@ const { check } = require("express-validator");
 const fileUpload = require("../middleware/file-upload");
 const userController = require("../controllers/user");
 const checkAuth = require("../middleware/check-auth");
+const multer = require("multer");
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 router.post(
   "/new",
@@ -20,11 +24,7 @@ router.post("/login", userController.login);
 router.use(checkAuth);
 
 router.get("/profile/user", userController.getUserById);
-router.post(
-  "/update",
-  fileUpload.single("image"),
-  userController.updateUserById
-);
+router.post("/update", upload.single("image"), userController.updateUserById);
 
 router.delete("/delete", userController.deleteUser);
 
