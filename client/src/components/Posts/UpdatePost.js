@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import { linkSite } from "../linkSite";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -19,9 +20,7 @@ const UpdatePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const response = await fetch(
-        `https://dev-blog-p5s9.onrender.com/api/posts/${postId}`
-      );
+      const response = await fetch(`${linkSite}/api/posts/${postId}`);
       const data = await response.json();
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       // setPosts(dataRef.current);
@@ -37,21 +36,18 @@ const UpdatePost = () => {
   const formSubmitHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    await fetch(
-      `https://dev-blog-p5s9.onrender.com/api/posts/update/${postId}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          headline: headlineRef.current.value,
-          description: descriptionRef.current.value,
-          tag: tagRef.current.value,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
+    await fetch(`${linkSite}/api/posts/update/${postId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        headline: headlineRef.current.value,
+        description: descriptionRef.current.value,
+        tag: tagRef.current.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
     setIsLoading(false);
     history.push(`/post/${postId}`); //forwarding the user to post details
   };

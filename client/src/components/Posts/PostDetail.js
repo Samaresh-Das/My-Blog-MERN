@@ -5,6 +5,7 @@ import DOMPurify from "dompurify";
 
 import Footer from "../Footer";
 import LoadingSpinner from "../shared/LoadingSpinner";
+import { linkSite } from "../linkSite";
 
 const PostDetail = () => {
   const [postDetails, setPostDetails] = useState({ post: {} });
@@ -14,9 +15,7 @@ const PostDetail = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const response = await fetch(
-        `https://dev-blog-p5s9.onrender.com/api/posts/${postId}`
-      );
+      const response = await fetch(`${linkSite}/api/posts/${postId}`);
       const data = await response.json();
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       // setPosts(dataRef.current);
@@ -76,7 +75,7 @@ const PostDetail = () => {
           </div>
         </div>
         <img
-          src={`https://dev-blog-p5s9.onrender.com/${image}`}
+          src={`${linkSite}/${image}`}
           alt="cover"
           className="mx-auto px-[20px] mt-[40px] md:h-[594px] md:mb-[30px]"
         />

@@ -13,6 +13,7 @@ import Card from "../shared/Card";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import Modal from "../shared/Modal";
+import { linkSite } from "../linkSite";
 const Max_Length_Of_Description = 100;
 const Profile = () => {
   const auth = useContext(AuthContext);
@@ -40,14 +41,11 @@ const Profile = () => {
   const userId = userData.userId;
   useEffect(() => {
     const getUserDetail = async () => {
-      const response = await fetch(
-        `https://dev-blog-p5s9.onrender.com/api/user/profile/user`,
-        {
-          headers: {
-            Authorization: "Bearer " + auth.token,
-          },
-        }
-      );
+      const response = await fetch(`${linkSite}/api/user/profile/user`, {
+        headers: {
+          Authorization: "Bearer " + auth.token,
+        },
+      });
       const data = await response.json();
       userRef.current = data;
       setUser(userRef.current);
@@ -57,9 +55,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getPostsByUserId = async () => {
-      const response = await fetch(
-        `https://dev-blog-p5s9.onrender.com/api/posts/user/${userId}`
-      );
+      const response = await fetch(`${linkSite}/api/posts/user/${userId}`);
       const data = await response.json();
       postsRef.current = data.posts;
       setUserPosts(postsRef.current);
@@ -106,23 +102,20 @@ const Profile = () => {
       formData.append("image", file);
     }
 
-    const response = await fetch(
-      "https://dev-blog-p5s9.onrender.com/api/user/update",
-      {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: "Bearer " + auth.token,
-        },
-      }
-    );
+    const response = await fetch(`${linkSite}/api/user/update`, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: "Bearer " + auth.token,
+      },
+    });
     const data = await response.json();
     localStorage.setItem("userPhoto", data.profilePicture);
     history.push("/profile");
   };
 
   const postDeleteHandler = async (postId) => {
-    await fetch(`https://dev-blog-p5s9.onrender.com/api/posts/del/${postId}`, {
+    await fetch(`${linkSite}/api/posts/del/${postId}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + auth.token,
@@ -231,10 +224,7 @@ const Profile = () => {
             </Card>
           ) : (
             userPosts.map(({ id, image, description, headline }) => {
-              const imageUrl = `https://dev-blog-p5s9.onrender.com/${image.replace(
-                /\\/g,
-                "/"
-              )}`;
+              const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
 
               const sanitizedDescription = DOMPurify.sanitize(description);
               const div = document.createElement("div");

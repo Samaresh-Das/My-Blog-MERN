@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import Footer from "../Footer";
+import { linkSite } from "../linkSite";
 import Card from "../shared/Card";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import FeaturedPost from "./FeaturedPost";
@@ -27,9 +28,7 @@ const PostList = ({ showNav }) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await fetch(
-        "https://dev-blog-p5s9.onrender.com/api/posts/"
-      );
+      const response = await fetch(`${linkSite}/api/posts/`);
       const data = await response.json();
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       setPosts(dataRef.current);

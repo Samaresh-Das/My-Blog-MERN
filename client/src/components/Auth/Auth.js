@@ -8,6 +8,7 @@ import React, {
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import { linkSite } from "../linkSite";
 import AuthInputs from "../shared/AuthInputs";
 import Button from "../shared/Button";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -144,19 +145,16 @@ const Auth = () => {
     validateTagline();
     if (login) {
       if (!state.emailError && !state.passwordError) {
-        const res = await fetch(
-          "https://dev-blog-p5s9.onrender.com/api/user/login",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: state.email,
-              password: state.password,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`${linkSite}/api/user/login`, {
+          method: "POST",
+          body: JSON.stringify({
+            email: state.email,
+            password: state.password,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const data = await res.json();
         if (!res.ok) {
           setLoading(false);
@@ -176,21 +174,18 @@ const Auth = () => {
         !state.taglineError
       ) {
         // your code to submit the form goes here
-        const res = await fetch(
-          "https://dev-blog-p5s9.onrender.com/api/user/new",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              name: state.name,
-              email: state.email,
-              password: state.password,
-              tagline: state.tagline,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`${linkSite}/api/user/new`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: state.name,
+            email: state.email,
+            password: state.password,
+            tagline: state.tagline,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const data = await res.json();
         if (!res.ok) {
           setLoading(false);

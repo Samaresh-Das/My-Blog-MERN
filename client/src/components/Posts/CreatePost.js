@@ -1,6 +1,7 @@
 import React, { useContext, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
+import { linkSite } from "../linkSite";
 import ImageUpload from "../shared/ImageUpload";
 import Input from "../shared/Input";
 import RTE from "../shared/RTE";
@@ -32,7 +33,7 @@ const CreatePost = () => {
       formData.append("description", description);
       formData.append("tag", tagRef.current.value);
       formData.append("image", image);
-      await fetch("https://dev-blog-p5s9.onrender.com/api/posts/new", {
+      await fetch(`${linkSite}/api/posts/new`, {
         method: "POST",
         body: formData,
         headers: {
@@ -62,15 +63,6 @@ const CreatePost = () => {
               </div>
 
               <div className="col-start-2 col-span-4 md:col-span-5">
-                {/* <Input
-                      labelClass="block text-sm font-medium"
-                      label="Description"
-                      type="text"
-                      element="textarea"
-                      id="description"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[100px] text-black"
-                      ref={descriptionRef}
-                    /> */}
                 <RTE description={getDescription} />
               </div>
               <div className="col-start-2 col-span-4 sm:col-span-6 lg:col-span-2">
