@@ -5,7 +5,6 @@ import React, {
   Fragment,
   useContext,
 } from "react";
-import DOMPurify from "dompurify";
 import { AuthContext } from "../context/auth-context";
 import { Link, useHistory } from "react-router-dom";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -14,7 +13,8 @@ import Button from "../shared/Button";
 import Input from "../shared/Input";
 import Modal from "../shared/Modal";
 import { linkSite } from "../linkSite";
-const Max_Length_Of_Description = 100;
+import { shortingDesc } from "../Posts/shortDesc";
+
 const Profile = () => {
   const auth = useContext(AuthContext);
   const [user, setUser] = useState();
@@ -224,16 +224,11 @@ const Profile = () => {
             </Card>
           ) : (
             userPosts.map(({ id, image, description, headline }) => {
-              const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
-
-              const sanitizedDescription = DOMPurify.sanitize(description);
-              const div = document.createElement("div");
-              div.innerHTML = sanitizedDescription;
-              const textContent = div.textContent || div.innerText || "";
-              const shortDescription =
-                textContent.length > Max_Length_Of_Description
-                  ? textContent.slice(0, Max_Length_Of_Description) + "..."
-                  : textContent;
+              const {
+                textContent,
+                shortDescription,
+                Max_Length_Of_Description,
+              } = shortingDesc(description);
               return (
                 <Fragment key={id}>
                   <li
@@ -248,7 +243,7 @@ const Profile = () => {
                       <div
                         className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px]"
                         style={{
-                          backgroundImage: `url(${imageUrl})`,
+                          backgroundImage: `url(${image})`,
                         }}
                         title="Woman holding a mug"
                       ></div>

@@ -75,7 +75,7 @@ const PostDetail = () => {
           </div>
         </div>
         <img
-          src={`${linkSite}/${image}`}
+          src={image}
           alt="cover"
           className="mx-auto px-[20px] mt-[40px] md:h-[594px] md:mb-[30px]"
         />

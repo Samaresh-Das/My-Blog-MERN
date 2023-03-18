@@ -1,6 +1,5 @@
 import React, { memo, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { linkSite } from "../linkSite";
 import { shortingDesc } from "./shortDesc";
 
 const PostItems = memo(
@@ -14,7 +13,7 @@ const PostItems = memo(
     tagline,
     isLastItem,
   }) => {
-    const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
+    // const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
     const { shortDescription, Max_Length_Of_Description, textContent } =
       shortingDesc(description);
     return (
@@ -25,7 +24,7 @@ const PostItems = memo(
               <div
                 className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px]"
                 style={{
-                  backgroundImage: `url(${imageUrl})`,
+                  backgroundImage: `url(${image})`,
                 }}
                 title={headline}
               ></div>
@@ -34,7 +33,7 @@ const PostItems = memo(
                   <div className="text-white mb-2 patrick-hand text-[20px]">
                     {headline}
                   </div>
-                  <p className="text-white text-[16px] opacity-50">
+                  <p className="text-white text-[16px] opacity-50 break-words">
                     {textContent.length > Max_Length_Of_Description
                       ? shortDescription
                       : textContent}
