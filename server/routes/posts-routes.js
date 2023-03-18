@@ -4,6 +4,10 @@ const { check } = require("express-validator");
 const postController = require("../controllers/posts");
 const fileUpload = require("../middleware/file-upload");
 const checkAuth = require("../middleware/check-auth");
+const multer = require("multer");
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 router.get("/", postController.getPosts);
 router.get("/:pid", postController.getPostsById);
@@ -12,7 +16,7 @@ router.get("/user/:uid", postController.getPostsByUserId); //in this a user will
 router.use(checkAuth);
 router.post(
   "/new",
-  fileUpload.single("image"),
+  upload.single("image"),
   [
     check("headline").not().isEmpty(),
     check("description").isLength({ min: 20 }),

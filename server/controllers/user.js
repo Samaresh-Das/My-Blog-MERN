@@ -312,11 +312,17 @@ const deleteUser = async (req, res, next) => {
     for (const postId of user.posts) {
       const post = await Post.findById(postId);
       if (!post) continue;
-
-      const postImagePath = post.image;
-      fs.unlink(postImagePath, (err) => {
-        if (err) console.error(err);
-      });
+      //deleting the post image from s3 bucket
+      const imagePath = post.image.replace(
+        "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
+        ""
+      );
+      const deleteParams = {
+        Bucket: bucketName,
+        Key: imagePath,
+      };
+      const deleteCommand = new DeleteObjectCommand(deleteParams);
+      await s3.send(deleteCommand);
 
       await post.remove({ session: sess });
     }

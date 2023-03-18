@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
-import { linkSite } from "../linkSite";
 import { shortingDesc } from "./shortDesc";
 
 const FeaturedPost = memo(
@@ -19,7 +18,7 @@ const FeaturedPost = memo(
       <Link to={`/post/${id}`}>
         <div className="hidden md:grid md:grid-cols-3 md:space-x-2 md:mx-[200px] md:mt-[60px] ">
           <img
-            src={`${linkSite}/${image}`}
+            src={image}
             alt="banner"
             className="md:col-span-2 md:h-[450px] md:w-11/12 object-cover"
           />
