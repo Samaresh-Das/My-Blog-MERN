@@ -4,6 +4,25 @@ const Post = require("../models/post");
 const User = require("../models/user");
 const fs = require("fs");
 const { validationResult } = require("express-validator");
+const {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+  DeleteObjectCommand,
+} = require("@aws-sdk/client-s3");
+
+const bucketName = process.env.BUCKET_NAME;
+const bucketRegion = process.env.BUCKET_REGION;
+const accessKey = process.env.ACCESS_KEY;
+const secretAccesskey = process.env.SECRET_ACCESS_KEY;
+
+const s3 = new S3Client({
+  credentials: {
+    accessKeyId: accessKey,
+    secretAccessKey: secretAccesskey,
+  },
+  region: bucketRegion,
+});
 
 const getPosts = async (req, res, next) => {
   let posts;
@@ -111,16 +130,28 @@ const createPosts = async (req, res, next) => {
       new HttpError("Invalid inputs passed, please check your data", 422)
     );
   }
+
+  console.log(req.file);
   const { headline, description, tag } = req.body; //get the required details from the body
   const creator = req.userData.userId;
   let createdPost;
   try {
+    //creating image file in s3 bucker
+    const params = {
+      Bucket: bucketName,
+      Key: req.file.originalname,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+    };
+    const command = new PutObjectCommand(params);
+    await s3.send(command);
+
     createdPost = new Post({
       headline,
       description,
       creator,
       tag,
-      image: req.file.path,
+      image: `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`,
     }); //create new post. You need to save later
 
     // await createdPost.save();
@@ -217,8 +248,6 @@ const deletePost = async (req, res, next) => {
     return next(error);
   }
 
-  const imagePath = post.image;
-
   let deletedPost;
   try {
     const sess = await mongoose.startSession();
@@ -232,9 +261,17 @@ const deletePost = async (req, res, next) => {
     return next(error);
   }
 
-  fs.unlink(imagePath, (err) => {
-    console.log(err);
-  });
+  //deleting the post image from s3 bucket
+  const imagePath = post.image.replace(
+    "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
+    ""
+  );
+  const deleteParams = {
+    Bucket: bucketName,
+    Key: imagePath,
+  };
+  const deleteCommand = new DeleteObjectCommand(deleteParams);
+  await s3.send(deleteCommand);
 
   res.status(200).json({
     message: "Deleted",
