@@ -18,17 +18,19 @@ import { shortingDesc } from "../Posts/shortDesc";
 const Profile = () => {
   const auth = useContext(AuthContext);
   const [user, setUser] = useState();
-  const userRef = useRef();
   const [userPosts, setUserPosts] = useState([]);
-  const postsRef = useRef();
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const taglineRef = useRef();
-  const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(false);
   const [hover, setHover] = useState();
   const [modal, setModal] = useState(false);
+
+  const [file, setFile] = useState();
+
+  const userRef = useRef();
+  const postsRef = useRef();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const taglineRef = useRef();
 
   const history = useHistory();
 
