@@ -11,15 +11,15 @@ const PostDetail = () => {
   const [postDetails, setPostDetails] = useState({ post: {} });
   const [isLoading, setIsLoading] = useState(true);
   const { postId } = useParams();
-  const dataRef = useRef(null);
+  // const dataRef = useRef(null);
 
   useEffect(() => {
     const getPost = async () => {
       const response = await fetch(`${linkSite}/api/posts/${postId}`);
       const data = await response.json();
-      dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
+      // dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       // setPosts(dataRef.current);
-      setPostDetails(dataRef.current);
+      setPostDetails(data);
       setIsLoading(false);
     };
     getPost();
