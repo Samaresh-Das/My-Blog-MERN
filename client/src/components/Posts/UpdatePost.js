@@ -5,6 +5,7 @@ import { linkSite } from "../linkSite";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import LoadingSpinner from "../shared/LoadingSpinner";
+import RTE from "../shared/RTE";
 
 const UpdatePost = () => {
   const history = useHistory();
@@ -17,6 +18,7 @@ const UpdatePost = () => {
   const headlineRef = useRef();
   const descriptionRef = useRef();
   const tagRef = useRef();
+  const [description, setDescription] = useState();
 
   useEffect(() => {
     const getPost = async () => {
@@ -40,7 +42,7 @@ const UpdatePost = () => {
       method: "PATCH",
       body: JSON.stringify({
         headline: headlineRef.current.value,
-        description: descriptionRef.current.value,
+        description: description,
         tag: tagRef.current.value,
       }),
       headers: {
@@ -52,10 +54,14 @@ const UpdatePost = () => {
     history.push(`/post/${postId}`); //forwarding the user to post details
   };
 
+  const getDescription = (e) => {
+    setDescription(e);
+  };
+
   return (
     <div className="h-full bg-no-repeat">
       <form onSubmit={formSubmitHandler}>
-        <div className="md:w-[500px] md:mx-auto mt-[50px] ">
+        <div className="md:w-[80%] md:mx-auto mt-[50px] ">
           <div className="relative z-0  mb-6 group">
             <Input
               labelClass="text-white text-center block md:inline-block"
@@ -70,7 +76,7 @@ const UpdatePost = () => {
           </div>
 
           <div className="relative z-0 md:w-full mb-6 ">
-            <Input
+            {/* <Input
               labelClass="text-white text-center block md:inline-block my-2 md:my-0"
               label="Description"
               type="text"
@@ -79,6 +85,10 @@ const UpdatePost = () => {
               className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder={postDetails.post.description}
               ref={descriptionRef}
+            /> */}
+            <RTE
+              description={getDescription}
+              value={postDetails.post.description}
             />
           </div>
           <div className="relative z-0 md:w-full mb-6">

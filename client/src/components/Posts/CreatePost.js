@@ -50,7 +50,7 @@ const CreatePost = () => {
         <div className=" drop-shadow-xl sm:rounded-md">
           <div className=" text-white sm:p-6 ">
             <div className="grid grid-cols-6 gap-6">
-              <div className="col-start-2 col-span-4 md:col-span-5 ">
+              <div className="col-start-2 col-span-4 md:col-span-5">
                 <Input
                   labelClass="block text-sm font-medium"
                   label="Title"

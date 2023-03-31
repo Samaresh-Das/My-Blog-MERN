@@ -1,8 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 const RTE = (props) => {
   const editorRef = useRef(null);
+
+  const [value, setValue] = useState(props.value);
+  useEffect(() => setValue(props.value), [props.value]);
 
   if (editorRef.current) {
     props.description(editorRef.current.getContent());
@@ -14,6 +17,9 @@ const RTE = (props) => {
         className="h-[800px]"
         apiKey="whll7lk3s9rla4ced98crai92lt7i377kxf48fvbojlxjkbv"
         onInit={(evt, editor) => (editorRef.current = editor)}
+        initialValue={props.value}
+        value={value}
+        onEditorChange={(newValue, editor) => setValue(newValue)}
         init={{
           selector: "textarea",
           height: 300,
