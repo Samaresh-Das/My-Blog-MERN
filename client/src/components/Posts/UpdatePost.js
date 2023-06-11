@@ -76,16 +76,6 @@ const UpdatePost = () => {
           </div>
 
           <div className="relative z-0 md:w-full mb-6 ">
-            {/* <Input
-              labelClass="text-white text-center block md:inline-block my-2 md:my-0"
-              label="Description"
-              type="text"
-              element="textarea"
-              id="description"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder={postDetails.post.description}
-              ref={descriptionRef}
-            /> */}
             <RTE
               description={getDescription}
               value={postDetails.post.description}

@@ -12,6 +12,8 @@ const Navbar = () => {
   const auth = useContext(AuthContext);
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768); // Set breakpoint value for desktop/mobile
@@ -33,6 +35,13 @@ const Navbar = () => {
 
   const hideNav = (e) => {
     setShowNavMenu(e);
+  };
+
+  const showMenuDropdown = () => {
+    setShowDropdown(true);
+  };
+  const hideMenuDropdown = () => {
+    setShowDropdown(false);
   };
 
   const ifNotOnHomepage = location.pathname !== "/";
@@ -79,22 +88,26 @@ const Navbar = () => {
             </h1>
           </div>
         </Link>
-        <ul className="md:flex md:flex-row hidden md:space-x-20 patrick-hand text-white my-auto">
-          <li>UI Design</li>
-          <li>Front-End</li>
-          <li>Back-End</li>
+        <ul className="md:flex md:flex-row hidden md:space-x-10 patrick-hand text-white my-auto justify">
+          <li className="cursor-pointer">Front-End</li>
+          <li className="cursor-pointer">Back-End</li>
+          <li className="cursor-pointer">Database</li>
+          <li className="cursor-pointer">DevOPS</li>
+          <li className="cursor-pointer">DSA</li>
+        </ul>
+        <div className="hidden md:flex md:flex-row md:space-x-5 text-white">
           {!auth.isLoggedIn && (
             <Link to="/auth">
               <button>Sign Up</button>
             </Link>
           )}
-          {auth.isLoggedIn && <Link to="/create">Create Post</Link>}
           {auth.isLoggedIn && (
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
+            <Link to="/create" className="my-auto">
+              Create Post
+            </Link>
           )}
-        </ul>
+          {auth.isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
+        </div>
         <div className="hidden md:block relative">
           <input
             type="text"
@@ -109,11 +122,51 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link to="/profile">
               <img
-                className="w-[51px] h-[51px] rounded-full mr-3 object-cover"
+                className="w-[51px] h-[51px] rounded-full mr-3 object-cover relative"
                 src={userPhoto}
                 alt="Avatar of Jonathan Reinink"
+                onMouseEnter={showMenuDropdown}
+                onMouseLeave={hideMenuDropdown}
               />
             </Link>
+            {showDropdown && (
+              <div
+                onMouseEnter={showMenuDropdown}
+                onMouseLeave={hideMenuDropdown}
+                id="dropdownHover"
+                className=" absolute right-5 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownHoverButton"
+                >
+                  <li>
+                    <Link
+                      to="/profile"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/create"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Create Post
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </div>

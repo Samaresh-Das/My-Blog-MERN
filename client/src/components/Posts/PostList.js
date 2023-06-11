@@ -87,7 +87,7 @@ const PostList = ({ showNav }) => {
         }
       )
     : posts
-        .slice(1)
+        .slice(0, -1)
         .map(
           ({
             id,
@@ -117,13 +117,13 @@ const PostList = ({ showNav }) => {
   return (
     <Fragment>
       <FeaturedPost
-        id={posts[0].id}
-        image={posts[0].image}
-        headline={posts[0].headline}
-        description={posts[0].description}
-        profilePicture={posts[0].profilePicture}
-        creatorName={posts[0].creatorName}
-        tagline={posts[0].tagline}
+        id={posts[posts.length - 1].id}
+        image={posts[posts.length - 1].image}
+        headline={posts[posts.length - 1].headline}
+        description={posts[posts.length - 1].description}
+        profilePicture={posts[posts.length - 1].profilePicture}
+        creatorName={posts[posts.length - 1].creatorName}
+        tagline={posts[posts.length - 1].tagline}
       />
       <ul className="md:flex md:flex-row md:flex-wrap md:mx-[200px] md:mt-[60px] ">
         {postItems}

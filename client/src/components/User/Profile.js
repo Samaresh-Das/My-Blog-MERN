@@ -79,6 +79,7 @@ const Profile = () => {
   if (!user) {
     return <LoadingSpinner />;
   }
+
   const pickedHandler = (e) => {
     let pickedFile;
     let fileIsValid = isValid;
