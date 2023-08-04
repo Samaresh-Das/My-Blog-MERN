@@ -39,15 +39,15 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  if (req.file) {
-    //deleting the image if any error happens or rolling it back
-    fs.unlink(req.file.path, (err) => {
-      console.log(err);
-    });
-  }
-  if (res.headerSent) {
-    return next(error);
-  }
+  // if (req.file) {
+  //   //deleting the image if any error happens or rolling it back
+  //   fs.unlink(req.file.path, (err) => {
+  //     console.log(err);
+  //   });
+  // }
+  // if (res.headerSent) {
+  //   return next(error);
+  // }
   res.status(error.code || 500).json({
     message: error.message || "An unknown error occurred",
   });
