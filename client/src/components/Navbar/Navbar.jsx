@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { AuthContext } from "../context/auth-context";
+
+import NavItems from "./NavItems";
+
 import { IconContext } from "react-icons";
 import { HiMenu } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import NavItems from "./NavItems";
-import { AuthContext } from "../context/auth-context";
+import { IoIosCreate } from "react-icons/io";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const history = useHistory();
@@ -101,23 +105,35 @@ const Navbar = () => {
               <button>Sign Up</button>
             </Link>
           )}
-          {auth.isLoggedIn && (
-            <Link to="/create" className="my-auto">
-              Create Post
-            </Link>
-          )}
-          {auth.isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
         </div>
         <div className="hidden md:block relative">
           <input
             type="text"
-            className="rounded-full bg-[#1F2937] pl-[40px] pb-1 text-white h-[40px]"
+            className="rounded-full bg-[#1F2937] pl-[40px] pb-1 text-white h-[40px] w-[400px]"
             placeholder="search"
           />
           <span className="absolute top-3 left-0 flex items-center pl-3">
             <FiSearch className="text-white opacity-50" />
           </span>
         </div>
+        {auth.isLoggedIn && (
+          <Link to="/create" className="my-auto">
+            <IconContext.Provider
+              value={{
+                color: "white",
+                className: "global-class-name",
+                size: "2em",
+              }}
+            >
+              <div>
+                <IoIosCreate className="create_post" />
+                <Tooltip anchorSelect=".create_post" place="bottom">
+                  Create Post
+                </Tooltip>
+              </div>
+            </IconContext.Provider>
+          </Link>
+        )}
         {auth.isLoggedIn && (
           <div className="hidden md:block">
             <Link to="/profile">
@@ -161,7 +177,7 @@ const Navbar = () => {
                       to="#"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
-                      Logout
+                      <button onClick={logoutHandler}>Logout</button>
                     </Link>
                   </li>
                 </ul>

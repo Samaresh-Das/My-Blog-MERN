@@ -39,7 +39,7 @@ const ImageUpload = (props) => {
 
   return (
     <div className=" w-[300px] md:w-auto mx-auto">
-      <label className="block text-sm font-medium leading-6 text-white">
+      <label className="block text-sm font-medium leading-6 text-white mt-4">
         Cover photo
       </label>
       <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 md:w-[500px] mx-auto">
