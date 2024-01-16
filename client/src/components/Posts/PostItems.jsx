@@ -19,7 +19,7 @@ const PostItems = memo(
     return (
       <Fragment key={id}>
         <li>
-          <div className="px-[20px] text  md:w-[300px]">
+          <div className="px-[20px] text  md:w-[300px] hover:scale-105 transition delay-150 duration-300 ease-in-out">
             <Link to={`/post/${id}`}>
               <div
                 className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px]"

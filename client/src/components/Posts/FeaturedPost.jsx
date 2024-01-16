@@ -44,6 +44,7 @@ const FeaturedPost = memo(
             </div>
           </div>
         </div>
+        <hr className="w-48 h-1 mx-auto my-4 bg-gray-50 border-0 rounded md:mt-10 dark:bg-gray-500" />
       </Link>
     );
   }
