@@ -116,8 +116,9 @@ const Navbar = () => {
             <FiSearch className="text-white opacity-50" />
           </span>
         </div>
+        {/* create post icon */}
         {auth.isLoggedIn && (
-          <Link to="/create" className="my-auto">
+          <Link to="/create" className="my-auto hidden md:block">
             <IconContext.Provider
               value={{
                 color: "white",
@@ -186,6 +187,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      {/* search icon */}
       <div className="my-auto opacity-40 md:hidden">
         <IconContext.Provider
           value={{
