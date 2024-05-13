@@ -5,33 +5,54 @@ import { linkSite } from "../linkSite";
 import ImageUpload from "../shared/ImageUpload";
 import Input from "../shared/Input";
 import RTE from "../shared/RTE";
+import Dropdown from "../shared/Dropdown";
+import { createPost_dropdownList } from "../shared/frontend_data";
 
 const CreatePost = () => {
   const { token } = useContext(AuthContext);
   const history = useHistory();
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState();
   const [description, setDescription] = useState();
-
-  const titleRef = useRef();
-  // const descriptionRef = useRef();
-  const tagRef = useRef();
+  const [tag, setTag] = useState("");
+  const [noTitleErrors, setNoTitleErrors] = useState(false);
+  const [noTagErrors, setNoTagErrors] = useState(false);
 
   const imageHandler = (e) => {
     setImage(e);
-    console.log(image);
+  };
+
+  const getTitle = (e) => {
+    setTitle(e.target.value);
+    setNoTitleErrors(false);
   };
 
   const getDescription = (e) => {
     setDescription(e);
   };
 
+  const getTag = (value) => {
+    setTag(value);
+    if (value) setNoTagErrors(false);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (title.trim() === "") {
+      setNoTitleErrors(true);
+      return;
+    }
+    if (!tag) {
+      setNoTagErrors(true);
+      return;
+    }
+
     try {
       const formData = new FormData();
-      formData.append("headline", titleRef.current.value);
+      formData.append("headline", title);
       formData.append("description", description);
-      formData.append("tag", tagRef.current.value);
+      formData.append("tag", tag);
       formData.append("image", image);
       await fetch(`${linkSite}/api/posts/new`, {
         method: "POST",
@@ -58,23 +79,26 @@ const CreatePost = () => {
                   element="input"
                   id="headline"
                   className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
-                  ref={titleRef}
+                  onChange={getTitle}
                 />
+                {noTitleErrors && (
+                  <p className="text-red-400 font-bold">
+                    Please provide a title
+                  </p>
+                )}
               </div>
 
               <div className="col-start-2 col-span-4 md:col-span-5">
                 <RTE description={getDescription} />
               </div>
               <div className="col-start-2 col-span-4 sm:col-span-6 lg:col-span-2">
-                <Input
-                  labelClass="block text-sm font-medium text-white"
-                  label="Tag"
-                  type="text"
-                  element="input"
-                  id="tag"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[40px] text-black"
-                  ref={tagRef}
+                <Dropdown
+                  dropdownList={createPost_dropdownList}
+                  getTag={getTag}
                 />
+                {noTagErrors && (
+                  <p className="text-red-400 font-bold">Please select a tag</p>
+                )}
               </div>
             </div>
             <ImageUpload onInput={imageHandler} />
