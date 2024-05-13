@@ -13,6 +13,7 @@ const Input = React.forwardRef((props, ref) => (
         placeholder={props.placeholder}
         type={props.type}
         required={props.required}
+        onChange={props.onChange}
       />
     ) : (
       <input
@@ -22,6 +23,7 @@ const Input = React.forwardRef((props, ref) => (
         placeholder={props.placeholder}
         type={props.type}
         required={props.required}
+        onChange={props.onChange}
       />
     )}
   </Fragment>
