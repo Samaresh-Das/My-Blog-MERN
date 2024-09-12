@@ -1,6 +1,4 @@
-export const linkSite = "https://my-blog-mern.onrender.com";
+export const linkSite = "https://adaptable-radiance-production.up.railway.app";
+//https://adaptable-radiance-production.up.railway.app/
 //http://localhost:8080
-//https://dev-blog-p5s9.onrender.com
-//https://43.201.102.96
-//https://cute-cyan-dragonfly-boot.cyclic.app
 //https://my-blog-mern.onrender.com
