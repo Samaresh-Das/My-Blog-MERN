@@ -18,8 +18,8 @@ const PostItems = memo(
       shortingDesc(description);
     return (
       <Fragment key={id}>
-        <li>
-          <div className="px-[20px] text  md:w-[300px] hover:scale-105 transition delay-150 duration-300 ease-in-out">
+        <li className="my-10 mx-5">
+          <div className="px-[20px] md:h-[500px]  md:w-[300px] hover:scale-105 transition delay-150 duration-300 ease-in-out md:relative ">
             <Link to={`/post/${id}`}>
               <div
                 className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px]"
@@ -39,11 +39,11 @@ const PostItems = memo(
                       : textContent}
                   </p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center md:absolute md:bottom-0 md:left-0 md:p-4">
                   <img
                     className="w-10 h-10 rounded-full mr-3 object-cover"
                     src={profilePicture}
-                    alt="Avatar of Jonathan Reinink"
+                    alt={`${creatorName}'s profile picture`}
                   />
                   <div className="text-sm">
                     <p className="text-white leading-none">{creatorName}</p>

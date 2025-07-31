@@ -65,8 +65,8 @@ const Navbar = () => {
     <div
       className={`${
         isAuthPage && "md:hidden"
-      } mt-[36px] flex flex-row  justify-around mb-[27px]
-      md:block md:mx-[100px]`}
+      } mt-[36px] flex flex-row justify-around mb-[27px] 
+  md:flex md:flex-wrap md:justify-between md:items-center md:gap-y-4 md:mx-[60px]`}
     >
       <div className="opacity-40 md:hidden">
         <IconContext.Provider
@@ -81,7 +81,8 @@ const Navbar = () => {
           </div>
         </IconContext.Provider>
       </div>
-      <div className="md:flex md:flex-row md:justify-between ">
+      {/* ✅ Tablet navbar flex layout wrapper */}
+      <div className="w-full md:w-full md:flex md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-4">
         <Link to="/">
           <div className="flex flex-row h-[40px]">
             <h1 className="py-[6px] px-[12px] bg-[#4B5563] logo-box  text-white source-sans__pro text-[18px]">
@@ -92,30 +93,29 @@ const Navbar = () => {
             </h1>
           </div>
         </Link>
-        <ul className="md:flex md:flex-row hidden md:space-x-10 patrick-hand text-white my-auto justify">
-          <li className="cursor-pointer">Front-End</li>
-          <li className="cursor-pointer">Back-End</li>
-          <li className="cursor-pointer">Database</li>
-          <li className="cursor-pointer">DevOPS</li>
-          <li className="cursor-pointer">DSA</li>
-        </ul>
-        <div className="hidden md:flex md:flex-row md:space-x-5 text-white">
-          {!auth.isLoggedIn && (
-            <Link to="/auth">
-              <button>Sign Up</button>
-            </Link>
-          )}
+
+        <div className="flex flex-row items-center justify-between md:justify-start md:space-x-5 my-auto">
+          <div className="hidden md:block relative">
+            <input
+              type="text"
+              className="rounded-full bg-[#1F2937] pl-[40px] pb-1 text-white h-[40px] w-full md:w-[200px] lg:w-[300px]"
+              placeholder="search"
+            />
+            <span className="absolute top-3 left-0 flex items-center pl-3">
+              <FiSearch className="text-white opacity-50" />
+            </span>
+          </div>
+          <div className="hidden md:flex md:flex-row md:space-x-5 text-white hover:scale-105 transition-all duration-300 ease-in-out">
+            {!auth.isLoggedIn && (
+              <Link to="/auth">
+                <button className="border border-1 border-gray-300 rounded-full py-2 px-5 ">
+                  Sign Up
+                </button>
+              </Link>
+            )}
+          </div>
         </div>
-        <div className="hidden md:block relative">
-          <input
-            type="text"
-            className="rounded-full bg-[#1F2937] pl-[40px] pb-1 text-white h-[40px] w-[400px]"
-            placeholder="search"
-          />
-          <span className="absolute top-3 left-0 flex items-center pl-3">
-            <FiSearch className="text-white opacity-50" />
-          </span>
-        </div>
+
         {/* create post icon */}
         {auth.isLoggedIn && (
           <Link to="/create" className="my-auto hidden md:block">
