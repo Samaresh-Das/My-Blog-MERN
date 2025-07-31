@@ -16,6 +16,12 @@ app.use(bodyParser.json());
 
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
+app.use(cors({
+  origin: ["http://localhost:5173", "https://sams-dev-blog.vercel.app/"], // whitelist
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true
+}));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
