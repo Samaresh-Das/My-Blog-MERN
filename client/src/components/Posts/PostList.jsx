@@ -1,16 +1,17 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import Footer from "../Footer";
 import { linkSite } from "../linkSite";
 import Card from "../shared/Card";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import FeaturedPost from "./FeaturedPost";
 import PostItems from "./PostItems";
+import { motion } from "framer-motion";
+import PostFilterTabs from "../shared/PostFilterTabs";
 
 const PostList = ({ showNav }) => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [posts, setPosts] = useState([]);
   const dataRef = useRef(null);
-  // const [showSpinner, setShowSpinner] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,15 +38,6 @@ const PostList = ({ showNav }) => {
     getPosts();
   }, []);
 
-  // useEffect(() => {
-  //   // show the spinner for 3 sec and if no post found, show the card otherwise show the data
-  //   const timer = setTimeout(() => {
-  //     setShowSpinner(false);
-  //   }, 2000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -61,35 +53,8 @@ const PostList = ({ showNav }) => {
 
   const postItems = !isDesktop
     ? posts.map(
-        ({
-          id,
-          image,
-          headline,
-          profilePicture,
-          creatorName,
-          tagline,
-          description,
-          isLastItem,
-        }) => {
-          return (
-            <PostItems
-              key={id}
-              id={id}
-              image={image}
-              headline={headline}
-              description={description}
-              profilePicture={profilePicture}
-              creatorName={creatorName}
-              tagline={tagline}
-              isLastItem={isLastItem}
-            />
-          );
-        }
-      )
-    : posts
-        .slice(0, -1)
-        .map(
-          ({
+        (
+          {
             id,
             image,
             headline,
@@ -98,8 +63,16 @@ const PostList = ({ showNav }) => {
             tagline,
             description,
             isLastItem,
-          }) => {
-            return (
+          },
+          index
+        ) => {
+          return (
+            <motion.div
+              key={id}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+            >
               <PostItems
                 key={id}
                 id={id}
@@ -111,21 +84,69 @@ const PostList = ({ showNav }) => {
                 tagline={tagline}
                 isLastItem={isLastItem}
               />
+            </motion.div>
+          );
+        }
+      )
+    : posts
+        .slice(0, -1)
+        .map(
+          (
+            {
+              id,
+              image,
+              headline,
+              profilePicture,
+              creatorName,
+              tagline,
+              description,
+              isLastItem,
+            },
+            index
+          ) => {
+            return (
+              <motion.div
+                key={id}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <PostItems
+                  key={id}
+                  id={id}
+                  image={image}
+                  headline={headline}
+                  description={description}
+                  profilePicture={profilePicture}
+                  creatorName={creatorName}
+                  tagline={tagline}
+                  isLastItem={isLastItem}
+                />
+              </motion.div>
             );
           }
         );
   return (
     <Fragment>
-      <FeaturedPost
-        id={posts[posts.length - 1].id}
-        image={posts[posts.length - 1].image}
-        headline={posts[posts.length - 1].headline}
-        description={posts[posts.length - 1].description}
-        profilePicture={posts[posts.length - 1].profilePicture}
-        creatorName={posts[posts.length - 1].creatorName}
-        tagline={posts[posts.length - 1].tagline}
+      <PostFilterTabs
+        tabs={["Front-End", "Back-End", "Database", "DevOPS", "DSA"]}
       />
-      <ul className="md:flex md:flex-row md:flex-wrap md:mx-[200px] md:mt-[60px] ">
+      <motion.div
+        initial={{ opacity: 0, x: -80 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <FeaturedPost
+          id={posts[posts.length - 1].id}
+          image={posts[posts.length - 1].image}
+          headline={posts[posts.length - 1].headline}
+          description={posts[posts.length - 1].description}
+          profilePicture={posts[posts.length - 1].profilePicture}
+          creatorName={posts[posts.length - 1].creatorName}
+          tagline={posts[posts.length - 1].tagline}
+        />
+      </motion.div>
+      <ul className="md:flex md:flex-row md:flex-wrap md:justify-center lg:justify-normal md:mx-auto lg:mx-[100px] md:mt-[60px]">
         {postItems}
       </ul>
       <Footer />

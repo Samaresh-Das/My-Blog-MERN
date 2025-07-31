@@ -16,13 +16,13 @@ const FeaturedPost = memo(
       shortingDesc(description);
     return (
       <Link to={`/post/${id}`}>
-        <div className="hidden md:grid md:grid-cols-3 md:space-x-2 md:mx-[200px] md:mt-[60px] ">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:space-x-2 md:mx-10 md:mt-20 lg:mx-[100px] lg:mt-[60px] ">
           <img
             src={image}
             alt="banner"
-            className="md:col-span-2 md:h-[450px] md:w-11/12 object-cover"
+            className="md:col-span-2 md:w-full lg:h-[450px] lg:w-11/12 object-cover"
           />
-          <div className="mb-8 ">
+          <div className="mt-10">
             <div className="text-white mb-2 patrick-hand text-[20px] md:text-[30px]">
               {headline}
             </div>
