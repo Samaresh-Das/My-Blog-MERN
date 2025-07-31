@@ -1,5 +1,4 @@
-// export const linkSite = "https://my-blog-mern.onrender.com";
-export const linkSite = "https://my-blog-mern-c1kd.vercel.app/";
+export const linkSite = "https://my-blog-mern.onrender.com";
 //https://adaptable-radiance-production.up.railway.app/
 //http://localhost:8080
 //https://my-blog-mern.onrender.com
