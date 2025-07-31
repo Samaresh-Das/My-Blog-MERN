@@ -216,7 +216,7 @@ const Profile = () => {
           </div>
         </div>
       </form>
-      <div className="mt-[20px] pt-[30px] text-white bg-black">
+      <div className="mt-[20px] pt-[30px] text-white bg-white/5 backdrop-blur-xl mx-10 rounded-2xl ">
         <h2 className="text-center text-[24px] patrick-hand mb-[30px]">
           Your posts
         </h2>

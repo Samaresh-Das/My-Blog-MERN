@@ -11,6 +11,7 @@ import { AuthContext } from "./components/context/auth-context";
 import { useAuth } from "./components/hooks/auth-hook";
 import Profile from "./components/User/Profile";
 import UpdatePost from "./components/Posts/UpdatePost";
+import BackgroundBlobs from "./components/BackgroundBlobs";
 
 function App() {
   const { login, logout, token, userId } = useAuth();
@@ -66,9 +67,13 @@ function App() {
         logout: logout,
       }}
     >
+      {/* <BackgroundBlobs /> */}
       <Router>
-        <Navbar />
-        {routes}
+        <div className="relative min-h-screen overflow-hidden">
+          <BackgroundBlobs />
+          <Navbar />
+          {routes}
+        </div>
       </Router>
     </AuthContext.Provider>
   );

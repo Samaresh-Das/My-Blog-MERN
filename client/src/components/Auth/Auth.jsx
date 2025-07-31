@@ -217,7 +217,7 @@ const Auth = () => {
       </div>
       <div className="flex items-center h-screen">
         <form
-          className="mx-auto auth-form px-[30px] md:px-[150px] py-[40px] md:py-[80px] rounded-[29px] border border-white shadow-xl shadow-blue-500/20"
+          className="mx-auto auth-form px-[30px] md:px-[150px] py-[40px] md:py-[80px] rounded-[29px] border border-white shadow-xl shadow-blue-500/20 backdrop-blur-2xl bg-white/5"
           onSubmit={handleSubmit}
         >
           <h1 className="text-white patrick-hand text-center text-[30px] mb-[20px]">
