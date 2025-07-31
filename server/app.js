@@ -29,6 +29,9 @@ app.use((req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200); // important for preflight
+  }
   next();
 });
 
