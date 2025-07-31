@@ -16,7 +16,7 @@ const FeaturedPost = memo(
       shortingDesc(description);
     return (
       <Link to={`/post/${id}`}>
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:space-x-2 md:mx-10 md:mt-20 lg:mx-[100px] lg:mt-[60px] ">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:space-x-2 md:mx-10 md:mt-20 lg:mx-[100px] lg:mt-[60px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-[#c71585]/30 transition-all duration-300">
           <img
             src={image}
             alt="banner"

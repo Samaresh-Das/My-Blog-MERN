@@ -108,84 +108,86 @@ const Navbar = () => {
           <div className="hidden md:flex md:flex-row md:space-x-5 text-white hover:scale-105 transition-all duration-300 ease-in-out">
             {!auth.isLoggedIn && (
               <Link to="/auth">
-                <button className="border border-1 border-gray-300 rounded-full py-2 px-5 ">
+                <button className="border border-1 border-gray-300 rounded-full py-2 px-5 bg-white/5 backdrop-blur-md hover:bg-[#5c1eae]/30 transition-all duration-300 ease-in-out">
                   Sign Up
                 </button>
               </Link>
             )}
           </div>
         </div>
-
-        {/* create post icon */}
-        {auth.isLoggedIn && (
-          <Link to="/create" className="my-auto hidden md:block">
-            <IconContext.Provider
-              value={{
-                color: "white",
-                className: "global-class-name",
-                size: "2em",
-              }}
-            >
-              <div>
-                <IoIosCreate className="create_post" />
-                <Tooltip anchorSelect=".create_post" place="bottom">
-                  Create Post
-                </Tooltip>
-              </div>
-            </IconContext.Provider>
-          </Link>
-        )}
-        {auth.isLoggedIn && (
-          <div className="hidden md:block">
-            <Link to="/profile">
-              <img
-                className="w-[51px] h-[51px] rounded-full mr-3 object-cover relative"
-                src={userPhoto}
-                alt="Avatar of Jonathan Reinink"
-                onMouseEnter={showMenuDropdown}
-                onMouseLeave={hideMenuDropdown}
-              />
-            </Link>
-            {showDropdown && (
-              <div
-                onMouseEnter={showMenuDropdown}
-                onMouseLeave={hideMenuDropdown}
-                id="dropdownHover"
-                className=" absolute right-5 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+        <div className="flex flex-row items-center justify-between md:justify-start md:space-x-5 my-auto">
+          {/* {auth.isLoggedIn && (
+            <Link to="/create" className="my-auto hidden md:block">
+              <IconContext.Provider
+                value={{
+                  color: "white",
+                  className: "global-class-name",
+                  size: "2em",
+                }}
               >
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownHoverButton"
+                <div>
+                  <IoIosCreate className="create_post" />
+                  <Tooltip anchorSelect=".create_post" place="bottom">
+                    Create Post
+                  </Tooltip>
+                </div>
+              </IconContext.Provider>
+            </Link>
+          )} */}
+
+          {auth.isLoggedIn && (
+            <div className="hidden md:block">
+              <Link to="/profile">
+                <img
+                  className="w-[51px] h-[51px] rounded-full mr-3 object-cover relative"
+                  src={userPhoto}
+                  alt="Avatar of Jonathan Reinink"
+                  onMouseEnter={showMenuDropdown}
+                  onClick={hideMenuDropdown}
+                />
+              </Link>
+              {showDropdown && (
+                <div
+                  onMouseEnter={showMenuDropdown}
+                  onMouseLeave={hideMenuDropdown}
+                  id="dropdownHover"
+                  className="absolute mt-2 right-5 bg-white/5 backdrop-blur-xl divide-y rounded-2xl w-44"
                 >
-                  <li>
-                    <Link
-                      to="/profile"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/create"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Create Post
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      <button onClick={logoutHandler}>Logout</button>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownHoverButton"
+                  >
+                    <li>
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 hover:text-[#e647ff]"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/create"
+                        className="block px-4 py-2 hover:text-[#e647ff]"
+                      >
+                        Create Post
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="#"
+                        className="block px-4 py-2 hover:text-[#e647ff]"
+                      >
+                        <button onClick={logoutHandler}>Logout</button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        {/* create post icon */}
       </div>
       {/* search icon */}
       <div className="my-auto opacity-40 md:hidden">
