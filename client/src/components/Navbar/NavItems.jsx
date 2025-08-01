@@ -42,18 +42,20 @@ const NavItems = (props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-row justify-between items-center mb-4">
-          <button
-            className="text-white mb-4"
-            onClick={() => props.onHide(false)}
-          >
-            <Link to="/profile">
-              <img
-                className="w-[40px] h-[40px] rounded-full my-auto object-cover"
-                src={userPhoto}
-                alt="User Avatar"
-              />
-            </Link>
-          </button>
+          {isLoggedIn && (
+            <button
+              className="text-white mb-4"
+              onClick={() => props.onHide(false)}
+            >
+              <Link to="/profile">
+                <img
+                  className="w-[40px] h-[40px] rounded-full my-auto object-cover"
+                  src={userPhoto}
+                  alt="User Avatar"
+                />
+              </Link>
+            </button>
+          )}
           <button
             className="text-white mb-4"
             onClick={() => props.onHide(false)}
