@@ -32,7 +32,9 @@ app.use("/api/user", usersRoute);
 // app.get("/places", (req, res, next) => {
 //   res.json("server working");
 // });
-
+app.get("/ping", (req, res, next) => {
+  res.json({ message: "Pong!" });
+});
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route.", 404);
   throw error;
