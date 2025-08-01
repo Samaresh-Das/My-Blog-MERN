@@ -58,12 +58,12 @@ const ImageUpload = (props) => {
               strokeLinejoin="round"
             />
           </svg>
-          <div className="flex text-sm text-gray-600">
+          <div className="flex text-sm text-gray-400">
             <label
               htmlFor="file-upload"
               className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
             >
-              <button onClick={pickImageHandler} type="button">
+              <button onClick={pickImageHandler} type="button" className="p-2">
                 Upload a file
               </button>
               <input
@@ -76,9 +76,9 @@ const ImageUpload = (props) => {
                 type="file"
               />
             </label>
-            <p className="pl-1">or drag and drop</p>
+            <p className="pl-1 my-auto">or drag and drop</p>
           </div>
-          <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+          <p className="text-xs text-gray-400">PNG, JPG, GIF up to 10MB</p>
         </div>
       </div>
       <div>

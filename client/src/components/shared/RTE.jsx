@@ -21,8 +21,7 @@ const RTE = (props) => {
         value={value}
         onEditorChange={(newValue, editor) => setValue(newValue)}
         init={{
-          selector: "textarea",
-          height: 300,
+          height: window.innerWidth < 768 ? 450 : 300, // ← Mobile vs desktop
           plugins: [
             "advlist autolink link image lists charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
@@ -30,8 +29,7 @@ const RTE = (props) => {
           ],
           toolbar:
             "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | " +
-            "bullist numlist outdent indent | link image | print preview media fullpage | code" +
-            " help",
+            "bullist numlist outdent indent | link image | print preview media fullpage | code | help",
           menu: {
             favs: {
               title: "My Favorites",
@@ -39,8 +37,21 @@ const RTE = (props) => {
             },
           },
           menubar: "favs file edit view insert format tools table help",
-          content_style:
-            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+          skin: "oxide-dark", // dark toolbar/chrome
+          content_css: "dark", // dark editor content
+          content_style: `
+                          body {
+                            background-color: #1F2937;
+                            background-opacity: 0.2;
+                            background-blur: 0px;
+                            color: #f3f4f6;
+                            font-family: Helvetica, Arial, sans-serif;
+                            font-size: 14px;
+                          }
+                          a { color: #a78bfa; }
+                          p { color: #f3f4f6; }
+                          h1, h2, h3, h4, h5, h6 { color: #fff; }
+                        `,
         }}
       />
     </>
