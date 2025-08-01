@@ -69,9 +69,9 @@ const PostList = ({ showNav }) => {
           return (
             <motion.div
               key={id}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <PostItems
                 key={id}
@@ -107,9 +107,9 @@ const PostList = ({ showNav }) => {
             return (
               <motion.div
                 key={id}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <PostItems
                   key={id}
@@ -132,9 +132,9 @@ const PostList = ({ showNav }) => {
         tabs={["Front-End", "Back-End", "Database", "DevOPS", "DSA"]}
       />
       <motion.div
-        initial={{ opacity: 0, x: -80 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: -60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <FeaturedPost
           id={posts[posts.length - 1].id}
