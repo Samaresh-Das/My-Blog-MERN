@@ -10,6 +10,19 @@
 body {
   background: radial-gradient(circle at 30% 30%, #2d0f42 0%, #0a0a23 100%);
 }
+.tox-tinymce {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  color: white;
+}
+.tox .tox-toolbar,
+.tox .tox-menubar,
+.tox .tox-statusbar {
+  background-color: transparent !important;
+  border: none !important;
+}
 
 /* html {
   min-height: 100vh;

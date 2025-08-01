@@ -5,8 +5,8 @@ import { linkSite } from "../linkSite";
 import ImageUpload from "../shared/ImageUpload";
 import Input from "../shared/Input";
 import RTE from "../shared/RTE";
-import Dropdown from "../shared/Dropdown";
 import { createPost_dropdownList } from "../shared/frontend_data";
+import PostTagSelector from "./PostTagSelector";
 
 const CreatePost = () => {
   const { token } = useContext(AuthContext);
@@ -78,8 +78,9 @@ const CreatePost = () => {
                   type="text"
                   element="input"
                   id="headline"
-                  className="mt-1 block w-full rounded-md  shadow-sm  sm:text-sm h-[40px] text-black"
+                  className="mt-1 block w-full rounded-xl border border-purple-900/30 bg-white/10 backdrop-blur-sm shadow-sm text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-violet-500 sm:text-sm h-[40px] transition-all duration-200 p-3"
                   onChange={getTitle}
+                  placeholder="Enter post title"
                 />
                 {noTitleErrors && (
                   <p className="text-red-400 font-bold">
@@ -88,11 +89,11 @@ const CreatePost = () => {
                 )}
               </div>
 
-              <div className="col-start-2 col-span-4 md:col-span-5">
+              <div className="col-start-2 col-span-4 md:col-span-5 rounded-xl bg-white/10 backdrop-blur-md p-4 shadow-md border border-purple-900/20">
                 <RTE description={getDescription} />
               </div>
               <div className="col-start-2 col-span-4 sm:col-span-6 lg:col-span-2">
-                <Dropdown
+                <PostTagSelector
                   dropdownList={createPost_dropdownList}
                   getTag={getTag}
                 />

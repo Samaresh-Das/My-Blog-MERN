@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
-import blogLogo from "../../../public/Assets/blog.png";
 import NavItems from "./NavItems";
 
 import { IconContext } from "react-icons";
@@ -35,6 +34,11 @@ const Navbar = () => {
     // Cleanup listener
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Hide nav menu when navigating to a new page
+  useEffect(() => {
+    setShowDropdown(false);
+  }, [location.pathname]);
 
   //to keep the dropdown hidden when user is logged in
   // This effect runs when the auth state changes
@@ -111,7 +115,7 @@ const Navbar = () => {
             </h1> */}
             <div>
               <img
-                src={blogLogo}
+                src="/Assets/blog.png"
                 alt="Logo"
                 className="w-[40px] md:w-[50px] h-[40px] md:h-[50px] object-cover my-auto"
               />
