@@ -53,9 +53,6 @@ const PostItems = memo(
               </div>
             </Link>
           </div>
-          {!isLastItem && (
-            <hr className="mx-[30px] mb-[30px] border-2 border-gray-400 opacity-50 md:hidden" />
-          )}
         </li>
       </Fragment>
     );

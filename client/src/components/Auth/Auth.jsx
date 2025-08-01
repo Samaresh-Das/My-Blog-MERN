@@ -5,6 +5,7 @@ import React, {
   useReducer,
   useState,
 } from "react";
+import { motion } from "framer-motion";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth-context";
@@ -207,7 +208,11 @@ const Auth = () => {
   };
 
   return (
-    <Fragment>
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+      exit={{ opacity: 0, y: -20 }}
+    >
       <div className="hidden md:inline-block md:relative ">
         <div className=" absolute top-[80px] left-[180px]">
           <Link to="/">
@@ -315,7 +320,7 @@ const Auth = () => {
           </h3>
         </form>
       </div>
-    </Fragment>
+    </motion.div>
   );
 };
 

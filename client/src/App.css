@@ -22,8 +22,7 @@ body {
   overflow-x: hidden;
   position: relative;
 } */
-
-.source-sans__pro {
+*/ .source-sans__pro {
   font-family: "Source Sans Pro", sans-serif;
 }
 
