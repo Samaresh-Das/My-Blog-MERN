@@ -13,6 +13,7 @@ const PostTagSelector = ({ dropdownList, getTag }) => {
         const isSelected = selectedTag === item.content;
         return (
           <button
+            type="button"
             key={item.id}
             onClick={() => onSelectingTag(item.content)}
             className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-200

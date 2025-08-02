@@ -40,13 +40,14 @@ const getPosts = async (req, res, next) => {
 
   const postList = posts.map((post) => {
     //to get the details of the user
-    const { id, headline, description, tag, creator, image } = post;
+    const { id, headline, description, tag, category, creator, image } = post;
     const { name, profilePicture, tagline } = creator;
     return {
       id,
       headline,
       description,
       tag,
+      category,
       creator: creator._id.toString(),
       creatorName: name,
       profilePicture,
@@ -124,6 +125,7 @@ const getPostsByUserId = async (req, res, next) => {
 };
 
 const createPosts = async (req, res, next) => {
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(
@@ -131,8 +133,12 @@ const createPosts = async (req, res, next) => {
     );
   }
 
-  console.log(req.file);
-  const { headline, description, tag } = req.body; //get the required details from the body
+  if (!req.file) {
+    const error = new HttpError("Image file not provided", 400);
+    return next(error.message);
+  }
+
+  const { headline, description, category } = req.body; //get the required details from the body
   const creator = req.userData.userId;
   let createdPost;
   try {
@@ -150,13 +156,16 @@ const createPosts = async (req, res, next) => {
       headline,
       description,
       creator,
-      tag,
+      category,
       image: `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`,
     }); //create new post. You need to save later
+
+
 
     // await createdPost.save();
   } catch (err) {
     const error = new HttpError("Posts creation failed", 500);
+    console.error(error);
     return next(error);
   }
 

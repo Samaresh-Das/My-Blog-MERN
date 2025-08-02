@@ -1,30 +1,18 @@
 import React from "react";
 
-const PostFilterTabs = ({ tabs }) => {
+const PostFilterTabs = ({ tabs, onTabSelect }) => {
   return (
     <div className="mt-20">
-      <ul className="hidden md:flex md:flex-wrap md:space-x-6 md:gap-y-2 patrick-hand text-white my-auto justify-start pl-20 ">
-        {tabs.map((tab, index) => (
+      <ul className="flex flex-row flex-wrap md:space-x-6 md:gap-y-2 patrick-hand text-white my-auto justify-start pl-10 md:pl-20 ">
+        {tabs.map(({ label, value }, index) => (
           <li
             key={index}
-            className="cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-white/10 transition-all duration-300 ease-in-out backdrop-blur-2xl hover:shadow-lg  bg-white/5 border-white/10  p-3 shadow-lg hover:shadow-[#5c1eae]/30"
+            className="mr-5 mt-2 md:mt-0 md:mr-0 cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-white/10 transition-all duration-300 ease-in-out backdrop-blur-2xl hover:shadow-lg bg-white/5 border-white/10 p-3 shadow-lg hover:shadow-[#5c1eae]/30"
+            onClick={() => onTabSelect(value)}
           >
-            {tab}
+            {label}
           </li>
         ))}
-
-        {/* <li className="cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-gray-300 hover:text-black transition-all duration-300 ease-in-out">
-            Back-End
-          </li>
-          <li className="cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-gray-300 hover:text-black transition-all duration-300 ease-in-out">
-            Database
-          </li>
-          <li className="cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-gray-300 hover:text-black transition-all duration-300 ease-in-out">
-            DevOPS
-          </li>
-          <li className="cursor-pointer border-2 border-gray-300 rounded-2xl px-4 py-2 hover:bg-gray-300 hover:text-black transition-all duration-300 ease-in-out">
-            DSA
-          </li> */}
       </ul>
     </div>
   );

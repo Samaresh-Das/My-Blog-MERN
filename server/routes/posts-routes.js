@@ -20,7 +20,7 @@ router.post(
   [
     check("headline").not().isEmpty(),
     check("description").isLength({ min: 20 }),
-    check("tag").not().isEmpty(),
+    check("category").not().isEmpty(),
   ],
   postController.createPosts
 );

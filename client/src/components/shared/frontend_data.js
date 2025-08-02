@@ -17,10 +17,6 @@ export const createPost_dropdownList = [
   },
   {
     id: 5,
-    content: "devops",
-  },
-  {
-    id: 6,
     content: "dsa",
   },
 ];
