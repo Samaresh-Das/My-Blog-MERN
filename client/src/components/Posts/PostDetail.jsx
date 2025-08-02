@@ -83,7 +83,6 @@ const PostDetail = () => {
           {parse(sanitizedDescription.toString())}
         </div>
       </div>
-      <Footer />
     </Fragment>
   );
 };

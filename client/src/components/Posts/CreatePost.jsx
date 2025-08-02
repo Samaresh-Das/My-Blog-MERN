@@ -17,6 +17,7 @@ const CreatePost = () => {
   const [tag, setTag] = useState("");
   const [noTitleErrors, setNoTitleErrors] = useState(false);
   const [noTagErrors, setNoTagErrors] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const imageHandler = (e) => {
     setImage(e);
@@ -36,6 +37,8 @@ const CreatePost = () => {
     if (value) setNoTagErrors(false);
   };
 
+  console.log(tag);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,12 +51,19 @@ const CreatePost = () => {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
       const formData = new FormData();
       formData.append("headline", title);
       formData.append("description", description);
-      formData.append("tag", tag);
+      formData.append("category", tag);
       formData.append("image", image);
+
+      //logging form data for debugging
+      // for (let [key, value] of formData.entries()) {
+      //   console.log(`${key}:`, value);
+      // }
       await fetch(`${linkSite}/api/posts/new`, {
         method: "POST",
         body: formData,
@@ -61,8 +71,12 @@ const CreatePost = () => {
           Authorization: "Bearer " + token,
         },
       });
-      history.push("/");
-    } catch (err) {}
+      setTimeout(() => {
+        history.push("/");
+      }, 1500); // 1.5 seconds delay
+    } catch (err) {
+      setIsSubmitting;
+    }
   };
 
   return (
@@ -107,9 +121,10 @@ const CreatePost = () => {
           <div className="px-4 py-3 flex justify-center sm:px-6 mb-[30px] md:mb-0">
             <button
               type="submit"
+              disabled={isSubmitting}
               className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Create
+              {isSubmitting ? "Submitting..." : "Create"}
             </button>
           </div>
         </div>

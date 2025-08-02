@@ -23,24 +23,7 @@ const imageStack = [
 
 const AboutMe = () => {
   return (
-    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto mt-20 text-white">
-      {/* Background animated blobs */}
-      <motion.div
-        className="absolute -top-10 -left-10 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-3xl pointer-events-none -z-10"
-        animate={{ x: [0, 20, -10, 0], y: [0, -25, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-pink-500/10 rounded-full blur-3xl pointer-events-none -z-10"
-        animate={{ x: [0, -20, 15, 0], y: [0, 15, -10, 0] }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-
+    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto text-white flex items-center justify-center min-h-[calc(100vh-80px)]">
       <div className="backdrop-blur-xl bg-white/5 border border-purple-800/20 shadow-xl rounded-2xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between">
         {/* Left: Text content */}
         <div className="flex-1">
@@ -49,27 +32,51 @@ const AboutMe = () => {
           </h1>
           <p className="text-white/70 text-center md:text-left mb-6">
             Hey there! I’m{" "}
-            <span className="text-purple-300 font-semibold">Samaresh</span>, a
-            web developer who finds beauty in pixel-perfect UIs and the chaos of
-            backend logic. When I'm not coding, I’m likely listening to music,
-            gaming, experimenting with animations, or dreaming up wild app ideas
-            that may or may not see the light of day.
+            <span className="text-purple-300 font-semibold">
+              <a
+                href="https://portfolio-2-tau-sable.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold animate-pulse"
+              >
+                Samaresh
+              </a>
+            </span>
+            , a web developer who finds beauty in pixel-perfect UIs and the
+            chaos of backend logic. When I'm not coding, I’m likely listening to
+            music, gaming, experimenting with other technologies, or dreaming up
+            wild app ideas that may or may not see the light of day.
           </p>
 
           <h2 className="text-xl font-semibold mb-3 text-purple-300">
             ✨ Hobbies & Fun Facts
           </h2>
-          <ul className="space-y-3 text-white/80 text-base">
+          <ul className="space-y-3 text-white/80 text-base my-5">
             {hobbies.map(({ icon, label }, i) => (
-              <li key={i} className="flex items-center gap-3">
+              <motion.li
+                key={i}
+                className="flex items-center gap-3"
+                animate={{
+                  y: [0, -4, 0, 3, 0],
+                  rotate: [0, 1.5, -1.5, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                  delay: i * 0.3, // stagger
+                }}
+              >
                 <span className="text-lg text-purple-400">{icon}</span>
                 <span>{label}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
 
-          <div className="mt-10 text-center md:text-left text-white/60 text-sm">
-            Always curious. Always caffeinated. ☕️
+          <div className="mt-10 text-center md:text-left text-white/90 text-sm">
+            Always curious. Always energetic.{" "}
+            <span className="animate-pulse">🔥</span>
           </div>
         </div>
 

@@ -38,23 +38,6 @@ const contactLinks = [
 const ContactMe = () => {
   return (
     <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto mt-20 text-white">
-      {/* Floating blob backgrounds */}
-      <motion.div
-        className="absolute top-10 -left-20 w-[300px] h-[300px] bg-violet-500/20 rounded-full blur-3xl pointer-events-none -z-10"
-        animate={{ x: [0, 20, -10, 0], y: [0, -20, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-pink-500/10 rounded-full blur-3xl pointer-events-none -z-10"
-        animate={{ x: [0, -20, 10, 0], y: [0, 15, -10, 0] }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-
       <div className="backdrop-blur-xl bg-white/5 border border-purple-800/20 shadow-xl rounded-2xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between">
         {/* Left: Links */}
         <div className="flex-1">
