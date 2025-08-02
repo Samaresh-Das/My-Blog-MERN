@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useRef } from "react";
+import { Fragment, useState, useEffect, useRef, useContext } from "react";
 import Footer from "../Footer";
 import { linkSite } from "../linkSite";
 import Card from "../shared/Card";
@@ -7,12 +7,15 @@ import FeaturedPost from "./FeaturedPost";
 import PostItems from "./PostItems";
 import { motion } from "framer-motion";
 import PostFilterTabs from "../shared/PostFilterTabs";
+import FloatingCreateButton from "../shared/FloatingCreateButton ";
+import { AuthContext } from "../context/auth-context";
 
-const PostList = ({ showNav }) => {
+const PostList = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [posts, setPosts] = useState([]);
   const dataRef = useRef(null);
   const [loading, setLoading] = useState(true);
+  const auth = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -149,7 +152,8 @@ const PostList = ({ showNav }) => {
       <ul className="md:flex md:flex-row md:flex-wrap md:justify-center lg:justify-normal md:mx-auto lg:mx-[100px] md:mt-[60px]">
         {postItems}
       </ul>
-      <Footer />
+
+      {auth.isLoggedIn && <FloatingCreateButton />}
     </Fragment>
   );
 };
