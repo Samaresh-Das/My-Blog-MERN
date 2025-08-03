@@ -31,8 +31,10 @@ const linkSite = "https://dev-blog-p5s9.onrender.com/";
 //https://dev-blog-p5s9.onrender.com/
 //http://localhost:5000/
 
+// const defaultImageUrl =
+//   "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
 const defaultImageUrl =
-  "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg";
+  "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/default_user.png";
 
 const createNewUser = async (req, res, next) => {
   const errors = validationResult(req);

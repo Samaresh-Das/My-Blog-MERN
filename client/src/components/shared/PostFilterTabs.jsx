@@ -3,7 +3,7 @@ import React from "react";
 const PostFilterTabs = ({ tabs, onTabSelect }) => {
   return (
     <div className="mt-20">
-      <ul className="flex flex-row flex-wrap md:space-x-6 md:gap-y-2 patrick-hand text-white my-auto justify-start pl-10 md:pl-20 ">
+      <ul className="flex flex-row flex-wrap md:space-x-6 md:gap-y-2 text-white my-auto justify-start pl-10 md:pl-20 ">
         {tabs.map(({ label, value }, index) => (
           <li
             key={index}

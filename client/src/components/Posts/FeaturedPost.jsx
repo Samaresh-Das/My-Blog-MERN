@@ -23,7 +23,7 @@ const FeaturedPost = memo(
             className="md:col-span-2 md:w-full lg:h-[450px] lg:w-11/12 object-cover"
           />
           <div className="mt-10">
-            <div className="text-white mb-2 patrick-hand text-[20px] md:text-[30px]">
+            <div className="text-white mb-2 text-[20px] md:text-[30px]">
               {headline}
             </div>
             <p className="text-white s text-[16px] opacity-50">

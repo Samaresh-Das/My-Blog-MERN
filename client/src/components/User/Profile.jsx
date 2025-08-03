@@ -8,12 +8,12 @@ import React, {
 import { AuthContext } from "../context/auth-context";
 import { Link, useHistory } from "react-router-dom";
 import LoadingSpinner from "../shared/LoadingSpinner";
-import Card from "../shared/Card";
 import Button from "../shared/Button";
 import Input from "../shared/Input";
 import Modal from "../shared/Modal";
 import { linkSite } from "../linkSite";
 import { shortingDesc } from "../Posts/shortDesc";
+import NoPostFound from "../shared/NoPostFound";
 
 const Profile = () => {
   const auth = useContext(AuthContext);
@@ -222,14 +222,12 @@ const Profile = () => {
         </div>
       </form>
       <div className="mt-[20px] pt-[30px] text-white bg-white/5 backdrop-blur-xl mx-5 md:mx-10 rounded-2xl ">
-        <h2 className="text-center text-[24px] patrick-hand mb-[30px]">
-          Your posts
-        </h2>
+        <h2 className="text-center text-[24px] mb-[30px]">Your posts</h2>
         <ul className="md:flex md:flex-row md:justify-center md:flex-wrap md:mt-[60px] md:space-x-4">
           {!userPosts ? (
-            <Card heading="No posts found for you, Create One?">
-              Create One?
-            </Card>
+            <div className="mb-[60px]">
+              <NoPostFound />
+            </div>
           ) : (
             userPosts.map(({ id, image, description, headline }) => {
               const {
@@ -257,7 +255,7 @@ const Profile = () => {
                       ></div>
                       <div className="p-4 flex flex-col justify-between leading-normal">
                         <div className="mb-5">
-                          <div className="text-white mb-2 patrick-hand text-[20px]">
+                          <div className="text-white mb-2 text-[20px]">
                             {headline}
                           </div>
                           <p className="text-white text-[16px] opacity-50">
