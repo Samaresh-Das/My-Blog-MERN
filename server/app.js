@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const fs = require("fs");
 const path = require("path");
+const rateLimit = require('express-rate-limit');
 
 const HttpError = require("./models/http-error");
 
@@ -11,6 +12,17 @@ const postsRoute = require("./routes/posts-routes");
 const usersRoute = require("./routes/user-routes");
 
 const app = express();
+
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 200 requests per windowMs
+  standardHeaders: true, // send `RateLimit-*` headers
+  legacyHeaders: false,  // disable `X-RateLimit-*` headers
+  skip: (req, res) => req.path === '/ping', //keep the ping route unprotected for the cron job
+  message: "Too many requests, please try again later.",
+});
+
+app.use(globalLimiter);
 
 app.use(bodyParser.json());
 
