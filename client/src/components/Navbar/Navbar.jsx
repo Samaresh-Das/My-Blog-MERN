@@ -120,7 +120,7 @@ const Navbar = () => {
                 className="w-[40px] md:w-[50px] h-[40px] md:h-[50px] object-cover my-auto"
               />
             </div>
-            <h1 className="patrick-hand text-white text-[18px] pl-[11px] my-auto md:pt-3">
+            <h1 className="font-bold text-white text-[20px] pl-[11px] my-auto md:pt-3">
               Sam's Blog
             </h1>
           </div>

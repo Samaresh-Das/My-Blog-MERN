@@ -13,6 +13,8 @@ const usersRoute = require("./routes/user-routes");
 
 const app = express();
 
+app.set('trust proxy', 1); // trust first proxy
+
 const globalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   limit: 100, // Limit each IP to 200 requests per windowMs

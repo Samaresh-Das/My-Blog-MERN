@@ -30,9 +30,7 @@ const PostItems = memo(
               ></div>
               <div className="p-4 flex flex-col justify-between leading-normal">
                 <div className="mb-8">
-                  <div className="text-white mb-2 patrick-hand text-[20px]">
-                    {headline}
-                  </div>
+                  <div className="text-white mb-2 text-[20px]">{headline}</div>
                   <p className="text-white text-[16px] opacity-50 break-words">
                     {textContent.length > Max_Length_Of_Description
                       ? shortDescription

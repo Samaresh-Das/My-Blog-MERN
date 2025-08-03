@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ComingSoonModal from "./shared/ComingSoonModal";
 
-const Footer = () => {
+const Footer = ({ onUnsupportedClick }) => {
+  // const [showModal, setShowModal] = useState(false);
+
+  // const handleLinkClick = (e, href) => {
+  //   const unsupportedRoutes = ["/quiz", "/privacy", "/terms"];
+  //   if (unsupportedRoutes.includes(href)) {
+  //     e.preventDefault(); // block navigation
+  //     setShowModal(true); // open modal
+  //   }
+  // };
+
   return (
     <div className="relative z-10">
       {" "}
@@ -100,6 +111,16 @@ const Footer = () => {
                         ) : (
                           <Link
                             to={href}
+                            onClick={(e) => {
+                              const unsupportedRoutes = [
+                                "/quiz",
+                                "/privacy",
+                                "/terms",
+                              ];
+                              if (unsupportedRoutes.includes(href)) {
+                                onUnsupportedClick(e, href);
+                              }
+                            }}
                             className="hover:text-[#b951e2] hover:font-bold transition-colors duration-200"
                           >
                             {label}

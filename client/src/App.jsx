@@ -15,11 +15,20 @@ import BackgroundBlobs from "./components/BackgroundBlobs";
 import Footer from "./components/Footer";
 import ContactMe from "./components/ContactMe";
 import AboutMe from "./components/AboutMe";
+import ComingSoonModal from "./components/shared/ComingSoonModal";
+import { useState } from "react";
 
 function App() {
   const { login, logout, token, userId } = useAuth();
 
   let routes;
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleUnsupportedRoute = (e, href) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   // if (token) {
   //   routes = (
@@ -100,15 +109,36 @@ function App() {
     >
       {/* <BackgroundBlobs /> */}
       <Router>
+        {/* react router by default auto persists scroll area */}
+        <ScrollToTop />
         <div className="relative min-h-screen overflow-hidden">
           <BackgroundBlobs />
           <Navbar />
           {routes}
         </div>
-        <Footer />
+        <ComingSoonModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+        />
+        <Footer onUnsupportedClick={handleUnsupportedRoute} />
       </Router>
     </AuthContext.Provider>
   );
 }
 
 export default App;
+
+//react hooks for scroll to top
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Scroll to top whenever path changes
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+};

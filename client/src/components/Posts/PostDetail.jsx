@@ -1,9 +1,8 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
-
-import Footer from "../Footer";
+import { motion } from "framer-motion";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import { linkSite } from "../linkSite";
 
@@ -51,37 +50,49 @@ const PostDetail = () => {
   return (
     <Fragment>
       <div className="h-full relative">
-        <div className="patrick-hand flex flex-row justify-center text-[18px]">
-          <h1 className="mt-[30px] text-white opacity-40">
-            {tag} &#8226; {formattedDate}
-          </h1>
-        </div>
-        <div className="mt-[11px] text-white text-[24px] patrick-hand text-center mx-[20px]">
-          {headline}
-        </div>
-        <div className="flex items-center justify-center  mt-[30px]">
-          <img
-            className="w-[61px] h-[61px] rounded-full mr-3 object-cover"
-            src={profilePicture}
-            alt="Avatar of Jonathan Reinink"
-          />
-          <div className="text-sm">
-            <p className="text-white leading-none patrick-hand text-[18px]">
-              {creatorName}
-            </p>
-            <p className="text-white opacity-50 patrick-hand text-[16px]">
-              {tagline}
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+        >
+          <div className="flex flex-row justify-center text-[18px]">
+            <h1 className="mt-[30px] text-white opacity-40">
+              {tag} &#8226; {formattedDate}
+            </h1>
           </div>
-        </div>
-        <img
-          src={image}
-          alt="cover"
-          className="mx-auto px-[20px] mt-[40px] md:h-[594px] md:mb-[30px]"
-        />
-        <div className="text-white patrick-hand text-left mx-[20px] md:calc-margin-400 mt-[30px] md:text-[20px]  htmlParsed">
-          {parse(sanitizedDescription.toString())}
-        </div>
+          <div className="mt-[11px] text-white font-bold text-[24px] text-center mx-[20px]">
+            {headline}
+          </div>
+          <div className="flex items-center justify-center  mt-[30px]">
+            <img
+              className="w-[61px] h-[61px] rounded-full mr-3 object-cover"
+              src={profilePicture}
+              alt="Avatar of Jonathan Reinink"
+            />
+            <div className="text-sm">
+              <p className="text-white leading-none text-[18px]">
+                {creatorName}
+              </p>
+              <p className="text-white opacity-50 text-[16px]">{tagline}</p>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="mt-[40px] px-[20px] md:px-[80px] pt-[30px] pb-[50px] bg-white/10 backdrop-blur-lg rounded-[40px] md:rounded-[80px] shadow-xl border border-white/10 md:mx-8 lg:mx-20"
+        >
+          <img
+            src={image}
+            alt="cover"
+            className="mx-auto mt-[40px] mb-10 w-[90%] lg:w-[80%] h-[200px]  lg:h-[594px] object-cover rounded-3xl shadow-lg"
+          />
+
+          <div className="text-white text-left w-[90%] md:w-[80%] mx-auto mt-[10px] md:text-[22px] leading-relaxed htmlParsed">
+            {parse(sanitizedDescription.toString())}
+          </div>
+        </motion.div>
       </div>
     </Fragment>
   );

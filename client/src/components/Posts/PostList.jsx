@@ -9,6 +9,7 @@ import PostFilterTabs from "../shared/PostFilterTabs";
 import FloatingCreateButton from "../shared/FloatingCreateButton ";
 import { AuthContext } from "../context/auth-context";
 import { Link } from "react-router-dom";
+import NoPostFound from "../shared/NoPostFound";
 
 const PostList = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -79,27 +80,8 @@ const PostList = () => {
           ]}
           onTabSelect={(tab) => setSelectedTab(tab)}
         />
-        <div className="flex flex-col items-center justify-center text-white/80 mt-24">
-          {/* <img
-          src="/Assets/empty-box.png"
-          alt="No Posts"
-          className="w-32 h-32 opacity-70 mb-6 animate-pulse"
-        /> */}
-          <h2 className="text-2xl font-semibold text-purple-300 mb-2">
-            No posts found
-          </h2>
-          <p className="text-white/60 mb-4 text-center max-w-md">
-            Seems like nothing has been created in this category yet. Be the
-            first to contribute something amazing!
-          </p>
-          {auth.isLoggedIn && (
-            <Link
-              to="/create"
-              className="px-5 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 transition-all shadow-lg"
-            >
-              ✍️ Create a Post
-            </Link>
-          )}
+        <div className="mt-24">
+          <NoPostFound />
         </div>
       </Fragment>
     );
