@@ -8,7 +8,20 @@
   box-sizing: border-box;
 }
 
+html {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+.gpu-fix,
+.blob {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
   background: radial-gradient(circle at 30% 30%, #2d0f42 0%, #0a0a23 100%);
   font-family: "Quicksand", sans-serif !important;
 }
