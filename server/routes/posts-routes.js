@@ -5,18 +5,20 @@ const postController = require("../controllers/posts");
 const fileUpload = require("../middleware/file-upload");
 const checkAuth = require("../middleware/check-auth");
 const multer = require("multer");
+const { updatePostLimiter, createPostLimiter, getLimiter } = require("../limiters/postLimiter");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.get("/", postController.getPosts);
-router.get("/:pid", postController.getPostsById);
-router.get("/user/:uid", postController.getPostsByUserId); //in this a user will see their posts, this page is not ready in front end and this is only available for authenticated users.
+router.get("/", getLimiter, postController.getPosts);
+router.get("/:pid", getLimiter, postController.getPostsById);
+router.get("/user/:uid", getLimiter, postController.getPostsByUserId);
 
 router.use(checkAuth);
 router.post(
   "/new",
   upload.single("image"),
+  createPostLimiter,
   [
     check("headline").not().isEmpty(),
     check("description").isLength({ min: 20 }),
@@ -27,6 +29,7 @@ router.post(
 
 router.patch(
   "/update/:pid",
+  updatePostLimiter,
   [
     check("headline").not().isEmpty(),
     check("description").isLength({ min: 50 }),
