@@ -41,11 +41,11 @@ function BackgroundBlobs() {
       />
 
       {/* Blue glow bottom-right */}
-      <motion.div
+      {/* <motion.div
         animate={baseAnimation}
         transition={baseTransition}
         className="gpu-fix absolute bottom-[120px] right-[-80px] w-[350px] h-[350px] bg-[#5c1eae] rounded-full mix-blend-screen opacity-25 blur-3xl"
-      />
+      /> */}
 
       {/* Faint pinkish center glow */}
       <motion.div
@@ -58,7 +58,7 @@ function BackgroundBlobs() {
       <motion.div
         animate={baseAnimation}
         transition={baseTransition}
-        className="gpu-fix absolute top-[55%] right-[15%] w-[180px] h-[180px] bg-[#4075bf] rounded-full mix-blend-screen opacity-15 blur-3xl"
+        className="gpu-fix absolute top-[55%] right-[10%] w-[350px] h-[300px] bg-[#5594ec] rounded-full mix-blend-screen opacity-50 blur-3xl"
       />
     </div>
   );

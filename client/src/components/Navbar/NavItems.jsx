@@ -82,6 +82,12 @@ const NavItems = (props) => {
             )}
             <li onClick={hideNav}>Contact Me</li>
             {isLoggedIn && <li onClick={logoutHandler}>Logout</li>}
+            <li onClick={hideNav}>
+              <Link to="/terms">Terms</Link>
+            </li>
+            <li onClick={hideNav}>
+              <Link to="/privacy">Privacy</Link>
+            </li>
           </ul>
         </div>
       </motion.div>

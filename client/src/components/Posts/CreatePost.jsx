@@ -37,8 +37,6 @@ const CreatePost = () => {
     if (value) setNoTagErrors(false);
   };
 
-  console.log(tag);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 

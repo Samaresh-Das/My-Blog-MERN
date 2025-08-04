@@ -52,15 +52,11 @@ const PostList = () => {
     return <Card heading="Something wrong happened, Please check Later"></Card>;
   }
 
-  console.log(posts);
-
   // Filter posts if a category other than "all" is selected
   const filteredPosts =
     selectedTab === "all"
       ? posts
       : posts.filter((post) => post.category === selectedTab);
-
-  console.log(filteredPosts);
 
   if (posts.length === 0) {
     return <Card heading="No posts found here, Create One?">Create One?</Card>;
@@ -86,8 +82,6 @@ const PostList = () => {
       </Fragment>
     );
   }
-
-  console.log(selectedTab);
 
   const postItems = !isDesktop
     ? filteredPosts.map(

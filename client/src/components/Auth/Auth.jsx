@@ -312,8 +312,12 @@ const Auth = () => {
           </div>
           <h3 className="text-center text-white text-[15px] mt-[20px]">
             {login ? "Don't have an account?" : "Already Signed up?"}{" "}
-            <span className="text-lime-500">
-              <button onClick={loginSwitchHandler} type="button">
+            <span className="text-violet-500 font-bold ">
+              <button
+                onClick={loginSwitchHandler}
+                type="button"
+                className="md:hover:scale-105 transition-all duration-300 ease-in-out"
+              >
                 {login ? "Sign Up" : "Login"}
               </button>
             </span>
