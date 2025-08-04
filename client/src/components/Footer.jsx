@@ -3,17 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ComingSoonModal from "./shared/ComingSoonModal";
 
-const Footer = ({ onUnsupportedClick }) => {
-  // const [showModal, setShowModal] = useState(false);
-
-  // const handleLinkClick = (e, href) => {
-  //   const unsupportedRoutes = ["/quiz", "/privacy", "/terms"];
-  //   if (unsupportedRoutes.includes(href)) {
-  //     e.preventDefault(); // block navigation
-  //     setShowModal(true); // open modal
-  //   }
-  // };
-
+const Footer = ({ onUnsupportedClick, unsupportedRoutes }) => {
   return (
     <div className="relative z-10">
       {" "}
@@ -43,7 +33,7 @@ const Footer = ({ onUnsupportedClick }) => {
         }}
       />
       {/* FOOTER stays inside the wrapper */}
-      <footer className="relative backdrop-blur-xl bg-white/5 border-t border-purple-900/20 shadow-inner text-white mt-[60px] z-10">
+      <footer className="relative backdrop-blur-xl bg-white/5 border-t border-purple-900/20 shadow-inner text-white  z-10">
         <div className="mx-auto w-full max-w-screen-xl px-6 py-8">
           <div className="md:flex md:justify-between">
             {/* Brand */}
@@ -112,11 +102,6 @@ const Footer = ({ onUnsupportedClick }) => {
                           <Link
                             to={href}
                             onClick={(e) => {
-                              const unsupportedRoutes = [
-                                "/quiz",
-                                "/privacy",
-                                "/terms",
-                              ];
                               if (unsupportedRoutes.includes(href)) {
                                 onUnsupportedClick(e, href);
                               }

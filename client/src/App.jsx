@@ -30,48 +30,8 @@ function App() {
     setShowModal(true);
   };
 
-  // if (token) {
-  //   routes = (
-  //     <Switch>
-  //       <Route path="/create" exact>
-  //         <CreatePost />
-  //       </Route>
-  //       <Route path="/update/:postId" exact>
-  //         <UpdatePost />
-  //       </Route>
-  //       <Route path="/profile" exact>
-  //         <Profile />
-  //       </Route>
-  //       <Route path="/" exact>
-  //         <PostList />
-  //       </Route>
-  //       <Route path="/post/:postId" exact>
-  //         <PostDetail />
-  //       </Route>
-  //     </Switch>
-  //   );
-  // } else {
-  //   routes = (
-  //     <Switch>
-  //       <Route path="/" exact>
-  //         <PostList />
-  //       </Route>
-  //       <Route path="/post/:postId" exact>
-  //         <PostDetail />
-  //       </Route>
-  //       <Route path="/auth" exact>
-  //         <Auth />
-  //       </Route>
-  //       <Route path="/contact" exact>
-  //         <ContactMe />
-  //       </Route>
-  //       <Route path="*" exact>
-  //         <Auth />
-  //       </Route>
-  //       {/* <Redirect to="/auth" exact /> */}
-  //     </Switch>
-  //   );
-  // }
+  const unsupportedRoutes = ["/quiz"];
+
   if (token) {
     routes = (
       <Switch>
@@ -80,6 +40,8 @@ function App() {
         <Route path="/profile" exact component={Profile} />
         <Route path="/contact" exact component={ContactMe} />
         <Route path="/about" exact component={AboutMe} />
+        <Route path="/privacy" exact component={Privacy} />
+        <Route path="/terms" exact component={Terms} />
         <Route path="/" exact component={PostList} />
         <Route path="/post/:postId" exact component={PostDetail} />
         <Route path="*" exact component={PostList} />
@@ -93,6 +55,8 @@ function App() {
         <Route path="/auth" exact component={Auth} />
         <Route path="/contact" exact component={ContactMe} />
         <Route path="/about" exact component={AboutMe} />
+        <Route path="/privacy" exact component={Privacy} />
+        <Route path="/terms" exact component={Terms} />
         <Route path="*" exact component={Auth} />
       </Switch>
     );
@@ -111,7 +75,7 @@ function App() {
       <Router>
         {/* react router by default auto persists scroll area */}
         <ScrollToTop />
-        <div className="relative min-h-screen overflow-hidden">
+        <div className="relative min-h-screen overflow-hidden pb-20">
           <BackgroundBlobs />
           <Navbar />
           {routes}
@@ -120,7 +84,10 @@ function App() {
           isOpen={showModal}
           onClose={() => setShowModal(false)}
         />
-        <Footer onUnsupportedClick={handleUnsupportedRoute} />
+        <Footer
+          onUnsupportedClick={handleUnsupportedRoute}
+          unsupportedRoutes={unsupportedRoutes}
+        />
       </Router>
     </AuthContext.Provider>
   );
@@ -131,6 +98,8 @@ export default App;
 //react hooks for scroll to top
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Privacy from "./components/Privacy";
+import Terms from "./components/Terms";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
