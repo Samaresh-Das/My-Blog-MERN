@@ -10,6 +10,7 @@ import FloatingCreateButton from "../shared/FloatingCreateButton ";
 import { AuthContext } from "../context/auth-context";
 import { Link } from "react-router-dom";
 import NoPostFound from "../shared/NoPostFound";
+import { SearchContext } from "../context/SearchContext";
 
 const PostList = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -18,7 +19,7 @@ const PostList = () => {
   const [loading, setLoading] = useState(true);
   const auth = useContext(AuthContext);
   const [selectedTab, setSelectedTab] = useState("all");
-
+  const { searchQuery } = useContext(SearchContext);
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768); // Set breakpoint value for desktop/mobile
@@ -53,10 +54,20 @@ const PostList = () => {
   }
 
   // Filter posts if a category other than "all" is selected
-  const filteredPosts =
+  let filteredPosts =
     selectedTab === "all"
       ? posts
       : posts.filter((post) => post.category === selectedTab);
+
+  if (searchQuery.trim() !== "") {
+    const lowerQuery = searchQuery.toLowerCase();
+    filteredPosts = filteredPosts.filter(
+      (post) =>
+        post.headline.toLowerCase().includes(lowerQuery) ||
+        post.description.toLowerCase().includes(lowerQuery) ||
+        post.creatorName.toLowerCase().includes(lowerQuery)
+    );
+  }
 
   if (posts.length === 0) {
     return <Card heading="No posts found here, Create One?">Create One?</Card>;
@@ -120,7 +131,10 @@ const PostList = () => {
           );
         }
       )
-    : (selectedTab === "all" ? filteredPosts.slice(0, -1) : filteredPosts).map(
+    : (selectedTab === "all" && searchQuery.trim() === ""
+        ? filteredPosts.slice(0, -1)
+        : filteredPosts
+      ).map(
         (
           {
             id,
@@ -169,23 +183,26 @@ const PostList = () => {
         ]}
         onTabSelect={(tab) => setSelectedTab(tab)}
       />
-      {selectedTab === "all" && posts.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: -60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <FeaturedPost
-            id={posts[posts.length - 1].id}
-            image={posts[posts.length - 1].image}
-            headline={posts[posts.length - 1].headline}
-            description={posts[posts.length - 1].description}
-            profilePicture={posts[posts.length - 1].profilePicture}
-            creatorName={posts[posts.length - 1].creatorName}
-            tagline={posts[posts.length - 1].tagline}
-          />
-        </motion.div>
-      )}
+      {/* if selected tab is all or search query is empty and posts are available */}
+      {selectedTab === "all" &&
+        searchQuery.trim() === "" &&
+        posts.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <FeaturedPost
+              id={posts[posts.length - 1].id}
+              image={posts[posts.length - 1].image}
+              headline={posts[posts.length - 1].headline}
+              description={posts[posts.length - 1].description}
+              profilePicture={posts[posts.length - 1].profilePicture}
+              creatorName={posts[posts.length - 1].creatorName}
+              tagline={posts[posts.length - 1].tagline}
+            />
+          </motion.div>
+        )}
       <ul className="md:flex md:flex-row md:flex-wrap md:justify-center lg:justify-normal md:mx-auto lg:mx-[100px] md:mt-[60px]">
         {postItems}
       </ul>
