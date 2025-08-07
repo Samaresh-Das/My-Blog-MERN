@@ -5,12 +5,11 @@ import NavItems from "./NavItems";
 
 import { IconContext } from "react-icons";
 import { HiMenu } from "react-icons/hi";
-import { FiSearch } from "react-icons/fi";
-import { IoIosCreate } from "react-icons/io";
-import { Tooltip } from "react-tooltip";
+import { FiSearch, FiX } from "react-icons/fi";
+
 import { AnimatePresence, motion } from "framer-motion";
 import ProfileFunctionalities from "./ProfileFunctionalities";
-import { use } from "react";
+import { SearchContext } from "../context/SearchContext";
 
 const Navbar = () => {
   const history = useHistory();
@@ -21,6 +20,7 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownTimeout = useRef(null);
   const [showMobileSearch, setShowMobileSearch] = useState(false); // for mobile search toggle
+  const { searchQuery, setSearchQuery } = useContext(SearchContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,6 +47,9 @@ const Navbar = () => {
       setShowDropdown(false); // Hide nav menu when user is logged in
     }
   }, [auth.isLoggedIn]);
+  useEffect(() => {
+    setSearchQuery("");
+  }, [location.pathname]);
 
   // Toggle mobile search input
   const toggleMobileSearch = () => {
@@ -71,6 +74,10 @@ const Navbar = () => {
     dropdownTimeout.current = setTimeout(() => {
       setShowDropdown(false);
     }, 200); // You can adjust this delay (ms)
+  };
+
+  const onSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   const ifNotOnHomepage = location.pathname !== "/";
@@ -131,12 +138,22 @@ const Navbar = () => {
             <div className="hidden md:block relative">
               <input
                 type="text"
-                className="rounded-full pl-[40px] pb-1 text-white h-[40px] w-full md:w-[200px] lg:w-[300px] bg-transparent border border-1 border-purple-900 focus:outline-none focus:ring-1 focus:ring-purple-900 focus:shadow-md focus:shadow-purple-900"
+                value={searchQuery}
+                className="rounded-full pl-[40px] pr-10 pb-1 text-white h-[40px] w-full bg-transparent border border-purple-900 placeholder:text-white/60 outline-none focus:outline-none focus:ring-1 focus:ring-purple-900 focus:shadow-md focus:shadow-purple-900 tracking-wide transition-all duration-300 ease-in-out"
                 placeholder="search"
+                onChange={onSearchChange}
               />
               <span className="absolute top-3 left-0 flex items-center pl-3">
                 <FiSearch className="text-white opacity-50" />
               </span>
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute top-[8px] right-5 text-white opacity-50 hover:opacity-100"
+                >
+                  <FiX size={22} />
+                </button>
+              )}
             </div>
           )}
           <div className="hidden md:flex md:flex-row md:space-x-5 text-white hover:scale-105 transition-all duration-300 ease-in-out">
@@ -149,26 +166,6 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
-        {/* create post icon */}
-        {/* {auth.isLoggedIn && (
-          <Link to="/create" className="my-auto hidden md:block">
-            <IconContext.Provider
-              value={{
-                color: "white",
-                className: "global-class-name",
-                size: "2em",
-              }}
-            >
-              <div>
-                <IoIosCreate className="create_post" />
-                <Tooltip anchorSelect=".create_post" place="bottom">
-                  Create Post
-                </Tooltip>
-              </div>
-            </IconContext.Provider>
-          </Link>
-        )} */}
 
         {auth.isLoggedIn && (
           <div className="hidden md:flex md:flex-row md:items-center md:space-x-5">
@@ -219,9 +216,20 @@ const Navbar = () => {
             >
               <input
                 type="text"
+                value={searchQuery}
                 placeholder="Search..."
                 className="w-full h-[40px] pl-4 pr-4 rounded-full bg-white/10 text-white/100 border border-purple-900 placeholder:text-white/60 outline-none"
+                onChange={onSearchChange}
               />
+
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute top-[8px] right-10 text-white opacity-50 hover:opacity-100"
+                >
+                  <FiX size={22} />
+                </button>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

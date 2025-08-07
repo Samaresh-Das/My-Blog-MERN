@@ -24,6 +24,7 @@ function App() {
   let routes;
 
   const [showModal, setShowModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleUnsupportedRoute = (e, href) => {
     e.preventDefault();
@@ -71,24 +72,26 @@ function App() {
         logout: logout,
       }}
     >
-      {/* <BackgroundBlobs /> */}
-      <Router>
-        {/* react router by default auto persists scroll area */}
-        <ScrollToTop />
-        <div className="relative min-h-screen overflow-hidden pb-20">
-          <BackgroundBlobs />
-          <Navbar />
-          {routes}
-        </div>
-        <ComingSoonModal
-          isOpen={showModal}
-          onClose={() => setShowModal(false)}
-        />
-        <Footer
-          onUnsupportedClick={handleUnsupportedRoute}
-          unsupportedRoutes={unsupportedRoutes}
-        />
-      </Router>
+      <SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
+        {/* <BackgroundBlobs /> */}
+        <Router>
+          {/* react router by default auto persists scroll area */}
+          <ScrollToTop />
+          <div className="relative min-h-screen overflow-hidden pb-20">
+            <BackgroundBlobs />
+            <Navbar />
+            {routes}
+          </div>
+          <ComingSoonModal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+          />
+          <Footer
+            onUnsupportedClick={handleUnsupportedRoute}
+            unsupportedRoutes={unsupportedRoutes}
+          />
+        </Router>
+      </SearchContext.Provider>
     </AuthContext.Provider>
   );
 }
@@ -100,6 +103,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Privacy from "./components/Privacy";
 import Terms from "./components/Terms";
+import { SearchContext } from "./components/context/SearchContext";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
