@@ -28,9 +28,9 @@ const CreatePost = () => {
     setNoTitleErrors(false);
   };
 
-  const getDescription = (e) => {
+  const getDescription = React.useCallback((e) => {
     setDescription(e);
-  };
+  }, []);
 
   const getTag = (value) => {
     setTag(value);
