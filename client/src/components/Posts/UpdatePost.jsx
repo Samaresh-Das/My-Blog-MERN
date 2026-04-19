@@ -54,9 +54,9 @@ const UpdatePost = () => {
     history.push(`/post/${postId}`); //forwarding the user to post details
   };
 
-  const getDescription = (e) => {
+  const getDescription = React.useCallback((e) => {
     setDescription(e);
-  };
+  }, []);
 
   return (
     <div className="h-full bg-no-repeat">
