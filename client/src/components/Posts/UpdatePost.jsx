@@ -59,46 +59,48 @@ const UpdatePost = () => {
   }, []);
 
   return (
-    <div className="h-full bg-no-repeat">
+    <div className="px-4 md:px-0">
       <form onSubmit={formSubmitHandler}>
-        <div className="md:w-[80%] md:mx-auto mt-[50px] ">
-          <div className="relative z-0  mb-6 group">
+        <div className="max-w-4xl mx-auto mt-[50px] bg-white border-4 border-neoBorder rounded-xl shadow-neoLg p-6 md:p-10 mb-20">
+          <h1 className="text-center font-black text-neoBorder text-[32px] mb-8 pb-4 border-b-4 border-neoBorder">Update Post</h1>
+          <div className="relative z-0 mb-6 group w-full">
             <Input
-              labelClass="text-white text-center block md:inline-block"
+              labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
               label="Headline"
               type="text"
               element="input"
               id="headline"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
               placeholder={postDetails.post.headline}
               ref={headlineRef}
             />
           </div>
 
-          <div className="relative z-0 md:w-full mb-6 ">
+          <div className="relative z-0 w-full mb-6 border-2 border-neoBorder rounded-lg p-2 md:p-4 shadow-neo bg-white">
+            <label className="text-neoBorder font-bold text-[18px] mb-2 block">Post Content</label>
             <RTE
               description={getDescription}
               value={postDetails.post.description}
             />
           </div>
-          <div className="relative z-0 md:w-full mb-6">
+          <div className="relative z-0 w-full mb-10">
             <Input
-              labelClass="text-white text-center block my-2 md:my-0 md:inline-block"
+              labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
               label="Tag"
               type="text"
               element="input"
               id="tag"
-              className="block py-2.5 px-0 w-[300px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
               placeholder={postDetails.post.tag}
               ref={tagRef}
             />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-8">
             <Button
               type="submit"
-              className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0"
+              className="w-full md:w-auto min-w-[200px] text-[18px] py-3 bg-neoBlue rounded-lg shadow-[4px_4px_0px_#111827]"
             >
-              Update
+              Update Post
             </Button>
           </div>
         </div>

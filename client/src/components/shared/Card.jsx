@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   return (
     <div className="h-full pb-[60px]">
-      <div className="md:w-[600px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mx-auto mt-[50px]">
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-center">
+      <div className="md:w-[600px] p-8 bg-white border-4 border-neoBorder rounded-xl shadow-neo mx-auto mt-[50px]">
+        <p className="mb-6 font-bold text-neoBorder text-center text-[18px]">
           {props.heading}
         </p>
         <div className="flex justify-center">
           <Link
             to="/create"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-[16px] font-bold text-neoBorder bg-neoYellow border-2 border-neoBorder rounded-lg shadow-neo hover:shadow-neoHover hover:-translate-y-1 transition-all focus:outline-none"
           >
             {props.children}
             <svg
               aria-hidden="true"
-              className="w-4 h-4 ml-2 -mr-1"
+              className="w-4 h-4"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -35,3 +35,4 @@ const Card = (props) => {
 };
 
 export default Card;
+

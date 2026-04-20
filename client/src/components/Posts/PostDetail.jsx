@@ -56,24 +56,26 @@ const PostDetail = () => {
           transition={{ delay: 0.35 }}
         >
           <div className="flex flex-row justify-center text-[18px]">
-            <h1 className="mt-[30px] text-white opacity-40">
+            <h1 className="mt-[30px] text-neoBorder opacity-70 font-bold border-2 border-neoBorder px-4 py-1 rounded-full bg-neoPink shadow-[3px_3px_0px_rgba(17,24,39,1)]">
               {tag} &#8226; {formattedDate}
             </h1>
           </div>
-          <div className="mt-[11px] text-white font-bold text-[24px] text-center mx-[20px]">
+          <div className="mt-8 text-neoBorder font-black text-[32px] md:text-[48px] leading-tight text-center mx-[20px] max-w-4xl lg:mx-auto">
             {headline}
           </div>
-          <div className="flex items-center justify-center  mt-[30px]">
-            <img
-              className="w-[61px] h-[61px] rounded-full mr-3 object-cover"
-              src={profilePicture}
-              alt="Avatar of Jonathan Reinink"
-            />
-            <div className="text-sm">
-              <p className="text-white leading-none text-[18px]">
-                {creatorName}
-              </p>
-              <p className="text-white opacity-50 text-[16px]">{tagline}</p>
+          <div className="flex items-center justify-center mt-10">
+            <div className="flex items-center p-3 border-2 border-neoBorder rounded-xl bg-neoYellow shadow-neo">
+              <img
+                className="w-[60px] h-[60px] rounded-full mr-4 object-cover border-2 border-neoBorder shadow-inner"
+                src={profilePicture}
+                alt={`Avatar of ${creatorName}`}
+              />
+              <div className="text-sm">
+                <p className="text-neoBorder leading-none text-[18px] font-bold">
+                  {creatorName}
+                </p>
+                <p className="text-gray-800 font-semibold mt-2 text-[16px]">{tagline}</p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -81,15 +83,15 @@ const PostDetail = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="mt-[40px] px-[20px] md:px-[80px] pt-[30px] pb-[50px] bg-white/10 backdrop-blur-lg rounded-[40px] md:rounded-[80px] shadow-xl border border-white/10 md:mx-8 lg:mx-20"
+          className="mt-[40px] px-[20px] md:px-[80px] pt-[30px] pb-[50px] bg-white rounded-xl shadow-neoLg border-4 border-neoBorder md:mx-8 lg:mx-20 mb-20"
         >
           <img
             src={image}
             alt="cover"
-            className="mx-auto mt-[40px] mb-10 w-[90%] lg:w-[80%] h-[200px]  lg:h-[594px] object-cover rounded-3xl shadow-lg"
+            className="mx-auto mt-[20px] md:mt-[40px] mb-10 w-[90%] lg:w-[80%] h-[200px] lg:h-[594px] object-cover rounded-xl shadow-neo border-4 border-neoBorder"
           />
 
-          <div className="text-white text-left w-[90%] md:w-[80%] mx-auto mt-[10px] md:text-[22px] leading-relaxed htmlParsed">
+          <div className="text-neoBorder font-medium text-left w-[90%] md:w-[80%] mx-auto mt-[10px] md:text-[22px] leading-relaxed htmlParsed">
             {parse(sanitizedDescription.toString())}
           </div>
         </motion.div>

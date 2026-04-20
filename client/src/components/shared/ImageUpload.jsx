@@ -38,14 +38,14 @@ const ImageUpload = (props) => {
   };
 
   return (
-    <div className=" w-[300px] md:w-auto mx-auto">
-      <label className="block text-sm font-medium leading-6 text-white mt-4">
+    <div className="w-full mx-auto md:w-[500px]">
+      <label className="block text-[18px] font-bold leading-6 text-neoBorder mt-4 mb-2">
         Cover photo
       </label>
-      <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 md:w-[500px] mx-auto">
-        <div className="space-y-1 text-center">
+      <div className="flex justify-center rounded-lg border-2 border-dashed border-neoBorder bg-neoBg shadow-sm hover:shadow-neo transition-all px-6 pt-5 pb-6 w-full mx-auto">
+        <div className="space-y-2 text-center">
           <svg
-            className="mx-auto h-12 w-12 text-gray-400"
+            className="mx-auto h-12 w-12 text-neoBorder"
             stroke="currentColor"
             fill="none"
             viewBox="0 0 48 48"
@@ -58,12 +58,12 @@ const ImageUpload = (props) => {
               strokeLinejoin="round"
             />
           </svg>
-          <div className="flex text-sm text-gray-400">
+          <div className="flex items-center justify-center text-sm text-neoBorder font-semibold">
             <label
               htmlFor="file-upload"
-              className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-lg bg-neoYellow border-2 border-neoBorder font-bold px-3 py-1 shadow-[2px_2px_0px_#111827] hover:shadow-[4px_4px_0px_#111827] hover:-translate-y-0.5 transition-all text-neoBorder focus-within:outline-none focus-within:ring-2 focus-within:ring-neoBorder focus-within:ring-offset-2"
             >
-              <button onClick={pickImageHandler} type="button" className="p-2">
+              <button onClick={pickImageHandler} type="button" className="pointer-events-none p-1">
                 Upload a file
               </button>
               <input
@@ -76,17 +76,17 @@ const ImageUpload = (props) => {
                 type="file"
               />
             </label>
-            <p className="pl-1 my-auto">or drag and drop</p>
+            <p className="pl-2 my-auto">or drag and drop</p>
           </div>
-          <p className="text-xs text-gray-400">PNG, JPG, GIF up to 10MB</p>
+          <p className="text-xs font-bold text-gray-500">PNG, JPG, GIF up to 10MB</p>
         </div>
       </div>
-      <div>
-        <div className="w-[200px] mx-auto">
+      <div className="mt-6">
+        <div className="w-full">
           {previewUrl ? (
-            <img src={previewUrl} alt="Preview" />
+            <img src={previewUrl} alt="Preview" className="mx-auto max-h-64 object-cover rounded-xl border-4 border-neoBorder shadow-neo" />
           ) : (
-            <p className="md:text-center">Please pick and image</p>
+            <p className="text-center font-bold text-gray-400">Please pick an image</p>
           )}
         </div>
       </div>

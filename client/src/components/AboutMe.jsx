@@ -23,21 +23,26 @@ const imageStack = [
 
 const AboutMe = () => {
   return (
-    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto text-white flex items-center justify-center min-h-[calc(100vh-80px)]">
-      <div className="backdrop-blur-xl bg-white/5 border border-purple-800/20 shadow-xl rounded-2xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between">
+    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto text-neoBorder flex items-center justify-center min-h-[calc(100vh-80px)] overflow-hidden">
+      <div className="bg-white border-4 border-neoBorder shadow-neoLg rounded-xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between relative mt-10">
+        
+        {/* Background Decorative Blocks */}
+        <div className="absolute top-0 right-0 w-24 h-24 bg-neoPink border-b-4 border-l-4 border-neoBorder rounded-bl-[40px] z-0 hidden md:block"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-16 bg-neoGreen border-t-4 border-r-4 border-neoBorder rounded-tr-[30px] z-0"></div>
+
         {/* Left: Text content */}
-        <div className="flex-1">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center md:text-left">
+        <div className="flex-1 relative z-10">
+          <h1 className="text-3xl md:text-5xl font-black mb-6 text-center md:text-left inline-block pb-2 border-b-4 border-neoBorder decoration-neoPink">
             👋 About Me
           </h1>
-          <p className="text-white/70 text-center md:text-left mb-6">
+          <p className="font-bold text-lg text-center md:text-left mb-8">
             Hey there! I’m{" "}
-            <span className="text-purple-300 font-semibold">
+            <span className="bg-neoYellow px-2 border-2 border-neoBorder rounded shadow-[2px_2px_0px_#111827] mx-1">
               <a
                 href="https://portfolio-2-tau-sable.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold animate-pulse"
+                className="font-black hover:text-neoPink transition-colors"
               >
                 Samaresh
               </a>
@@ -48,14 +53,14 @@ const AboutMe = () => {
             wild app ideas that may or may not see the light of day.
           </p>
 
-          <h2 className="text-xl font-semibold mb-3 text-purple-300">
+          <h2 className="text-2xl font-black mb-4 bg-neoBlue inline-block px-4 py-2 border-2 border-neoBorder rounded-lg shadow-[4px_4px_0px_#111827]">
             ✨ Hobbies & Fun Facts
           </h2>
-          <ul className="space-y-3 text-white/80 text-base my-5">
+          <ul className="space-y-4 font-bold text-lg my-6">
             {hobbies.map(({ icon, label }, i) => (
               <motion.li
                 key={i}
-                className="flex items-center gap-3"
+                className="flex items-center gap-4 bg-neoBg p-3 border-2 border-neoBorder rounded-lg shadow-neo w-full max-w-sm"
                 animate={{
                   y: [0, -4, 0, 3, 0],
                   rotate: [0, 1.5, -1.5, 0],
@@ -68,93 +73,52 @@ const AboutMe = () => {
                   delay: i * 0.3, // stagger
                 }}
               >
-                <span className="text-lg text-purple-400">{icon}</span>
+                <span className="p-2 bg-white border-2 border-neoBorder rounded-lg shadow-[2px_2px_0px_#111827] text-neoBorder text-xl">
+                  {icon}
+                </span>
                 <span>{label}</span>
               </motion.li>
             ))}
           </ul>
 
-          <div className="mt-10 text-center md:text-left text-white/90 text-sm">
-            Always curious. Always energetic.{" "}
-            <span className="animate-pulse">🔥</span>
+          <div className="mt-10 text-center md:text-left font-black text-sm bg-neoPink p-3 border-2 border-neoBorder rounded-lg shadow-neo inline-block text-white">
+            Always curious. Always energetic. <span className="animate-pulse">🔥</span>
           </div>
         </div>
 
-        {/* Right: Image stack with floating motion */}
-        {/* <div className="relative w-[300px] h-[300px] flex-shrink-0 hidden md:block">
-          {imageStack.map(({ src, z, offset }, idx) => (
-            <motion.img
-              key={idx}
-              src={src}
-              alt={`Samaresh ${idx}`}
-              className={`absolute ${offset} ${z} w-[240px] h-[240px] object-cover rounded-xl shadow-2xl border border-violet-500/30`}
-              initial={{
-                opacity: 0.8,
-                scale: 0.95,
-              }}
-              animate={{
-                x: [30, -20, 30],
-                y: [-30, 20, -30],
-                rotate: [-5 + idx * 5, 0, -5 + idx * 5],
-              }}
-              transition={{
-                type: "tween", // changed to tween for smooth multi-keyframe
-                ease: "easeInOut",
-                duration: 6,
-                repeat: Infinity,
-                delay: idx * 1.5,
-              }}
+        {/* Right: Floating motion image for desktop */}
+        <div className="flex-1 max-w-sm mx-auto hidden md:block relative z-10 w-full h-[400px]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 100, y: -100, rotate: 10 }}
+            animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 12, duration: 1.5, repeat: Infinity, repeatType: "reverse", repeatDelay: 1.5 }}
+            className="absolute inset-0"
+          >
+            <div className="absolute inset-0 bg-neoYellow border-4 border-neoBorder rounded-2xl transform translate-x-4 translate-y-4 shadow-[8px_8px_0px_#111827]"></div>
+            <img
+              src="/Assets/Me2.jpg"
+              alt="Samaresh"
+              className="relative w-full h-full object-cover rounded-2xl border-4 border-neoBorder bg-white"
             />
-          ))}
-        </div> */}
-        <motion.div
-          className="flex-1 max-w-xs mx-auto hidden md:block "
-          initial={{
-            opacity: 0,
-            scale: 0.8,
-            x: 100,
-            y: -100,
-            rotate: 10,
-          }}
-          animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            damping: 12,
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1.5,
-          }}
-        >
-          <img
-            src="/Assets/Me2.jpg"
-            alt="Samaresh"
-            className="rounded-2xl shadow-2xl border border-violet-500/40 w-[300px] h-[300px] object-cover"
-          />
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Mobile version - From bottom horizontally */}
-        <motion.div
-          className="flex justify-center md:hidden mt-10"
-          initial={{ opacity: 0, y: 100, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 90,
-            damping: 10,
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1.5,
-          }}
-        >
-          <img
-            src="/Assets/Me2.jpg"
-            alt="Samaresh"
-            className="rounded-xl shadow-xl border border-violet-500/30 w-[250px] h-[250px] object-cover"
-          />
-        </motion.div>
+        {/* Mobile version */}
+        <div className="flex justify-center md:hidden mt-10 relative z-10 w-full max-w-xs">
+          <motion.div
+            initial={{ opacity: 0, y: 100, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 90, damping: 10, duration: 1.5, repeat: Infinity, repeatType: "reverse", repeatDelay: 1.5 }}
+            className="relative w-full aspect-square"
+          >
+             <div className="absolute inset-0 bg-neoYellow border-4 border-neoBorder rounded-xl transform translate-x-3 translate-y-3 shadow-[4px_4px_0px_#111827]"></div>
+            <img
+              src="/Assets/Me2.jpg"
+              alt="Samaresh"
+              className="relative w-full h-full object-cover rounded-xl border-4 border-neoBorder bg-white"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

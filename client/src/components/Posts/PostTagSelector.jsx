@@ -8,7 +8,7 @@ const PostTagSelector = ({ dropdownList, getTag }) => {
     getTag(value);
   };
   return (
-    <div className="flex  gap-3 mt-2">
+    <div className="flex flex-wrap gap-4 mt-2">
       {dropdownList.map((item) => {
         const isSelected = selectedTag === item.content;
         return (
@@ -16,11 +16,11 @@ const PostTagSelector = ({ dropdownList, getTag }) => {
             type="button"
             key={item.id}
             onClick={() => onSelectingTag(item.content)}
-            className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-200
+            className={`px-4 py-2 rounded-lg text-md transition-all duration-200 border-2 border-neoBorder focus:outline-none
               ${
                 isSelected
-                  ? "bg-violet-600/70 text-white border-violet-500 shadow-md"
-                  : "bg-white/10 text-white/70 border-purple-800 hover:bg-violet-600/30 hover:text-white"
+                  ? "bg-neoPink text-neoBorder font-bold shadow-[4px_4px_0px_#111827] -translate-y-1"
+                  : "bg-white text-neoBorder font-semibold shadow-none hover:bg-neoYellow hover:shadow-[4px_4px_0px_#111827] hover:-translate-y-1"
               }
             `}
           >

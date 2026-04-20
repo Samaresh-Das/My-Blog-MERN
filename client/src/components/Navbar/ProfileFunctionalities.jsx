@@ -16,7 +16,7 @@ const ProfileFunctionalities = ({
     >
       <Link to="/profile">
         <img
-          className="w-[51px] h-[51px] rounded-full mr-3 object-cover"
+          className="w-[48px] h-[48px] rounded-full mr-3 object-cover border-4 border-neoBorder shadow-neo hover:shadow-neoHover hover:-translate-y-0.5 transition-all"
           src={userPhoto}
           alt="User Avatar"
         />

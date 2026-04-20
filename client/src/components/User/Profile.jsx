@@ -23,6 +23,8 @@ const Profile = () => {
   const [isValid, setIsValid] = useState(false);
   const [hover, setHover] = useState();
   const [modal, setModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 4;
 
   const [file, setFile] = useState();
 
@@ -133,103 +135,113 @@ const Profile = () => {
   const modalCloseHandler = () => {
     setModal(false);
   };
+
+  // Pagination logic
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = userPosts ? userPosts.slice(indexOfFirstPost, indexOfLastPost) : [];
+  const totalPages = userPosts ? Math.ceil(userPosts.length / postsPerPage) : 0;
+
   // const userPhoto = localStorage.getItem("userPhoto");
   return (
-    <div className="h-full bg-no-repeat">
+    <div className="relative max-w-5xl mx-auto px-5 mt-10">
       {modal && <Modal onClose={modalCloseHandler} />}
-      <form onSubmit={formSubmitHandler}>
-        <div>
-          <input
-            type="file"
-            ref={filePickerRef}
-            style={{ display: "none" }}
-            accept=".jpg, .png, .jpeg"
-            onChange={pickedHandler}
-          />
-          <img
-            src={previewUrl ? previewUrl : user.profilePicture}
-            alt=""
-            className="w-[200px] md:w-[250px] h-[250px] object-cover mx-auto rounded-full mt-[30px] md:mt-0"
-          />
-          <div className="flex justify-center">
-            <Button
-              type="button"
-              onClick={pickImageHandler}
-              className="mt-[20px] w-[150px] px-5 py-2.5 text-center"
-            >
-              Change
-            </Button>
-          </div>
-        </div>
-        <div className="md:w-[500px] md:mx-auto mt-[50px] ">
-          <div className="relative z-0  mb-6 group">
-            <Input
-              labelClass="text-white w-[280px] md:w-auto mx-auto md:text-center block md:inline-block"
-              label="Name"
-              type="text"
-              element="input"
-              id="name"
-              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder={user.name}
-              ref={nameRef}
+      <form onSubmit={formSubmitHandler} className="bg-white border-4 border-neoBorder rounded-xl shadow-neoLg p-8 relative z-10 w-full mb-10 overflow-hidden">
+        <h1 className="text-center font-black text-neoBorder text-[32px] mb-8 pb-4 border-b-4 border-neoBorder">Edit Profile</h1>
+        <div className="flex flex-col md:flex-row md:items-start md:gap-x-12">
+          <div className="flex flex-col items-center w-full md:w-1/3">
+            <input
+              type="file"
+              ref={filePickerRef}
+              style={{ display: "none" }}
+              accept=".jpg, .png, .jpeg"
+              onChange={pickedHandler}
             />
-          </div>
-
-          <div className="relative z-0 md:w-full mb-6 ">
-            <Input
-              labelClass="text-white w-[280px] md:w-auto mx-auto md:text-center block md:inline-block"
-              label="Email Address"
-              type="text"
-              element="input"
-              id="email"
-              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder={user.email}
-              ref={emailRef}
+            <img
+              src={previewUrl ? previewUrl : user.profilePicture}
+              alt=""
+              className="w-[200px] md:w-[250px] h-[200px] md:h-[250px] object-cover rounded-xl border-4 border-neoBorder shadow-neo"
             />
+            <div className="flex justify-center w-full mt-6">
+              <Button
+                type="button"
+                onClick={pickImageHandler}
+                className="w-full max-w-[200px]"
+              >
+                Change Photo
+              </Button>
+            </div>
           </div>
-          <div className="relative z-0 md:w-full mb-6">
-            <Input
-              labelClass="text-white w-[280px] md:w-auto mx-auto md:text-center block md:inline-block"
-              label="Tagline"
-              type="text"
-              element="input"
-              id="tag"
-              className="block py-2.5 px-0 w-[280px] mx-auto md:mx-0 md:w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder={user.tagline}
-              ref={taglineRef}
-            />
-          </div>
-          <div className="flex justify-center space-x-4">
-            <Button
-              type="submit"
-              className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0"
-            >
-              Update
-            </Button>
-            <button
-              className="w-[150px] px-5 py-2.5 text-center mb-[30px] md:mb-0 font-semibold text-sm rounded-2xl 
-    text-red-300 border border-red-400/60 bg-red-500/5 
-    hover:bg-red-500/20 hover:text-red-100 
-    hover:shadow-lg hover:shadow-red-500/30 
-    transition-all duration-200 ease-in-out 
-    backdrop-blur-md focus:outline-none"
-              type="button"
-              onClick={modalOpenHandler}
-            >
-              Delete Account
-            </button>
+          
+          <div className="flex-1 mt-10 md:mt-0 w-full">
+            <div className="mb-6 relative">
+              <Input
+                labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
+                label="Name"
+                type="text"
+                element="input"
+                id="name"
+                className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
+                placeholder={user.name}
+                ref={nameRef}
+              />
+            </div>
+            <div className="mb-6 relative">
+              <Input
+                labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
+                label="Email Address"
+                type="text"
+                element="input"
+                id="email"
+                className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
+                placeholder={user.email}
+                ref={emailRef}
+              />
+            </div>
+            <div className="mb-10 relative">
+              <Input
+                labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
+                label="Tagline"
+                type="text"
+                element="input"
+                id="tag"
+                className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
+                placeholder={user.tagline}
+                ref={taglineRef}
+              />
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <Button
+                type="submit"
+                className="w-full sm:w-[150px]"
+              >
+                Update
+              </Button>
+              <button
+                className="w-full sm:w-[180px] px-5 py-2 text-center font-bold text-md rounded-lg 
+      text-neoBorder border-2 border-neoBorder bg-neoPink
+      shadow-neo hover:shadow-neoHover hover:-translate-y-1
+      transition-all duration-300 ease-in-out focus:outline-none"
+                type="button"
+                onClick={modalOpenHandler}
+              >
+                Delete Account
+              </button>
+            </div>
           </div>
         </div>
       </form>
-      <div className="mt-[20px] pt-[30px] text-white bg-white/5 backdrop-blur-xl mx-5 md:mx-10 rounded-2xl ">
-        <h2 className="text-center text-[24px] mb-[30px]">Your posts</h2>
-        <ul className="md:flex md:flex-row md:justify-center md:flex-wrap md:mt-[60px] md:space-x-4">
-          {!userPosts ? (
-            <div className="mb-[60px]">
+      
+      <div className="mt-16 bg-white border-4 border-neoBorder rounded-xl shadow-neoLg p-8 z-10 relative overflow-hidden">
+        <h2 className="text-center font-black text-neoBorder text-[32px] mb-10 pb-4 border-b-4 border-neoBorder">Your posts</h2>
+        <ul className="flex flex-col gap-8">
+          {!userPosts || userPosts.length === 0 ? (
+            <div className="w-full mb-[20px]">
               <NoPostFound />
             </div>
           ) : (
-            userPosts.map(({ id, image, description, headline }) => {
+            currentPosts.map(({ id, image, description, headline }) => {
               const {
                 textContent,
                 shortDescription,
@@ -237,65 +249,43 @@ const Profile = () => {
               } = shortingDesc(description);
               return (
                 <Fragment key={id}>
-                  <li
-                    onMouseEnter={() => setHover(id)}
-                    onMouseLeave={() => setHover()}
-                  >
-                    <div
-                      className={`${
-                        hover === id ? "opacity-70" : ""
-                      } group p-5 text border border-purple-900 md:border-none rounded-lg md:rounded-none shadow-lg md:shadow-none mb-[30px] md:mb-0 transition-all duration-300 ease-in-out md:hover:scale-100 md:relative md:w-[300px] w-auto mx-4 md:mx-0`}
-                    >
+                  <li className="list-none w-full group">
+                    <div className="flex flex-col md:flex-row bg-white border-4 border-neoBorder rounded-xl shadow-neo hover:shadow-neoLg hover:-translate-y-1 transition-all duration-300 ease-in-out overflow-hidden w-full relative">
+                      {/* Image Section */}
                       <div
-                        className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px]"
-                        style={{
-                          backgroundImage: `url(${image})`,
-                        }}
-                        title="Woman holding a mug"
+                        className="h-56 md:h-auto md:w-[35%] border-b-4 md:border-b-0 md:border-r-4 border-neoBorder bg-cover bg-center flex-none"
+                        style={{ backgroundImage: `url(${image})` }}
+                        title={headline}
                       ></div>
-                      <div className="p-4 flex flex-col justify-between leading-normal">
-                        <div className="mb-5">
-                          <div className="text-white mb-2 text-[20px]">
+                      
+                      {/* Content Section */}
+                      <div className="p-6 md:w-[65%] flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-neoBorder font-black text-[24px] md:text-[28px] mb-3 leading-tight line-clamp-2">
                             {headline}
-                          </div>
-                          <p className="text-white text-[16px] opacity-50">
+                          </h3>
+                          <p className="text-gray-700 font-bold text-[16px] xl:text-[18px] line-clamp-3 mb-6">
                             {textContent.length > Max_Length_Of_Description
                               ? shortDescription
                               : textContent}
                           </p>
                         </div>
-                        {/* Delete Button — clearer, bolder */}
-                        <button
-                          className="hidden md:block absolute md:top-1/2 md:left-3/4 md:-translate-x-3/4 md:-translate-y-1/2 md:px-4 md:py-1.5 md:rounded-xl md:bg-red-600/80 md:text-white md:opacity-0 md:transition-all md:duration-300 md:ease-out md:group-hover:opacity-100 md:group-hover:-translate-y-full md:shadow-md md:hover:bg-red-700"
-                          onClick={() => postDeleteHandler(id)}
-                        >
-                          Delete
-                        </button>
-
-                        {/* Update Button — vibrant violet */}
-                        <Link
-                          to={`/update/${id}`}
-                          className="hidden md:block absolute top-1/2 left-1/4 -translate-x-1/4 -translate-y-1/2 px-4 py-1.5 rounded-xl bg-violet-600/80 text-white opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:-translate-y-full shadow-md hover:bg-violet-700"
-                        >
-                          Update
-                        </Link>
-                      </div>
-                      <div className="flex justify-center gap-4 md:hidden mb-5">
-                        {/* Delete Button */}
-                        <button
-                          className="px-5 py-2.5 rounded-xl font-medium text-sm text-red-300 bg-red-600/10 border border-red-600 hover:bg-red-600/30 hover:text-white transition-all duration-200 ease-in-out shadow-md"
-                          onClick={() => postDeleteHandler(id)}
-                        >
-                          Delete
-                        </button>
-
-                        {/* Update Button */}
-                        <Link
-                          to={`/update/${id}`}
-                          className="px-5 py-2.5 rounded-xl font-medium text-sm text-violet-300 bg-violet-600/10 border border-violet-600      hover:bg-violet-600/30 hover:text-white transition-all duration-200 ease-in-out shadow-md"
-                        >
-                          Update
-                        </Link>
+                        
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+                           <Link
+                            to={`/update/${id}`}
+                            className="flex-1 text-center py-3 bg-neoBlue border-2 border-neoBorder text-neoBorder font-black text-[16px] rounded-lg shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition-all"
+                          >
+                            Update Post
+                          </Link>
+                          <button
+                            className="flex-1 text-center py-3 bg-neoPink border-2 border-neoBorder text-neoBorder font-black text-[16px] rounded-lg shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition-all"
+                            onClick={() => postDeleteHandler(id)}
+                          >
+                            Delete Post
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </li>
@@ -304,6 +294,34 @@ const Profile = () => {
             })
           )}
         </ul>
+
+        {totalPages > 1 && (
+          <div className="flex justify-center flex-wrap items-center gap-2 mt-12">
+            <button 
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(p => p - 1)}
+              className="px-4 py-2 text-neoBorder font-black border-2 border-neoBorder bg-white rounded-lg shadow-[4px_4px_0px_#111827] disabled:opacity-50 hover:bg-neoYellow hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition-all disabled:hover:translate-y-0 disabled:hover:bg-white disabled:hover:shadow-[4px_4px_0px_#111827]"
+            >Prev</button>
+            
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
+              <button
+                key={number}
+                onClick={() => setCurrentPage(number)}
+                className={`w-10 h-10 flex items-center justify-center rounded-lg border-2 font-black border-neoBorder transition-all ${
+                  currentPage === number ? 'bg-neoPink translate-y-1 shadow-[2px_2px_0px_#111827] text-neoBorder' : 'bg-white text-neoBorder shadow-[4px_4px_0px_#111827] hover:bg-neoYellow hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827]'
+                }`}
+              >
+                {number}
+              </button>
+            ))}
+
+            <button 
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(p => p + 1)}
+              className="px-4 py-2 text-neoBorder font-black border-2 border-neoBorder bg-white rounded-lg shadow-[4px_4px_0px_#111827] disabled:opacity-50 hover:bg-neoYellow hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition-all disabled:hover:translate-y-0 disabled:hover:bg-white disabled:hover:shadow-[4px_4px_0px_#111827]"
+            >Next</button>
+          </div>
+        )}
       </div>
     </div>
   );

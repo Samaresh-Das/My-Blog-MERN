@@ -95,20 +95,18 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${
-        isAuthPage && "md:hidden"
-      } mt-[36px] flex flex-row justify-around mb-[27px] 
-  md:flex md:flex-wrap md:justify-between md:items-center md:gap-y-4 md:mx-[60px]`}
+      className={`${isAuthPage && "md:hidden"
+        } flex flex-row justify-around py-4 mb-[27px] border-b-2 border-neoBorder bg-neoBg md:flex md:flex-wrap md:justify-between md:items-center md:gap-y-4 md:px-[60px]`}
     >
-      <div className="opacity-40 md:hidden ml-5 mr-2">
+      <div className="md:hidden ml-5 mr-2">
         <IconContext.Provider
           value={{
-            color: "white",
+            color: "#111827",
             className: "global-class-name",
             size: "2.5em",
           }}
         >
-          <div>
+          <div className="cursor-pointer">
             <HiMenu onClick={showNavMenuHandler} />
           </div>
         </IconContext.Provider>
@@ -116,18 +114,15 @@ const Navbar = () => {
       {/* ✅ Tablet navbar flex layout wrapper */}
       <div className="w-full md:w-full md:flex md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-4">
         <Link to="/">
-          <div className="flex flex-row h-[40px]">
-            {/* <h1 className="py-[6px] px-[12px] bg-[#4B5563] logo-box  text-white source-sans__pro text-[18px]">
-              S
-            </h1> */}
+          <div className="flex flex-row h-[40px] items-center">
             <div>
               <img
                 src="/Assets/blog.png"
                 alt="Logo"
-                className="w-[40px] md:w-[50px] h-[40px] md:h-[50px] object-cover my-auto"
+                className="w-[40px] md:w-[50px] h-[40px] md:h-[50px] object-cover rounded-md border-2 border-neoBorder shadow-neo"
               />
             </div>
-            <h1 className="font-bold text-white text-[20px] pl-[11px] my-auto md:pt-3">
+            <h1 className="font-bold text-neoBorder text-[24px] pl-[15px] my-auto">
               Sam's Blog
             </h1>
           </div>
@@ -139,27 +134,27 @@ const Navbar = () => {
               <input
                 type="text"
                 value={searchQuery}
-                className="rounded-full pl-[40px] pr-10 pb-1 text-white h-[40px] w-full bg-transparent border border-purple-900 placeholder:text-white/60 outline-none focus:outline-none focus:ring-1 focus:ring-purple-900 focus:shadow-md focus:shadow-purple-900 tracking-wide transition-all duration-300 ease-in-out"
+                className="pl-[40px] pr-10 pb-1 text-neoBorder h-[40px] w-full bg-white border-2 border-neoBorder rounded-md placeholder:text-gray-500 outline-none focus:outline-none focus:shadow-neo tracking-wide transition-all duration-300 ease-in-out font-semibold"
                 placeholder="search"
                 onChange={onSearchChange}
               />
               <span className="absolute top-3 left-0 flex items-center pl-3">
-                <FiSearch className="text-white opacity-50" />
+                <FiSearch className="text-neoBorder opacity-70" />
               </span>
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute top-[8px] right-5 text-white opacity-50 hover:opacity-100"
+                  className="absolute top-[8px] right-5 text-neoBorder opacity-70 hover:opacity-100"
                 >
                   <FiX size={22} />
                 </button>
               )}
             </div>
           )}
-          <div className="hidden md:flex md:flex-row md:space-x-5 text-white hover:scale-105 transition-all duration-300 ease-in-out">
+          <div className="hidden md:flex md:flex-row md:space-x-5 text-neoBorder hover:scale-105 transition-all duration-300 ease-in-out">
             {!auth.isLoggedIn && (
               <Link to="/auth">
-                <button className="border border-1 border-gray-300 rounded-full py-2 px-5 bg-white/5 backdrop-blur-md hover:bg-[#5c1eae]/30 transition-all duration-300 ease-in-out">
+                <button className="border-2 border-neoBorder rounded-md py-2 px-6 bg-neoYellow font-bold shadow-neo hover:shadow-neoHover transition-all duration-300 ease-in-out text-neoBorder">
                   Sign Up
                 </button>
               </Link>
@@ -173,12 +168,22 @@ const Navbar = () => {
             <div className="hidden md:block relative">
               <input
                 type="text"
-                className="rounded-full pl-[40px] pb-1 text-white h-[40px] w-full md:w-[200px] lg:w-[300px] bg-transparent border border-1 border-purple-900 focus:outline-none focus:ring-1 focus:ring-purple-900 focus:shadow-md focus:shadow-purple-900"
+                className="pl-[40px] pr-10 pb-1 text-neoBorder h-[40px] w-full md:w-[200px] lg:w-[300px] bg-white border-2 border-neoBorder rounded-md placeholder:text-gray-500 outline-none focus:outline-none focus:shadow-neo tracking-wide transition-all font-semibold"
                 placeholder="search"
+                value={searchQuery}
+                onChange={onSearchChange}
               />
               <span className="absolute top-3 left-0 flex items-center pl-3">
-                <FiSearch className="text-white opacity-50" />
+                <FiSearch className="text-neoBorder opacity-70" />
               </span>
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute top-[8px] right-5 text-neoBorder opacity-70 hover:opacity-100"
+                >
+                  <FiX size={22} />
+                </button>
+              )}
             </div>
 
             <ProfileFunctionalities
@@ -192,10 +197,10 @@ const Navbar = () => {
         )}
       </div>
       {/* search icon */}
-      <div className="my-auto opacity-40 md:hidden mr-5">
+      <div className="my-auto md:hidden mr-5">
         <IconContext.Provider
           value={{
-            color: "white",
+            color: "#111827",
             className: "global-class-name",
             size: "2em",
           }}
@@ -212,24 +217,26 @@ const Navbar = () => {
               animate={{ height: "auto", opacity: 1, y: 0 }}
               exit={{ height: 0, opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="w-full px-5 md:hidden mt-2 absolute top-20 left-0  backdrop-blur-xl rounded-lg "
+              className="w-full px-5 md:hidden mt-2 absolute top-20 left-0 bg-white border-b-2 border-neoBorder z-40 pb-4 shadow-neo"
             >
-              <input
-                type="text"
-                value={searchQuery}
-                placeholder="Search..."
-                className="w-full h-[40px] pl-4 pr-4 rounded-full bg-white/10 text-white/100 border border-purple-900 placeholder:text-white/60 outline-none"
-                onChange={onSearchChange}
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  placeholder="Search..."
+                  className="w-full h-[45px] pl-4 pr-10 rounded-md bg-white text-neoBorder border-2 border-neoBorder placeholder:text-gray-500 outline-none shadow-neo font-bold"
+                  onChange={onSearchChange}
+                />
 
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute top-[8px] right-10 text-white opacity-50 hover:opacity-100"
-                >
-                  <FiX size={22} />
-                </button>
-              )}
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute top-[12px] right-3 text-neoBorder opacity-70 hover:opacity-100"
+                  >
+                    <FiX size={22} />
+                  </button>
+                )}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

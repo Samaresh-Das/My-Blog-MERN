@@ -11,7 +11,6 @@ import { AuthContext } from "./components/context/auth-context";
 import { useAuth } from "./components/hooks/auth-hook";
 import Profile from "./components/User/Profile";
 import UpdatePost from "./components/Posts/UpdatePost";
-import BackgroundBlobs from "./components/BackgroundBlobs";
 import Footer from "./components/Footer";
 import ContactMe from "./components/ContactMe";
 import AboutMe from "./components/AboutMe";
@@ -73,12 +72,10 @@ function App() {
       }}
     >
       <SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
-        {/* <BackgroundBlobs /> */}
         <Router>
           {/* react router by default auto persists scroll area */}
           <ScrollToTop />
-          <div className="relative min-h-screen overflow-hidden pb-20">
-            <BackgroundBlobs />
+          <div className="relative min-h-screen pb-20 bg-neoBg">
             <Navbar />
             {routes}
           </div>

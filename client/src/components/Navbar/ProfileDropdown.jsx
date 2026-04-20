@@ -6,36 +6,36 @@ const ProfileDropdown = ({ logoutHandler }) => {
     <AnimatePresence>
       <motion.div
         key="profileDropdown"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0, y: -5 }}
-        transition={{ duration: 0.4 }}
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.2 }}
         id="dropdownHover"
-        className="absolute right-0 top-full mt-2 rounded-lg shadow w-44 z-50 border border-1 border-purple-950 transition-all duration-300 ease-in-out"
+        className="absolute right-0 top-full mt-2 rounded-xl shadow-neoLg w-48 z-50 border-4 border-neoBorder bg-white overflow-hidden"
       >
-        <ul
-          className="py-2 text-sm text-gray-700 dark:text-gray-200"
-          aria-labelledby="dropdownHoverButton"
-        >
+        <ul className="py-1 text-neoBorder font-bold" aria-labelledby="dropdownHoverButton">
           <li>
             <Link
               to="/profile"
-              className="block px-4 py-2 hover:text-[#e647ff]"
+              className="flex items-center gap-2 px-4 py-3 hover:bg-neoYellow transition-all border-b-2 border-neoBorder"
             >
-              Profile
+              👤 Profile
             </Link>
           </li>
           <li>
-            <Link to="/create" className="block px-4 py-2 hover:text-[#e647ff]">
-              Create Post
+            <Link
+              to="/create"
+              className="flex items-center gap-2 px-4 py-3 hover:bg-neoGreen transition-all border-b-2 border-neoBorder"
+            >
+              ✍️ Create Post
             </Link>
           </li>
           <li>
             <button
               onClick={logoutHandler}
-              className="block w-full text-left px-4 py-2 hover:text-[#e647ff]"
+              className="flex items-center gap-2 w-full text-left px-4 py-3 hover:bg-neoPink transition-all"
             >
-              Logout
+              🚪 Logout
             </button>
           </li>
         </ul>
@@ -45,3 +45,4 @@ const ProfileDropdown = ({ logoutHandler }) => {
 };
 
 export default ProfileDropdown;
+
