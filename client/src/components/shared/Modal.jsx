@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth-context";
 import ReactDOM from "react-dom";
 import { useHistory } from "react-router-dom";
 import { linkSite } from "../linkSite";
+import { motion } from "framer-motion";
 
 const Modal = (props) => {
   const history = useHistory();
@@ -23,69 +24,74 @@ const Modal = (props) => {
 
   const modalContent = (
     <div
-      className="relative z-10"
+      className="relative z-50"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
-      onClick={props.onClose}
     >
-      <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-neoBorder/60 transition-opacity"
+        onClick={props.onClose}
+      />
 
-      <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div className="relative transform overflow-hidden rounded-lg  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-            <div className="dark:bg-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg
-                    className="h-6 w-6 text-red-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                    />
-                  </svg>
-                </div>
-                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                  <h3
-                    className="text-base font-semibold leading-6 text-white"
-                    id="modal-title"
-                  >
-                    Deactivate account
-                  </h3>
-                  <div className="mt-2">
-                    <p className="text-sm dark:text-gray-400">
-                      Are you sure you want to deactivate your account? All of
-                      your data will be permanently removed. This action cannot
-                      be undone.
-                    </p>
-                  </div>
-                </div>
+      <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div className="flex min-h-full items-center justify-center p-4">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="relative bg-white border-4 border-neoBorder rounded-xl shadow-neoLg w-full max-w-md p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Icon */}
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-neoPink border-2 border-neoBorder shadow-neo">
+                <svg
+                  className="h-6 w-6 text-neoBorder"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                  />
+                </svg>
               </div>
-            </div>
-            <div className="dark:bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-              <button
-                type="button"
-                className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center ml-2 mr-2 md:mr-0"
-                onClick={deactivateHandler}
+              <h3
+                className="text-xl font-black text-neoBorder"
+                id="modal-title"
               >
-                Deactivate
-              </button>
+                Deactivate account
+              </h3>
+            </div>
+
+            <p className="text-neoBorder font-medium text-[16px] mb-8 border-l-4 border-neoBorder pl-4">
+              Are you sure you want to deactivate your account? All of your data
+              will be permanently removed. This action cannot be undone.
+            </p>
+
+            <div className="flex flex-col-reverse sm:flex-row gap-3 sm:justify-end">
               <button
                 type="button"
-                className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-lg border-2 border-neoBorder bg-white text-neoBorder font-bold shadow-neo hover:shadow-neoHover hover:-translate-y-1 transition-all focus:outline-none"
                 onClick={props.onClose}
               >
                 Cancel
               </button>
+              <button
+                type="button"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-lg border-2 border-neoBorder bg-neoPink text-neoBorder font-bold shadow-neo hover:shadow-neoHover hover:-translate-y-1 transition-all focus:outline-none"
+                onClick={deactivateHandler}
+              >
+                Deactivate
+              </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -95,3 +101,5 @@ const Modal = (props) => {
 };
 
 export default Modal;
+
+

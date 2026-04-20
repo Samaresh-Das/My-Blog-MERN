@@ -213,59 +213,59 @@ const RTE = memo(function RTE({ value, description }) {
         <button
             onMouseDown={(e) => { e.preventDefault(); onClick(); }}
             title={title}
-            className={`p-1.5 rounded-md transition text-xs font-bold ${active
-                ? "bg-violet-500/20 text-violet-400 border border-violet-500/40"
-                : "text-gray-400 hover:text-gray-200 hover:bg-white/10"
+            className={`p-1.5 rounded-md transition text-[13px] font-bold border-2 ${active
+                ? "bg-neoPink text-neoBorder border-neoBorder shadow-[2px_2px_0px_#111827]"
+                : "bg-white text-neoBorder border-transparent hover:border-neoBorder hover:bg-neoYellow hover:shadow-[2px_2px_0px_#111827]"
                 }`}
         >
             {children}
         </button>
     );
 
-    const divider = <div className="w-px h-5 bg-white/20 mx-1" />;
+    const divider = <div className="w-0.5 h-6 bg-neoBorder mx-2" />;
 
     return (
-        <div className="rounded-xl border border-purple-900/40 overflow-hidden bg-transparent">
+        <div className="rounded-xl border-4 border-neoBorder overflow-hidden bg-white shadow-neo">
 
             {/* ── Toolbar ──────────────────────────────────────────────────────── */}
-            <div className="flex flex-wrap items-center gap-1 px-3 py-2 border-b border-purple-900/40 bg-black/30 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2 px-4 py-3 border-b-4 border-neoBorder bg-neoBg">
 
                 {toolBtn(isActive("bold"), () => exec("bold"), "Bold",
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 014 4 4 4 0 01-4 4H6z" /><path d="M6 12h9a4 4 0 014 4 4 4 0 01-4 4H6z" /></svg>)}
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 014 4 4 4 0 01-4 4H6z" /><path d="M6 12h9a4 4 0 014 4 4 4 0 01-4 4H6z" /></svg>)}
                 {toolBtn(isActive("italic"), () => exec("italic"), "Italic",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="19" y1="4" x2="10" y2="4" /><line x1="14" y1="20" x2="5" y2="20" /><line x1="15" y1="4" x2="9" y2="20" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="19" y1="4" x2="10" y2="4" /><line x1="14" y1="20" x2="5" y2="20" /><line x1="15" y1="4" x2="9" y2="20" /></svg>)}
                 {toolBtn(isActive("underline"), () => exec("underline"), "Underline",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 006 6 6 6 0 006-6V3" /><line x1="4" y1="21" x2="20" y2="21" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 006 6 6 6 0 006-6V3" /><line x1="4" y1="21" x2="20" y2="21" /></svg>)}
                 {toolBtn(isActive("strikeThrough"), () => exec("strikeThrough"), "Strikethrough",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><path d="M16 6C16 6 14.5 4 12 4C9 4 7 6 7 8C7 10 9 11 12 12" /><path d="M8 18C8 18 9.5 20 12 20C15 20 17 18 17 16C17 14 15 13 12 12" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><path d="M16 6C16 6 14.5 4 12 4C9 4 7 6 7 8C7 10 9 11 12 12" /><path d="M8 18C8 18 9.5 20 12 20C15 20 17 18 17 16C17 14 15 13 12 12" /></svg>)}
 
                 {divider}
 
-                {toolBtn(false, () => exec("formatBlock", "H2"), "Heading 2", <span className="text-[11px] font-black">H2</span>)}
-                {toolBtn(false, () => exec("formatBlock", "H3"), "Heading 3", <span className="text-[11px] font-black">H3</span>)}
-                {toolBtn(false, () => exec("formatBlock", "H4"), "Heading 4", <span className="text-[11px] font-black">H4</span>)}
-                {toolBtn(false, () => exec("formatBlock", "P"), "Paragraph", <span className="text-[11px]">¶</span>)}
+                {toolBtn(false, () => exec("formatBlock", "H2"), "Heading 2", <span className="text-[13px] font-black">H2</span>)}
+                {toolBtn(false, () => exec("formatBlock", "H3"), "Heading 3", <span className="text-[13px] font-black">H3</span>)}
+                {toolBtn(false, () => exec("formatBlock", "H4"), "Heading 4", <span className="text-[13px] font-black">H4</span>)}
+                {toolBtn(false, () => exec("formatBlock", "P"), "Paragraph", <span className="text-[13px] font-black">¶</span>)}
 
                 {divider}
 
                 {toolBtn(isActive("insertUnorderedList"), () => exec("insertUnorderedList"), "Bullet list",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="9" y1="6" x2="20" y2="6" /><line x1="9" y1="12" x2="20" y2="12" /><line x1="9" y1="18" x2="20" y2="18" /><circle cx="4" cy="6" r="1.5" /><circle cx="4" cy="12" r="1.5" /><circle cx="4" cy="18" r="1.5" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="9" y1="6" x2="20" y2="6" /><line x1="9" y1="12" x2="20" y2="12" /><line x1="9" y1="18" x2="20" y2="18" /><circle cx="4" cy="6" r="1.5" /><circle cx="4" cy="12" r="1.5" /><circle cx="4" cy="18" r="1.5" /></svg>)}
                 {toolBtn(isActive("insertOrderedList"), () => exec("insertOrderedList"), "Numbered list",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="10" y1="6" x2="21" y2="6" /><line x1="10" y1="12" x2="21" y2="12" /><line x1="10" y1="18" x2="21" y2="18" /><path d="M4 6h1v4" /><path d="M4 10h2" /><path d="M6 18H4c0-1 2-2 2-3s-1-2-2-2" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="10" y1="6" x2="21" y2="6" /><line x1="10" y1="12" x2="21" y2="12" /><line x1="10" y1="18" x2="21" y2="18" /><path d="M4 6h1v4" /><path d="M4 10h2" /><path d="M6 18H4c0-1 2-2 2-3s-1-2-2-2" /></svg>)}
                 {toolBtn(false, () => exec("formatBlock", "BLOCKQUOTE"), "Blockquote",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></svg>)}
 
                 {divider}
 
                 {toolBtn(false, () => exec("justifyLeft"), "Align left",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="15" y2="12" /><line x1="3" y1="18" x2="18" y2="18" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="15" y2="12" /><line x1="3" y1="18" x2="18" y2="18" /></svg>)}
                 {toolBtn(false, () => exec("justifyCenter"), "Align center",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="6" y1="12" x2="18" y2="12" /><line x1="4" y1="18" x2="20" y2="18" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="6" y1="12" x2="18" y2="12" /><line x1="4" y1="18" x2="20" y2="18" /></svg>)}
 
                 {divider}
 
                 {toolBtn(false, () => exec("formatBlock", "PRE"), "Code block",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>)}
 
                 {divider}
 
@@ -273,15 +273,15 @@ const RTE = memo(function RTE({ value, description }) {
                 <button
                     onMouseDown={(e) => { e.preventDefault(); saveRange(); setShowLinkModal(true); }}
                     title="Insert Link"
-                    className="p-1.5 rounded-md transition text-gray-400 hover:text-violet-400 hover:bg-white/10"
+                    className="p-1.5 rounded-md transition text-neoBorder font-bold border-2 border-transparent hover:border-neoBorder hover:bg-neoYellow hover:shadow-[2px_2px_0px_#111827]"
                 >
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
                         <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
                     </svg>
                 </button>
                 {toolBtn(false, () => exec("unlink"), "Remove link",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
                         <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
                         <line x1="2" y1="2" x2="22" y2="22" />
@@ -300,18 +300,18 @@ const RTE = memo(function RTE({ value, description }) {
                     }}
                     title="Insert Image"
                     disabled={uploadingImage}
-                    className={`p-1.5 rounded-md transition ${uploadingImage
-                        ? "text-violet-400 bg-violet-500/10 border border-violet-500/20 cursor-wait"
-                        : "text-gray-400 hover:text-violet-400 hover:bg-white/10"
+                    className={`p-1.5 rounded-md transition border-2 font-bold ${uploadingImage
+                        ? "bg-gray-200 text-gray-500 border-gray-400 cursor-wait"
+                        : "text-neoBorder border-transparent hover:border-neoBorder hover:bg-neoYellow hover:shadow-[2px_2px_0px_#111827]"
                         }`}
                 >
                     {uploadingImage ? (
-                        <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                         </svg>
                     ) : (
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                             <rect x="3" y="3" width="18" height="18" rx="2" />
                             <circle cx="8.5" cy="8.5" r="1.5" />
                             <polyline points="21 15 16 10 5 21" />
@@ -323,9 +323,9 @@ const RTE = memo(function RTE({ value, description }) {
                 <button
                     onMouseDown={(e) => { e.preventDefault(); saveRange(); setShowVideoModal(true); }}
                     title="Embed Video"
-                    className="p-1.5 rounded-md transition text-gray-400 hover:text-violet-400 hover:bg-white/10"
+                    className="p-1.5 rounded-md transition text-neoBorder font-bold border-2 border-transparent hover:border-neoBorder hover:bg-neoYellow hover:shadow-[2px_2px_0px_#111827]"
                 >
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <polygon points="23 7 16 12 23 17 23 7" />
                         <rect x="1" y="5" width="15" height="14" rx="2" />
                     </svg>
@@ -334,9 +334,9 @@ const RTE = memo(function RTE({ value, description }) {
                 {divider}
 
                 {toolBtn(false, () => exec("undo"), "Undo",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M3 7v6h6" /><path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13" /></svg>)}
                 {toolBtn(false, () => exec("redo"), "Redo",
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 019-9 9 9 0 016 2.3l3 2.7" /></svg>)}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M21 7v6h-6" /><path d="M3 17a9 9 0 019-9 9 9 0 016 2.3l3 2.7" /></svg>)}
             </div>
 
             {/* ── Editable area ─────────────────────────────────────────────────── */}
@@ -345,17 +345,17 @@ const RTE = memo(function RTE({ value, description }) {
                 contentEditable
                 suppressContentEditableWarning
                 onInput={handleInput}
-                className="min-h-[420px] p-6 text-sm text-gray-200 outline-none leading-relaxed rh-editor"
-                style={{ caretColor: "#a78bfa" }}
+                className="min-h-[420px] p-6 text-sm text-neoBorder font-semibold outline-none leading-relaxed rh-editor bg-white"
+                style={{ caretColor: "#111827" }}
                 data-placeholder="Start writing your post content here…"
             />
 
             {/* ── Footer ────────────────────────────────────────────────────────── */}
-            <div className="px-4 py-2 border-t border-purple-900/40 bg-black/20 flex items-center justify-between">
-                <span className="text-[10px] text-gray-400">Rich text · HTML output · Local image simulation</span>
+            <div className="px-4 py-3 border-t-4 border-neoBorder bg-neoBg flex items-center justify-between font-bold">
+                <span className="text-[12px] text-neoBorder">Rich text · HTML output</span>
                 <div className="flex items-center gap-3">
                     {uploadingImage && (
-                        <span className="text-[10px] text-violet-400 flex items-center gap-1.5">
+                        <span className="text-[12px] text-neoBorder flex items-center gap-2 bg-neoYellow px-2 py-1 border-2 border-neoBorder rounded-md">
                             <svg className="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24">
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
@@ -363,7 +363,7 @@ const RTE = memo(function RTE({ value, description }) {
                             Adding image…
                         </span>
                     )}
-                    <span className="text-[10px] text-gray-400">
+                    <span className="text-[12px] text-neoBorder bg-white px-3 py-1 border-2 border-neoBorder rounded-md shadow-[2px_2px_0px_#111827]">
                         {wordCount} words · ~{Math.max(1, Math.ceil(wordCount / 200))} min read
                     </span>
                 </div>
@@ -379,48 +379,42 @@ const RTE = memo(function RTE({ value, description }) {
 
             {/* ── Link Modal ────────────────────────────────────────────────────── */}
             {showLinkModal && (
-                <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-                    <div className="bg-black border border-purple-900/40 rounded-2xl w-full max-w-md shadow-2xl">
-                        <div className="flex items-center justify-between px-5 py-4 border-b border-purple-900/40">
-                            <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 rounded-md bg-violet-500/20 flex items-center justify-center">
-                                    <svg className="w-3.5 h-3.5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
-                                        <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
-                                    </svg>
-                                </div>
-                                <span className="text-sm font-bold text-white">Insert Link</span>
+                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div className="bg-white border-4 border-neoBorder rounded-xl w-full max-w-md shadow-neoLg">
+                        <div className="flex items-center justify-between px-6 py-4 border-b-4 border-neoBorder bg-neoPink rounded-t-lg">
+                            <div className="flex items-center gap-3">
+                                <span className="text-xl font-black text-neoBorder">Insert Link</span>
                             </div>
-                            <button onClick={() => setShowLinkModal(false)} className="text-gray-400 hover:text-white transition">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            <button onClick={() => setShowLinkModal(false)} className="text-neoBorder hover:scale-110 transition bg-white border-2 border-neoBorder rounded-md p-1 shadow-[2px_2px_0px_#111827]">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
                         </div>
-                        <div className="p-5 space-y-3">
+                        <div className="p-6 space-y-4">
                             <div>
-                                <label className="block text-xs text-gray-400 mb-1.5">URL</label>
+                                <label className="block text-sm font-bold text-neoBorder mb-2">URL</label>
                                 <input
                                     autoFocus
                                     value={linkUrl}
                                     onChange={(e) => setLinkUrl(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && insertLink()}
                                     placeholder="https://example.com"
-                                    className="w-full bg-gray-900/50 border border-purple-900/40 focus:border-violet-500/60 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 outline-none transition"
+                                    className="w-full bg-white border-2 border-neoBorder focus:shadow-[4px_4px_0px_#111827] rounded-lg px-4 py-3 font-semibold text-neoBorder outline-none transition"
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs text-gray-400 mb-1.5">Link Text <span className="text-gray-500">(optional)</span></label>
+                                <label className="block text-sm font-bold text-neoBorder mb-2">Link Text <span className="text-gray-500 font-normal">(optional)</span></label>
                                 <input
                                     value={linkText}
                                     onChange={(e) => setLinkText(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && insertLink()}
                                     placeholder="Click here"
-                                    className="w-full bg-gray-900/50 border border-purple-900/40 focus:border-violet-500/60 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 outline-none transition"
+                                    className="w-full bg-white border-2 border-neoBorder focus:shadow-[4px_4px_0px_#111827] rounded-lg px-4 py-3 font-semibold text-neoBorder outline-none transition"
                                 />
                             </div>
                         </div>
-                        <div className="flex gap-2 px-5 pb-5">
-                            <button onClick={insertLink} className="flex-1 px-4 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold rounded-lg transition">Insert Link</button>
-                            <button onClick={() => setShowLinkModal(false)} className="px-4 py-2.5 bg-gray-900 text-gray-400 text-sm rounded-lg border border-purple-900/40 hover:bg-purple-900/40 transition">Cancel</button>
+                        <div className="flex gap-4 px-6 pb-6 mt-2">
+                            <button onClick={insertLink} className="flex-1 px-4 py-3 bg-neoBlue border-2 border-neoBorder shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] text-neoBorder font-black rounded-lg transition text-lg">Insert</button>
+                            <button onClick={() => setShowLinkModal(false)} className="px-6 py-3 bg-white text-neoBorder font-black rounded-lg border-2 border-neoBorder shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition text-lg">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -428,36 +422,31 @@ const RTE = memo(function RTE({ value, description }) {
 
             {/* ── Video Modal ───────────────────────────────────────────────────── */}
             {showVideoModal && (
-                <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-                    <div className="bg-black border border-purple-900/40 rounded-2xl w-full max-w-md shadow-2xl">
-                        <div className="flex items-center justify-between px-5 py-4 border-b border-purple-900/40">
-                            <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 rounded-md bg-violet-500/20 flex items-center justify-center">
-                                    <svg className="w-3.5 h-3.5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" />
-                                    </svg>
-                                </div>
-                                <span className="text-sm font-bold text-white">Embed Video</span>
+                <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div className="bg-white border-4 border-neoBorder rounded-xl w-full max-w-md shadow-neoLg">
+                         <div className="flex items-center justify-between px-6 py-4 border-b-4 border-neoBorder bg-neoGreen rounded-t-lg">
+                            <div className="flex items-center gap-3">
+                                <span className="text-xl font-black text-neoBorder">Embed Video</span>
                             </div>
-                            <button onClick={() => setShowVideoModal(false)} className="text-gray-400 hover:text-white transition">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            <button onClick={() => setShowVideoModal(false)} className="text-neoBorder hover:scale-110 transition bg-white border-2 border-neoBorder rounded-md p-1 shadow-[2px_2px_0px_#111827]">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
                         </div>
-                        <div className="p-5">
-                            <label className="block text-xs text-gray-400 mb-1.5">Video URL</label>
+                        <div className="p-6">
+                            <label className="block text-sm font-bold text-neoBorder mb-2">Video URL</label>
                             <input
                                 autoFocus
                                 value={videoUrl}
                                 onChange={(e) => setVideoUrl(e.target.value)}
                                 onKeyDown={(e) => e.key === "Enter" && insertVideo()}
                                 placeholder="https://www.youtube.com/watch?v=..."
-                                className="w-full bg-gray-900/50 border border-purple-900/40 focus:border-violet-500/60 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 outline-none transition"
+                                className="w-full bg-white border-2 border-neoBorder focus:shadow-[4px_4px_0px_#111827] rounded-lg px-4 py-3 font-semibold text-neoBorder outline-none transition"
                             />
-                            <p className="text-[10px] text-gray-500 mt-1.5">Supports YouTube, Vimeo, or any embeddable URL</p>
+                            <p className="text-xs font-bold text-gray-500 mt-3">Supports YouTube, Vimeo, or any embeddable URL</p>
                         </div>
-                        <div className="flex gap-2 px-5 pb-5">
-                            <button onClick={insertVideo} className="flex-1 px-4 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold rounded-lg transition">Embed Video</button>
-                            <button onClick={() => setShowVideoModal(false)} className="px-4 py-2.5 bg-gray-900 text-gray-400 text-sm rounded-lg border border-purple-900/40 hover:bg-purple-900/40 transition">Cancel</button>
+                        <div className="flex gap-4 px-6 pb-6 mt-2">
+                             <button onClick={insertVideo} className="flex-1 px-4 py-3 bg-neoBlue border-2 border-neoBorder shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] text-neoBorder font-black rounded-lg transition text-lg">Embed</button>
+                            <button onClick={() => setShowVideoModal(false)} className="px-6 py-3 bg-white text-neoBorder font-black rounded-lg border-2 border-neoBorder shadow-[4px_4px_0px_#111827] hover:translate-y-1 hover:shadow-[2px_2px_0px_#111827] transition text-lg">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -466,30 +455,30 @@ const RTE = memo(function RTE({ value, description }) {
             {/* ── Editor styles ─────────────────────────────────────────────────── */}
             <style>{`
         .rh-editor:empty:before { content: attr(data-placeholder); color: #9ca3af; pointer-events: none; }
-        .rh-editor h2 { font-size: 1.375rem; font-weight: 800; color: #ffffff; margin: 1.5rem 0 0.75rem; line-height: 1.25; }
-        .rh-editor h3 { font-size: 1.125rem; font-weight: 700; color: #f3f4f6; margin: 1.25rem 0 0.5rem; }
-        .rh-editor h4 { font-size: 0.95rem;  font-weight: 700; color: #e5e7eb; margin: 1rem 0 0.4rem; }
-        .rh-editor p  { margin: 0.6rem 0; color: #d1d5db; }
-        .rh-editor ul { list-style: disc;    padding-left: 1.5rem; margin: 0.75rem 0; color: #d1d5db; }
-        .rh-editor ol { list-style: decimal; padding-left: 1.5rem; margin: 0.75rem 0; color: #d1d5db; }
-        .rh-editor li { margin: 0.3rem 0; }
+        .rh-editor h2 { font-size: 1.5rem; font-weight: 900; color: #111827; margin: 1.8rem 0 0.8rem; line-height: 1.25; }
+        .rh-editor h3 { font-size: 1.25rem; font-weight: 800; color: #111827; margin: 1.5rem 0 0.6rem; }
+        .rh-editor h4 { font-size: 1.1rem;  font-weight: 800; color: #374151; margin: 1.2rem 0 0.5rem; }
+        .rh-editor p  { margin: 0.8rem 0; color: #111827; font-weight: 600; font-size: 1.05rem; }
+        .rh-editor ul { list-style: disc;    padding-left: 1.5rem; margin: 1rem 0; color: #111827; font-weight: 600; }
+        .rh-editor ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; color: #111827; font-weight: 600; }
+        .rh-editor li { margin: 0.4rem 0; }
         .rh-editor blockquote {
-          border-left: 3px solid #7c3aed; padding: 0.5rem 1rem; margin: 1rem 0;
-          background: rgba(124, 58, 237, 0.1); border-radius: 0 8px 8px 0;
-          color: #c4b5fd; font-style: italic;
+          border-left: 6px solid #111827; padding: 0.8rem 1.2rem; margin: 1.2rem 0;
+          background: #fbcfe8; border-radius: 0 8px 8px 0; border-top: 2px solid #111827; border-bottom: 2px solid #111827; border-right: 2px solid #111827;
+          color: #111827; font-style: italic; font-weight: bold; box-shadow: 4px 4px 0px rgba(17,24,39,1);
         }
         .rh-editor pre {
-          background: rgba(0,0,0,0.4); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 10px;
-          padding: 1rem 1.25rem; margin: 1rem 0;
+          background: #fef08a; border: 4px solid #111827; border-radius: 12px;
+          padding: 1.25rem; margin: 1.2rem 0; box-shadow: 4px 4px 0px rgba(17,24,39,1);
           font-family: 'Fira Code', 'Cascadia Code', monospace;
-          font-size: 0.78rem; color: #34d399; overflow-x: auto; white-space: pre;
+          font-size: 0.9rem; font-weight: bold; color: #111827; overflow-x: auto; white-space: pre;
         }
-        .rh-editor a       { color: #a78bfa; text-decoration: underline; }
-        .rh-editor a:hover { color: #c4b5fd; }
-        .rh-editor img     { max-width: 100%; border-radius: 12px; margin: 12px 0; }
-        .rh-editor strong  { color: #ffffff; }
-        .rh-editor em      { color: #e5e7eb; }
-        .rh-editor u       { text-underline-offset: 3px; }
+        .rh-editor a       { color: #2563eb; text-decoration: underline; font-weight: bold; }
+        .rh-editor a:hover { color: #1d4ed8; text-decoration: none; }
+        .rh-editor img     { max-width: 100%; border: 4px solid #111827; border-radius: 16px; margin: 16px 0; box-shadow: 6px 6px 0px rgba(17,24,39,1); }
+        .rh-editor strong  { color: #000000; font-weight: 900; }
+        .rh-editor em      { color: #111827; }
+        .rh-editor u       { text-decoration-thickness: 3px; }
       `}</style>
         </div>
     );

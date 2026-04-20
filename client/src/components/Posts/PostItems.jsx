@@ -1,6 +1,7 @@
 import React, { memo, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { shortingDesc } from "./shortDesc";
+import { motion } from "framer-motion";
 
 const PostItems = memo(
   ({
@@ -18,39 +19,42 @@ const PostItems = memo(
       shortingDesc(description);
     return (
       <Fragment key={id}>
-        <li className="my-10 mx-5">
-          <div className="px-[20px] md:h-[500px]  md:w-[300px] hover:scale-105 transition delay-150 duration-300 ease-in-out md:relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-3 shadow-lg hover:shadow-[#5c1eae]/30">
-            <Link to={`/post/${id}`}>
+        <li className="my-10 mx-5 list-none">
+          <motion.div 
+            className="md:h-[530px] md:w-[320px] bg-white border-4 border-neoBorder rounded-xl shadow-neo relative flex flex-col transition-all cursor-pointer overflow-hidden"
+            whileHover={{ y: -5, x: -5, boxShadow: "8px 8px 0px rgba(17,24,39,1)" }}
+          >
+            <Link to={`/post/${id}`} className="flex flex-col h-full">
               <div
-                className="h-48 rounded-lg text-center flex-none bg-cover bg-center mb-[10px] mt-6"
+                className="h-52 w-full border-b-4 border-neoBorder text-center flex-none bg-cover bg-center"
                 style={{
                   backgroundImage: `url(${image})`,
                 }}
                 title={headline}
               ></div>
-              <div className="p-4 flex flex-col justify-between leading-normal">
-                <div className="mb-8">
-                  <div className="text-white mb-2 text-[20px]">{headline}</div>
-                  <p className="text-white text-[16px] opacity-50 break-words">
+              <div className="p-5 flex flex-col justify-between flex-grow">
+                <div className="mb-4">
+                  <div className="text-neoBorder font-bold mb-2 text-[22px] leading-tight line-clamp-2">{headline}</div>
+                  <p className="text-gray-700 text-[16px] font-medium break-words">
                     {textContent.length > Max_Length_Of_Description
                       ? shortDescription
                       : textContent}
                   </p>
                 </div>
-                <div className="flex items-center md:absolute md:bottom-0 md:left-0 md:p-4">
+                <div className="flex items-center mt-auto p-3 border-2 border-neoBorder rounded-lg bg-neoPink shadow-[2px_2px_0px_rgba(17,24,39,1)]">
                   <img
-                    className="w-10 h-10 rounded-full mr-3 object-cover"
+                    className="w-12 h-12 rounded-full mr-3 object-cover border-2 border-neoBorder"
                     src={profilePicture}
                     alt={`${creatorName}'s profile picture`}
                   />
                   <div className="text-sm">
-                    <p className="text-white leading-none">{creatorName}</p>
-                    <p className="text-white opacity-50">{tagline}</p>
+                    <p className="text-neoBorder font-bold text-[15px] leading-none">{creatorName}</p>
+                    <p className="text-gray-800 font-semibold mt-1">{tagline}</p>
                   </div>
                 </div>
               </div>
             </Link>
-          </div>
+          </motion.div>
         </li>
       </Fragment>
     );

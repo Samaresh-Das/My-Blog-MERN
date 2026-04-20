@@ -216,16 +216,16 @@ const Auth = () => {
       <div className="hidden md:inline-block md:relative ">
         <div className=" absolute top-[80px] left-[180px]">
           <Link to="/">
-            <IoIosArrowBack className="text-white text-[24px] " />
+            <IoIosArrowBack className="text-neoBorder text-[30px] hover:scale-110 transition-transform p-1 border-2 border-neoBorder rounded-lg shadow-neo bg-neoYellow" />
           </Link>
         </div>
       </div>
-      <div className="flex items-center h-screen">
+      <div className="flex items-center min-h-screen py-10">
         <form
-          className="mx-auto auth-form px-[30px] md:px-[150px] py-[40px] md:py-[80px] rounded-[29px] border border-white shadow-xl shadow-blue-500/20 backdrop-blur-2xl bg-white/5"
+          className="mx-auto px-[30px] md:px-[80px] py-[40px] md:py-[60px] rounded-xl border-4 border-neoBorder shadow-neo bg-white w-full max-w-lg"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-white patrick-hand text-center text-[30px] mb-[20px]">
+          <h1 className="text-neoBorder font-black text-center text-[36px] mb-[30px] uppercase">
             {login ? "Login" : "Sign Up"}
           </h1>
           <div className="mb-6 md:w-[350px] w-[250px]">
@@ -296,13 +296,13 @@ const Auth = () => {
             )}
           </div>
           {httpError && (
-            <h3 className="text-center text-[#caf0f8] my-4">{httpError}</h3>
+            <h3 className="text-center text-red-600 font-bold my-4 bg-red-100 border-2 border-neoBorder p-2 shadow-neo">{httpError}</h3>
           )}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-6">
             {!loading ? (
               <Button
                 type="submit"
-                className=" w-full sm:w-auto px-5 py-2.5 text-center "
+                className="w-full text-lg py-3"
               >
                 {login ? "Login" : "Sign Up"}
               </Button>
@@ -310,15 +310,15 @@ const Auth = () => {
               <LoadingSpinner />
             )}
           </div>
-          <h3 className="text-center text-white text-[15px] mt-[20px]">
+          <h3 className="text-center text-neoBorder font-bold text-[16px] mt-[24px]">
             {login ? "Don't have an account?" : "Already Signed up?"}{" "}
-            <span className="text-violet-500 font-bold ">
+            <span className="text-neoBorder font-bold border-b-2 border-neoBorder hover:bg-neoPink hover:px-1 transition-all">
               <button
                 onClick={loginSwitchHandler}
                 type="button"
-                className="md:hover:scale-105 transition-all duration-300 ease-in-out"
+                className="transition-all duration-300 ease-in-out"
               >
-                {login ? "Sign Up" : "Login"}
+                {login ? "Sign Up !" : "Login !"}
               </button>
             </span>
           </h3>
