@@ -40,7 +40,7 @@ const getPosts = async (req, res, next) => {
 
   const postList = posts.map((post) => {
     //to get the details of the user
-    const { id, headline, description, tag, category, creator, image } = post;
+    const { id, headline, description, tag, category, creator, image, createdAt } = post;
     const { name, profilePicture, tagline } = creator;
     return {
       id,
@@ -53,6 +53,7 @@ const getPosts = async (req, res, next) => {
       profilePicture,
       tagline,
       image,
+      createdAt
     }; // Include user name in response
   });
   res.status(200).json(postList);

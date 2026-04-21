@@ -13,7 +13,12 @@ const PostItems = memo(
     creatorName,
     tagline,
     isLastItem,
+    createdAt,
   }) => {
+    const date = new Date(createdAt);
+    const options = { month: "short", day: "numeric", year: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
+
     // const imageUrl = `${linkSite}/${image.replace(/\\/g, "/")}`;
     const { shortDescription, Max_Length_Of_Description, textContent } =
       shortingDesc(description);
@@ -34,6 +39,11 @@ const PostItems = memo(
               ></div>
               <div className="p-5 flex flex-col justify-between flex-grow">
                 <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-neoBlue border-2 border-neoBorder px-2 py-0.5 rounded text-[12px] font-bold shadow-[1px_1px_0px_rgba(17,24,39,1)]">
+                      {formattedDate}
+                    </span>
+                  </div>
                   <div className="text-neoBorder font-bold mb-2 text-[22px] leading-tight line-clamp-2">{headline}</div>
                   <p className="text-gray-700 text-[16px] font-medium break-words">
                     {textContent.length > Max_Length_Of_Description

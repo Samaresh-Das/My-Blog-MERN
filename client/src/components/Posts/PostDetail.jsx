@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import parse from "html-react-parser";
+import parse, { domToReact } from "html-react-parser";
 import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -47,6 +47,66 @@ const PostDetail = () => {
 
   const sanitizedDescription = DOMPurify.sanitize(description);
 
+  const parseOptions = {
+    replace: (domNode) => {
+      if (domNode.name === "pre") {
+        const isNested = domNode.parent && domNode.parent.name === "pre";
+        if (isNested) return;
+
+        // Try to find the language class in this node or its first child (if it's another pre)
+        let classes = domNode.attribs?.class || "";
+        if (domNode.children?.[0]?.name === "pre") {
+          classes = domNode.children[0].attribs?.class || classes;
+        }
+
+        let language = "Code";
+        if (classes.includes("javascript") || classes.includes("js")) language = "JavaScript";
+        else if (classes.includes("python")) language = "Python";
+        else if (classes.includes("html")) language = "HTML";
+        else if (classes.includes("css")) language = "CSS";
+        else if (classes.includes("cpp")) language = "C++";
+        else if (classes.includes("java")) language = "Java";
+        else if (classes.includes("typescript") || classes.includes("ts")) language = "TypeScript";
+
+        const copyToClipboard = (e) => {
+          const pre = e.currentTarget.closest(".code-block-wrapper").querySelector("pre");
+          const text = pre.innerText;
+          navigator.clipboard.writeText(text);
+          const btn = e.currentTarget;
+          const originalContent = btn.innerHTML;
+          btn.innerHTML = "Copied!";
+          setTimeout(() => {
+            btn.innerHTML = originalContent;
+          }, 2000);
+        };
+
+        return (
+          <div className="code-block-wrapper relative group my-10 bg-[#1e1e1e] border-4 border-neoBorder rounded-xl shadow-neo overflow-hidden transition-all duration-300">
+            <div className="code-window-header flex justify-between items-center px-4 py-3 bg-[#2d2d2d] border-b-2 border-neoBorder">
+              <div className="flex items-center gap-4">
+                <div className="code-window-dots flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                </div>
+                <div className="text-[12px] text-gray-400 font-bold uppercase tracking-widest">{language}</div>
+              </div>
+              <button 
+                onClick={copyToClipboard}
+                className="opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-neoBorder px-3 py-1 rounded-md text-[12px] font-bold shadow-[2px_2px_0px_rgba(17,24,39,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              >
+                Copy
+              </button>
+            </div>
+            <pre {...domNode.attribs} className={`${domNode.attribs?.class || ""} text-[15px] p-6 overflow-x-auto !bg-transparent`}>
+              {domToReact(domNode.children, parseOptions)}
+            </pre>
+          </div>
+        );
+      }
+    },
+  };
+
   return (
     <Fragment>
       <div className="h-full relative">
@@ -92,7 +152,7 @@ const PostDetail = () => {
           />
 
           <div className="text-neoBorder font-medium text-left w-[90%] md:w-[80%] mx-auto mt-[10px] md:text-[22px] leading-relaxed htmlParsed">
-            {parse(sanitizedDescription.toString())}
+            {parse(sanitizedDescription.toString(), parseOptions)}
           </div>
         </motion.div>
       </div>
