@@ -12,7 +12,12 @@ const FeaturedPost = memo(
     profilePicture,
     creatorName,
     tagline,
+    createdAt,
   }) => {
+    const date = new Date(createdAt);
+    const options = { month: "short", day: "numeric", year: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
+
     const { shortDescription, Max_Length_Of_Description } =
       shortingDesc(description);
     return (
@@ -26,10 +31,15 @@ const FeaturedPost = memo(
             alt="banner"
             className="md:col-span-2 md:w-full lg:h-[450px] lg:w-full object-cover rounded-md border-2 border-neoBorder shadow-neo"
           />
-          <div className="mt-10 lg:mt-0 lg:pl-6 flex flex-col justify-center">
-            <div className="text-neoBorder font-bold mb-4 text-[24px] md:text-[36px] leading-tight">
-              {headline}
-            </div>
+            <div className="mt-10 lg:mt-0 lg:pl-6 flex flex-col justify-center">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="bg-neoPink border-2 border-neoBorder px-3 py-1 rounded-full text-[14px] font-bold shadow-[2px_2px_0px_rgba(17,24,39,1)]">
+                  Featured • {formattedDate}
+                </span>
+              </div>
+              <div className="text-neoBorder font-bold mb-4 text-[24px] md:text-[36px] leading-tight">
+                {headline}
+              </div>
             <p className="text-gray-700 font-medium text-[18px]">
               {description.length > Max_Length_Of_Description
                 ? shortDescription

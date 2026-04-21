@@ -37,7 +37,8 @@ const PostList = () => {
     const getPosts = async () => {
       const response = await fetch(`${linkSite}/api/posts/`);
       const data = await response.json();
-      dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
+      const sortedData = [...data].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      dataRef.current = sortedData; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       setPosts(dataRef.current);
       setLoading(false);
     };
@@ -95,44 +96,8 @@ const PostList = () => {
   }
 
   const postItems = !isDesktop
-    ? filteredPosts.map(
-        (
-          {
-            id,
-            image,
-            headline,
-            profilePicture,
-            creatorName,
-            tagline,
-            description,
-            isLastItem,
-          },
-          index
-        ) => {
-          return (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <PostItems
-                key={id}
-                id={id}
-                image={image}
-                headline={headline}
-                description={description}
-                profilePicture={profilePicture}
-                creatorName={creatorName}
-                tagline={tagline}
-                isLastItem={isLastItem}
-              />
-            </motion.div>
-          );
-        }
-      )
-    : (selectedTab === "all" && searchQuery.trim() === ""
-        ? filteredPosts.slice(0, -1)
+    ? (selectedTab === "all" && searchQuery.trim() === ""
+        ? filteredPosts.slice(1)
         : filteredPosts
       ).map(
         (
@@ -145,6 +110,7 @@ const PostList = () => {
             tagline,
             description,
             isLastItem,
+            createdAt,
           },
           index
         ) => {
@@ -165,6 +131,48 @@ const PostList = () => {
                 creatorName={creatorName}
                 tagline={tagline}
                 isLastItem={isLastItem}
+                createdAt={createdAt}
+              />
+            </motion.div>
+          );
+        }
+      )
+    : (selectedTab === "all" && searchQuery.trim() === ""
+        ? filteredPosts.slice(1)
+        : filteredPosts
+      ).map(
+        (
+          {
+            id,
+            image,
+            headline,
+            profilePicture,
+            creatorName,
+            tagline,
+            description,
+            isLastItem,
+            createdAt,
+          },
+          index
+        ) => {
+          return (
+            <motion.div
+              key={id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <PostItems
+                key={id}
+                id={id}
+                image={image}
+                headline={headline}
+                description={description}
+                profilePicture={profilePicture}
+                creatorName={creatorName}
+                tagline={tagline}
+                isLastItem={isLastItem}
+                createdAt={createdAt}
               />
             </motion.div>
           );
@@ -193,13 +201,14 @@ const PostList = () => {
             transition={{ duration: 0.8 }}
           >
             <FeaturedPost
-              id={posts[posts.length - 1].id}
-              image={posts[posts.length - 1].image}
-              headline={posts[posts.length - 1].headline}
-              description={posts[posts.length - 1].description}
-              profilePicture={posts[posts.length - 1].profilePicture}
-              creatorName={posts[posts.length - 1].creatorName}
-              tagline={posts[posts.length - 1].tagline}
+              id={posts[0].id}
+              image={posts[0].image}
+              headline={posts[0].headline}
+              description={posts[0].description}
+              profilePicture={posts[0].profilePicture}
+              creatorName={posts[0].creatorName}
+              tagline={posts[0].tagline}
+              createdAt={posts[0].createdAt}
             />
           </motion.div>
         )}
