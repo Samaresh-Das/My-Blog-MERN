@@ -47,7 +47,7 @@ app.use("/api/user", usersRoute);
 //   res.json("server working");
 // });
 app.get("/ping", (req, res, next) => {
-  res.json({ message: "Pong!" });
+  res.json({ message: "Pong!CI/CD WORKING 🚀" });
 });
 
 app.use((req, res, next) => {
