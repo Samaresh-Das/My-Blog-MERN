@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'server/**'   # ✅ Only trigger when backend changes
   workflow_dispatch:
 
 jobs:
