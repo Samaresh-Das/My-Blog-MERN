@@ -6,6 +6,8 @@ import Button from "../shared/Button";
 import Input from "../shared/Input";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import RTE from "../shared/RTE";
+import PostTagSelector from "./PostTagSelector";
+import { createPost_dropdownList } from "../shared/frontend_data";
 
 const UpdatePost = () => {
   const history = useHistory();
@@ -17,8 +19,8 @@ const UpdatePost = () => {
 
   const headlineRef = useRef();
   const descriptionRef = useRef();
-  const tagRef = useRef();
   const [description, setDescription] = useState();
+  const [tag, setTag] = useState("");
 
   useEffect(() => {
     const getPost = async () => {
@@ -27,14 +29,14 @@ const UpdatePost = () => {
       dataRef.current = data; //if we don't use the data red the value will be lost after each render cycle or app restart, so we used ref for that
       // setPosts(dataRef.current);
       setPostDetails(dataRef.current);
+      if (dataRef.current.post) {
+        setTag(dataRef.current.post.tag || dataRef.current.post.category || "");
+      }
       setIsLoading(false);
     };
     getPost();
   }, [postId]);
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
   const formSubmitHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -43,7 +45,7 @@ const UpdatePost = () => {
       body: JSON.stringify({
         headline: headlineRef.current.value,
         description: description,
-        tag: tagRef.current.value,
+        category: tag,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -54,9 +56,16 @@ const UpdatePost = () => {
     history.push(`/post/${postId}`); //forwarding the user to post details
   };
 
+  const getTag = (value) => {
+    setTag(value);
+  };
   const getDescription = React.useCallback((e) => {
     setDescription(e);
   }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="px-4 md:px-0">
@@ -84,15 +93,11 @@ const UpdatePost = () => {
             />
           </div>
           <div className="relative z-0 w-full mb-10">
-            <Input
-              labelClass="text-neoBorder font-bold text-[18px] mb-2 block"
-              label="Tag"
-              type="text"
-              element="input"
-              id="tag"
-              className="w-full bg-white border-2 border-neoBorder text-neoBorder font-semibold p-3 rounded-lg outline-none focus:shadow-neo hover:shadow-neo transition-shadow placeholder:text-gray-500"
-              placeholder={postDetails.post.tag}
-              ref={tagRef}
+            <label className="text-neoBorder font-bold text-[18px] mb-2 block">Tag</label>
+            <PostTagSelector
+              dropdownList={createPost_dropdownList}
+              getTag={getTag}
+              initialValue={tag}
             />
           </div>
           <div className="flex justify-center mt-8">

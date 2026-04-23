@@ -81,14 +81,15 @@ const getPostsById = async (req, res, next) => {
     });
   }
   //to get the details of the user
-  const { id, headline, description, tag, creator, createdAt, image } = post;
+  const { id, headline, description, tag, category, creator, createdAt, image } = post;
   const { name, profilePicture, tagline } = creator;
   const postData = {
     id,
     headline,
     description,
     createdAt,
-    tag,
+    tag: tag || category,
+    category: category || tag,
     creator: creator._id.toString(),
     creatorName: name,
     profilePicture,
@@ -205,7 +206,7 @@ const createPosts = async (req, res, next) => {
 
 const updatePostById = async (req, res, next) => {
   const postId = req.params.pid;
-  const { headline, description, tag } = req.body;
+  const { headline, description, tag, category } = req.body;
   let post;
   try {
     post = await Post.findById(postId);
@@ -226,7 +227,7 @@ const updatePostById = async (req, res, next) => {
   //the user might not want to update all the fields so we used the OR operator.
   post.headline = headline || post.headline;
   post.description = description || post.description;
-  post.tag = tag || post.tag;
+  post.category = category || tag || post.category;
 
   let updatedPost;
   try {

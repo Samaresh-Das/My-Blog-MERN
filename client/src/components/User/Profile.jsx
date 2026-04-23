@@ -61,7 +61,8 @@ const Profile = () => {
     const getPostsByUserId = async () => {
       const response = await fetch(`${linkSite}/api/posts/user/${userId}`);
       const data = await response.json();
-      postsRef.current = data.posts;
+      const sortedPosts = data.posts ? [...data.posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+      postsRef.current = sortedPosts;
       setUserPosts(postsRef.current);
     };
     getPostsByUserId();

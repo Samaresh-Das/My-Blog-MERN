@@ -53,54 +53,86 @@ const PostDetail = () => {
         const isNested = domNode.parent && domNode.parent.name === "pre";
         if (isNested) return;
 
-        // Try to find the language class in this node or its first child (if it's another pre)
+        // Try to find the language class in this node or its first child
         let classes = domNode.attribs?.class || "";
         if (domNode.children?.[0]?.name === "pre") {
           classes = domNode.children[0].attribs?.class || classes;
         }
 
-        let language = "Code";
-        if (classes.includes("javascript") || classes.includes("js")) language = "JavaScript";
-        else if (classes.includes("python")) language = "Python";
+        let language = "CODE";
+        if (classes.includes("javascript") || classes.includes("js")) language = "JAVASCRIPT";
+        else if (classes.includes("python")) language = "PYTHON";
         else if (classes.includes("html")) language = "HTML";
         else if (classes.includes("css")) language = "CSS";
         else if (classes.includes("cpp")) language = "C++";
-        else if (classes.includes("java")) language = "Java";
-        else if (classes.includes("typescript") || classes.includes("ts")) language = "TypeScript";
+        else if (classes.includes("java")) language = "JAVA";
+        else if (classes.includes("typescript") || classes.includes("ts")) language = "TYPESCRIPT";
+
+        const getRawCode = (nodes) => {
+          return nodes.map(node => {
+            if (node.type === "text") return node.data;
+            if (node.type === "tag" && node.children) return getRawCode(node.children);
+            return "";
+          }).join("");
+        };
+
+        const rawCode = getRawCode(domNode.children);
+
+        const highlightCode = (code) => {
+          if (!code) return "";
+          let h = code
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+          
+          h = h.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, '<span class="str" style="color: #a5d6ff;">$&</span>');
+          h = h.replace(/(\/\/.*)/g, '<span class="com" style="color: #8b949e;">$1</span>');
+          h = h.replace(/\b(const|let|var|function|return|if|else|for|while|import|export|class|this|new|async|await|default|case|switch|break|continue)\b(?![^<]*>|[^<>]*<\/)/g, '<span class="kw" style="color: #ff7b72;">$1</span>');
+          h = h.replace(/\b(\w+)(?=\()(?![^<]*>|[^<>]*<\/)/g, '<span class="fn" style="color: #d2a8ff;">$1</span>');
+          h = h.replace(/\b(\d+)\b(?![^<]*>|[^<>]*<\/)/g, '<span class="num" style="color: #79c0ff;">$1</span>');
+
+          // Clean up any nested spans created by overlapping patterns
+          h = h.replace(/<span[^>]*>(<span[^>]*>.*?<\/span>.*?)<\/span>/g, '$1');
+
+          return h;
+        };
+
 
         const copyToClipboard = (e) => {
-          const pre = e.currentTarget.closest(".code-block-wrapper").querySelector("pre");
-          const text = pre.innerText;
-          navigator.clipboard.writeText(text);
+          navigator.clipboard.writeText(rawCode);
           const btn = e.currentTarget;
           const originalContent = btn.innerHTML;
-          btn.innerHTML = "Copied!";
+          btn.innerHTML = "COPIED!";
           setTimeout(() => {
             btn.innerHTML = originalContent;
           }, 2000);
         };
 
         return (
-          <div className="code-block-wrapper relative group my-10 bg-[#1e1e1e] border-4 border-neoBorder rounded-xl shadow-neo overflow-hidden transition-all duration-300">
-            <div className="code-window-header flex justify-between items-center px-4 py-3 bg-[#2d2d2d] border-b-2 border-neoBorder">
-              <div className="flex items-center gap-4">
+          <div className="code-block-wrapper relative group my-12 bg-[#010409] border-4 border-neoBorder rounded-2xl shadow-neoLg overflow-hidden transition-all duration-500 hover:scale-[1.01]">
+            <div className="code-window-header flex justify-between items-center px-5 py-3 bg-[#0d1117] border-b-4 border-neoBorder">
+              <div className="flex items-center gap-5">
                 <div className="code-window-dots flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] border-2 border-neoBorder shadow-[1px_1px_0px_#111827]"></div>
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] border-2 border-neoBorder shadow-[1px_1px_0px_#111827]"></div>
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#27c93f] border-2 border-neoBorder shadow-[1px_1px_0px_#111827]"></div>
                 </div>
-                <div className="text-[12px] text-gray-400 font-bold uppercase tracking-widest">{language}</div>
+                <div className="text-[12px] text-gray-400 font-black uppercase tracking-[0.2em]">{language}</div>
               </div>
               <button 
                 onClick={copyToClipboard}
-                className="opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-neoBorder px-3 py-1 rounded-md text-[12px] font-bold shadow-[2px_2px_0px_rgba(17,24,39,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                className="bg-neoYellow border-2 border-neoBorder px-4 py-1 rounded-md text-[12px] font-black text-neoBorder shadow-[3px_3px_0px_#111827] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#111827] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all uppercase"
               >
-                Copy
+                COPY
               </button>
             </div>
-            <pre {...domNode.attribs} className={`${domNode.attribs?.class || ""} text-[15px] p-6 overflow-x-auto !bg-transparent`}>
-              {domToReact(domNode.children, parseOptions)}
-            </pre>
+            <div className="p-1 pb-2 px-2 bg-[#010409]">
+              <div className="bg-[#0d1117] rounded-xl border-2 border-neoBorder/30 shadow-inner overflow-hidden">
+                <pre className="text-[14px] md:text-[18px] p-6 pt-8 overflow-x-auto text-[#c9d1d9] font-mono leading-relaxed selection:bg-neoBlue/30">
+                  <code dangerouslySetInnerHTML={{ __html: highlightCode(rawCode) }} />
+                </pre>
+              </div>
+            </div>
           </div>
         );
       }

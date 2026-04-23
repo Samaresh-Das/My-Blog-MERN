@@ -12,6 +12,7 @@ const postSchema = new Schema({
     required: true,
   },
   category: { type: String, required: true },
+  tag: { type: String },
   image: {
     type: String,
     required: true,

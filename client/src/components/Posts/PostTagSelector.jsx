@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
-const PostTagSelector = ({ dropdownList, getTag }) => {
-  const [selectedTag, setSelectedTag] = useState(null);
+const PostTagSelector = ({ dropdownList, getTag, initialValue }) => {
+  const [selectedTag, setSelectedTag] = React.useState(initialValue);
+
+  React.useEffect(() => {
+    setSelectedTag(initialValue);
+  }, [initialValue]);
 
   const onSelectingTag = (value) => {
     setSelectedTag(value);
@@ -10,7 +14,7 @@ const PostTagSelector = ({ dropdownList, getTag }) => {
   return (
     <div className="flex flex-wrap gap-4 mt-2">
       {dropdownList.map((item) => {
-        const isSelected = selectedTag === item.content;
+        const isSelected = selectedTag && item.content && selectedTag.trim().toLowerCase() === item.content.trim().toLowerCase();
         return (
           <button
             type="button"
