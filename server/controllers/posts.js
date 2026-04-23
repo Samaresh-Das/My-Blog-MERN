@@ -135,31 +135,39 @@ const createPosts = async (req, res, next) => {
     );
   }
 
-  if (!req.file) {
-    const error = new HttpError("Image file not provided", 400);
+  const { headline, description, category, imageUrl } = req.body; //get the required details from the body
+  const creator = req.userData.userId;
+
+  if (!req.file && !imageUrl) {
+    const error = new HttpError("Image file or Image URL not provided", 400);
     return next(error.message);
   }
 
-  const { headline, description, category } = req.body; //get the required details from the body
-  const creator = req.userData.userId;
+  let imagePath;
   let createdPost;
   try {
-    //creating image file in s3 bucker
-    const params = {
-      Bucket: bucketName,
-      Key: req.file.originalname,
-      Body: req.file.buffer,
-      ContentType: req.file.mimetype,
-    };
-    const command = new PutObjectCommand(params);
-    await s3.send(command);
+    if (req.file) {
+      //creating image file in s3 bucket
+      const params = {
+        Bucket: bucketName,
+        Key: req.file.originalname,
+        Body: req.file.buffer,
+        ContentType: req.file.mimetype,
+      };
+      const command = new PutObjectCommand(params);
+      await s3.send(command);
+      imagePath = `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`;
+    } else {
+      imagePath = imageUrl;
+    }
 
     createdPost = new Post({
       headline,
       description,
       creator,
       category,
-      image: `https://sam-dev-blog.s3.ap-south-1.amazonaws.com/${req.file.originalname}`,
+      tag: category,
+      image: imagePath,
     }); //create new post. You need to save later
 
 
@@ -272,17 +280,19 @@ const deletePost = async (req, res, next) => {
     return next(error);
   }
 
-  //deleting the post image from s3 bucket
-  const imagePath = post.image.replace(
-    "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
-    ""
-  );
-  const deleteParams = {
-    Bucket: bucketName,
-    Key: imagePath,
-  };
-  const deleteCommand = new DeleteObjectCommand(deleteParams);
-  await s3.send(deleteCommand);
+  //deleting the post image from s3 bucket if it's stored there
+  if (post.image.includes("sam-dev-blog.s3.ap-south-1.amazonaws.com")) {
+    const imagePath = post.image.replace(
+      "https://sam-dev-blog.s3.ap-south-1.amazonaws.com/",
+      ""
+    );
+    const deleteParams = {
+      Bucket: bucketName,
+      Key: imagePath,
+    };
+    const deleteCommand = new DeleteObjectCommand(deleteParams);
+    await s3.send(deleteCommand);
+  }
 
   res.status(200).json({
     message: "Deleted",
