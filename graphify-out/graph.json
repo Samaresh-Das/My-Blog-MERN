@@ -628,7 +628,7 @@
       "label": "PostFilterTabs()",
       "file_type": "code",
       "source_file": "client/src/components/shared/PostFilterTabs.jsx",
-      "source_location": "L26",
+      "source_location": "L3",
       "id": "shared_postfiltertabs_postfiltertabs",
       "community": 31,
       "norm_label": "postfiltertabs()"
@@ -1249,9 +1249,9 @@
       "source_file": "client/src/components/Posts/PostList.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "client_src_components_posts_postlist_jsx",
-      "target": "posts_postlist_paginationcontrols",
-      "confidence_score": 1.0
+      "target": "posts_postlist_paginationcontrols"
     },
     {
       "relation": "contains",
@@ -1674,5 +1674,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "945a515ce74a0b5363bdd28a49bf92a6f4e64925"
+  "built_at_commit": "83256e02c1fc5c806dedec65e73f2f4d64a9de88"
 }
