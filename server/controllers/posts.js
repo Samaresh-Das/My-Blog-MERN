@@ -25,12 +25,29 @@ const s3 = new S3Client({
 });
 
 const getPosts = async (req, res, next) => {
+  const page = parseInt(req.query.page, 10) || 1;
+  const limit = parseInt(req.query.limit, 10) || 6;
+  const category = req.query.category;
+  const search = req.query.search;
+
+  const filter = {};
+  if (category && category !== "all") {
+    filter.category = category;
+  }
+  if (search) {
+    const regex = new RegExp(search, "i");
+    filter.$or = [{ headline: regex }, { description: regex }];
+  }
+
   let posts;
+  let totalPosts;
   try {
-    posts = await Post.find().populate(
-      "creator",
-      "name profilePicture tagline"
-    );
+    totalPosts = await Post.countDocuments(filter);
+    posts = await Post.find(filter)
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .populate("creator", "name profilePicture tagline");
   } catch (err) {
     const error = new HttpError("An unknown error occured", 500);
     return res.status(500).json({
@@ -39,7 +56,6 @@ const getPosts = async (req, res, next) => {
   }
 
   const postList = posts.map((post) => {
-    //to get the details of the user
     const { id, headline, description, tag, category, creator, image, createdAt } = post;
     const { name, profilePicture, tagline } = creator;
     return {
@@ -53,10 +69,11 @@ const getPosts = async (req, res, next) => {
       profilePicture,
       tagline,
       image,
-      createdAt
-    }; // Include user name in response
+      createdAt,
+    };
   });
-  res.status(200).json(postList);
+
+  res.status(200).json({ posts: postList, totalPosts });
 };
 
 const getPostsById = async (req, res, next) => {

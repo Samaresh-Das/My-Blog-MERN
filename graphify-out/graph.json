@@ -1,0 +1,1678 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "client/postcss.config.js",
+      "source_location": "L1",
+      "id": "client_postcss_config_js",
+      "community": 32,
+      "norm_label": "postcss.config.js"
+    },
+    {
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "client/tailwind.config.js",
+      "source_location": "L1",
+      "id": "client_tailwind_config_js",
+      "community": 33,
+      "norm_label": "tailwind.config.js"
+    },
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "client/vite.config.js",
+      "source_location": "L1",
+      "id": "client_vite_config_js",
+      "community": 34,
+      "norm_label": "vite.config.js"
+    },
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L1",
+      "id": "client_src_app_jsx",
+      "community": 5,
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L20",
+      "id": "src_app_app",
+      "community": 5,
+      "norm_label": "app()"
+    },
+    {
+      "label": "ScrollToTop()",
+      "file_type": "code",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L105",
+      "id": "src_app_scrolltotop",
+      "community": 5,
+      "norm_label": "scrolltotop()"
+    },
+    {
+      "label": "index.jsx",
+      "file_type": "code",
+      "source_file": "client/src/index.jsx",
+      "source_location": "L1",
+      "id": "client_src_index_jsx",
+      "community": 35,
+      "norm_label": "index.jsx"
+    },
+    {
+      "label": "AboutMe.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/AboutMe.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_aboutme_jsx",
+      "community": 9,
+      "norm_label": "aboutme.jsx"
+    },
+    {
+      "label": "AboutMe()",
+      "file_type": "code",
+      "source_file": "client/src/components/AboutMe.jsx",
+      "source_location": "L24",
+      "id": "components_aboutme_aboutme",
+      "community": 9,
+      "norm_label": "aboutme()"
+    },
+    {
+      "label": "ContactMe.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/ContactMe.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_contactme_jsx",
+      "community": 10,
+      "norm_label": "contactme.jsx"
+    },
+    {
+      "label": "ContactMe()",
+      "file_type": "code",
+      "source_file": "client/src/components/ContactMe.jsx",
+      "source_location": "L38",
+      "id": "components_contactme_contactme",
+      "community": 10,
+      "norm_label": "contactme()"
+    },
+    {
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Footer.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_footer_jsx",
+      "community": 11,
+      "norm_label": "footer.jsx"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "client/src/components/Footer.jsx",
+      "source_location": "L4",
+      "id": "components_footer_footer",
+      "community": 11,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "linkSite.js",
+      "file_type": "code",
+      "source_file": "client/src/components/linkSite.js",
+      "source_location": "L1",
+      "id": "client_src_components_linksite_js",
+      "community": 36,
+      "norm_label": "linksite.js"
+    },
+    {
+      "label": "Privacy.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Privacy.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_privacy_jsx",
+      "community": 12,
+      "norm_label": "privacy.jsx"
+    },
+    {
+      "label": "Privacy()",
+      "file_type": "code",
+      "source_file": "client/src/components/Privacy.jsx",
+      "source_location": "L3",
+      "id": "components_privacy_privacy",
+      "community": 12,
+      "norm_label": "privacy()"
+    },
+    {
+      "label": "Terms.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Terms.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_terms_jsx",
+      "community": 13,
+      "norm_label": "terms.jsx"
+    },
+    {
+      "label": "Terms()",
+      "file_type": "code",
+      "source_file": "client/src/components/Terms.jsx",
+      "source_location": "L3",
+      "id": "components_terms_terms",
+      "community": 13,
+      "norm_label": "terms()"
+    },
+    {
+      "label": "Auth.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Auth/Auth.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_auth_auth_jsx",
+      "community": 6,
+      "norm_label": "auth.jsx"
+    },
+    {
+      "label": "reducer()",
+      "file_type": "code",
+      "source_file": "client/src/components/Auth/Auth.jsx",
+      "source_location": "L28",
+      "id": "auth_auth_reducer",
+      "community": 6,
+      "norm_label": "reducer()"
+    },
+    {
+      "label": "Auth()",
+      "file_type": "code",
+      "source_file": "client/src/components/Auth/Auth.jsx",
+      "source_location": "L51",
+      "id": "auth_auth_auth",
+      "community": 6,
+      "norm_label": "auth()"
+    },
+    {
+      "label": "auth-context.js",
+      "file_type": "code",
+      "source_file": "client/src/components/context/auth-context.js",
+      "source_location": "L1",
+      "id": "client_src_components_context_auth_context_js",
+      "community": 37,
+      "norm_label": "auth-context.js"
+    },
+    {
+      "label": "SearchContext.js",
+      "file_type": "code",
+      "source_file": "client/src/components/context/SearchContext.js",
+      "source_location": "L1",
+      "id": "client_src_components_context_searchcontext_js",
+      "community": 38,
+      "norm_label": "searchcontext.js"
+    },
+    {
+      "label": "auth-hook.js",
+      "file_type": "code",
+      "source_file": "client/src/components/hooks/auth-hook.js",
+      "source_location": "L1",
+      "id": "client_src_components_hooks_auth_hook_js",
+      "community": 5,
+      "norm_label": "auth-hook.js"
+    },
+    {
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "client/src/components/hooks/auth-hook.js",
+      "source_location": "L5",
+      "id": "hooks_auth_hook_useauth",
+      "community": 5,
+      "norm_label": "useauth()"
+    },
+    {
+      "label": "Navbar.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/Navbar.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_navbar_navbar_jsx",
+      "community": 14,
+      "norm_label": "navbar.jsx"
+    },
+    {
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/Navbar.jsx",
+      "source_location": "L14",
+      "id": "navbar_navbar_navbar",
+      "community": 14,
+      "norm_label": "navbar()"
+    },
+    {
+      "label": "NavItems.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/NavItems.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_navbar_navitems_jsx",
+      "community": 15,
+      "norm_label": "navitems.jsx"
+    },
+    {
+      "label": "NavItems()",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/NavItems.jsx",
+      "source_location": "L6",
+      "id": "navbar_navitems_navitems",
+      "community": 15,
+      "norm_label": "navitems()"
+    },
+    {
+      "label": "ProfileDropdown.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/ProfileDropdown.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_navbar_profiledropdown_jsx",
+      "community": 16,
+      "norm_label": "profiledropdown.jsx"
+    },
+    {
+      "label": "ProfileDropdown()",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/ProfileDropdown.jsx",
+      "source_location": "L4",
+      "id": "navbar_profiledropdown_profiledropdown",
+      "community": 16,
+      "norm_label": "profiledropdown()"
+    },
+    {
+      "label": "ProfileFunctionalities.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/ProfileFunctionalities.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_navbar_profilefunctionalities_jsx",
+      "community": 17,
+      "norm_label": "profilefunctionalities.jsx"
+    },
+    {
+      "label": "ProfileFunctionalities()",
+      "file_type": "code",
+      "source_file": "client/src/components/Navbar/ProfileFunctionalities.jsx",
+      "source_location": "L4",
+      "id": "navbar_profilefunctionalities_profilefunctionalities",
+      "community": 17,
+      "norm_label": "profilefunctionalities()"
+    },
+    {
+      "label": "CreatePost.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/CreatePost.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_createpost_jsx",
+      "community": 18,
+      "norm_label": "createpost.jsx"
+    },
+    {
+      "label": "CreatePost()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/CreatePost.jsx",
+      "source_location": "L11",
+      "id": "posts_createpost_createpost",
+      "community": 18,
+      "norm_label": "createpost()"
+    },
+    {
+      "label": "FeaturedPost.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/FeaturedPost.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_featuredpost_jsx",
+      "community": 3,
+      "norm_label": "featuredpost.jsx"
+    },
+    {
+      "label": "PostDetail.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostDetail.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_postdetail_jsx",
+      "community": 19,
+      "norm_label": "postdetail.jsx"
+    },
+    {
+      "label": "PostDetail()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostDetail.jsx",
+      "source_location": "L9",
+      "id": "posts_postdetail_postdetail",
+      "community": 19,
+      "norm_label": "postdetail()"
+    },
+    {
+      "label": "PostItems.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostItems.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_postitems_jsx",
+      "community": 3,
+      "norm_label": "postitems.jsx"
+    },
+    {
+      "label": "PostList.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostList.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_postlist_jsx",
+      "community": 7,
+      "norm_label": "postlist.jsx"
+    },
+    {
+      "label": "PaginationControls()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostList.jsx",
+      "source_location": "L16",
+      "id": "posts_postlist_paginationcontrols",
+      "community": 7,
+      "norm_label": "paginationcontrols()"
+    },
+    {
+      "label": "PostList()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostList.jsx",
+      "source_location": "L56",
+      "id": "posts_postlist_postlist",
+      "community": 7,
+      "norm_label": "postlist()"
+    },
+    {
+      "label": "PostTagSelector.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostTagSelector.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_posttagselector_jsx",
+      "community": 20,
+      "norm_label": "posttagselector.jsx"
+    },
+    {
+      "label": "PostTagSelector()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/PostTagSelector.jsx",
+      "source_location": "L3",
+      "id": "posts_posttagselector_posttagselector",
+      "community": 20,
+      "norm_label": "posttagselector()"
+    },
+    {
+      "label": "shortDesc.js",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/shortDesc.js",
+      "source_location": "L1",
+      "id": "client_src_components_posts_shortdesc_js",
+      "community": 3,
+      "norm_label": "shortdesc.js"
+    },
+    {
+      "label": "shortingDesc()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/shortDesc.js",
+      "source_location": "L5",
+      "id": "posts_shortdesc_shortingdesc",
+      "community": 3,
+      "norm_label": "shortingdesc()"
+    },
+    {
+      "label": "UpdatePost.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/UpdatePost.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_posts_updatepost_jsx",
+      "community": 21,
+      "norm_label": "updatepost.jsx"
+    },
+    {
+      "label": "UpdatePost()",
+      "file_type": "code",
+      "source_file": "client/src/components/Posts/UpdatePost.jsx",
+      "source_location": "L12",
+      "id": "posts_updatepost_updatepost",
+      "community": 21,
+      "norm_label": "updatepost()"
+    },
+    {
+      "label": "AuthInputs.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/AuthInputs.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_authinputs_jsx",
+      "community": 22,
+      "norm_label": "authinputs.jsx"
+    },
+    {
+      "label": "AuthInputs()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/AuthInputs.jsx",
+      "source_location": "L4",
+      "id": "shared_authinputs_authinputs",
+      "community": 22,
+      "norm_label": "authinputs()"
+    },
+    {
+      "label": "Button.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Button.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_button_jsx",
+      "community": 23,
+      "norm_label": "button.jsx"
+    },
+    {
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Button.jsx",
+      "source_location": "L3",
+      "id": "shared_button_button",
+      "community": 23,
+      "norm_label": "button()"
+    },
+    {
+      "label": "Card.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Card.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_card_jsx",
+      "community": 24,
+      "norm_label": "card.jsx"
+    },
+    {
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Card.jsx",
+      "source_location": "L4",
+      "id": "shared_card_card",
+      "community": 24,
+      "norm_label": "card()"
+    },
+    {
+      "label": "ComingSoonModal.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/ComingSoonModal.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_comingsoonmodal_jsx",
+      "community": 25,
+      "norm_label": "comingsoonmodal.jsx"
+    },
+    {
+      "label": "ComingSoonModal()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/ComingSoonModal.jsx",
+      "source_location": "L4",
+      "id": "shared_comingsoonmodal_comingsoonmodal",
+      "community": 25,
+      "norm_label": "comingsoonmodal()"
+    },
+    {
+      "label": "FloatingCreateButton.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/FloatingCreateButton.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_floatingcreatebutton_jsx",
+      "community": 26,
+      "norm_label": "floatingcreatebutton.jsx"
+    },
+    {
+      "label": "FloatingCreateButton()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/FloatingCreateButton.jsx",
+      "source_location": "L6",
+      "id": "shared_floatingcreatebutton_floatingcreatebutton",
+      "community": 26,
+      "norm_label": "floatingcreatebutton()"
+    },
+    {
+      "label": "frontend_data.js",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/frontend_data.js",
+      "source_location": "L1",
+      "id": "client_src_components_shared_frontend_data_js",
+      "community": 39,
+      "norm_label": "frontend_data.js"
+    },
+    {
+      "label": "ImageUpload.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/ImageUpload.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_imageupload_jsx",
+      "community": 27,
+      "norm_label": "imageupload.jsx"
+    },
+    {
+      "label": "ImageUpload()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/ImageUpload.jsx",
+      "source_location": "L3",
+      "id": "shared_imageupload_imageupload",
+      "community": 27,
+      "norm_label": "imageupload()"
+    },
+    {
+      "label": "Input.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Input.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_input_jsx",
+      "community": 40,
+      "norm_label": "input.jsx"
+    },
+    {
+      "label": "LoadingSpinner.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/LoadingSpinner.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_loadingspinner_jsx",
+      "community": 28,
+      "norm_label": "loadingspinner.jsx"
+    },
+    {
+      "label": "LoadingSpinner()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/LoadingSpinner.jsx",
+      "source_location": "L3",
+      "id": "shared_loadingspinner_loadingspinner",
+      "community": 28,
+      "norm_label": "loadingspinner()"
+    },
+    {
+      "label": "Modal.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Modal.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_modal_jsx",
+      "community": 29,
+      "norm_label": "modal.jsx"
+    },
+    {
+      "label": "Modal()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/Modal.jsx",
+      "source_location": "L8",
+      "id": "shared_modal_modal",
+      "community": 29,
+      "norm_label": "modal()"
+    },
+    {
+      "label": "NoPostFound.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/NoPostFound.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_nopostfound_jsx",
+      "community": 30,
+      "norm_label": "nopostfound.jsx"
+    },
+    {
+      "label": "NoPostFound()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/NoPostFound.jsx",
+      "source_location": "L4",
+      "id": "shared_nopostfound_nopostfound",
+      "community": 30,
+      "norm_label": "nopostfound()"
+    },
+    {
+      "label": "PostFilterTabs.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/PostFilterTabs.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_postfiltertabs_jsx",
+      "community": 31,
+      "norm_label": "postfiltertabs.jsx"
+    },
+    {
+      "label": "PostFilterTabs()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/PostFilterTabs.jsx",
+      "source_location": "L3",
+      "id": "shared_postfiltertabs_postfiltertabs",
+      "community": 31,
+      "norm_label": "postfiltertabs()"
+    },
+    {
+      "label": "RTE.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/RTE.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_rte_jsx",
+      "community": 41,
+      "norm_label": "rte.jsx"
+    },
+    {
+      "label": "Profile.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/User/Profile.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_user_profile_jsx",
+      "community": 3,
+      "norm_label": "profile.jsx"
+    },
+    {
+      "label": "Profile()",
+      "file_type": "code",
+      "source_file": "client/src/components/User/Profile.jsx",
+      "source_location": "L18",
+      "id": "user_profile_profile",
+      "community": 3,
+      "norm_label": "profile()"
+    },
+    {
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "source_location": "L1",
+      "id": "server_app_js",
+      "community": 42,
+      "norm_label": "app.js"
+    },
+    {
+      "label": "posts.js",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L1",
+      "id": "server_controllers_posts_js",
+      "community": 2,
+      "norm_label": "posts.js"
+    },
+    {
+      "label": "getPosts()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L27",
+      "id": "controllers_posts_getposts",
+      "community": 2,
+      "norm_label": "getposts()"
+    },
+    {
+      "label": "getPostsById()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L79",
+      "id": "controllers_posts_getpostsbyid",
+      "community": 2,
+      "norm_label": "getpostsbyid()"
+    },
+    {
+      "label": "getPostsByUserId()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L122",
+      "id": "controllers_posts_getpostsbyuserid",
+      "community": 2,
+      "norm_label": "getpostsbyuserid()"
+    },
+    {
+      "label": "createPosts()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L146",
+      "id": "controllers_posts_createposts",
+      "community": 2,
+      "norm_label": "createposts()"
+    },
+    {
+      "label": "updatePostById()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L232",
+      "id": "controllers_posts_updatepostbyid",
+      "community": 2,
+      "norm_label": "updatepostbyid()"
+    },
+    {
+      "label": "deletePost()",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L267",
+      "id": "controllers_posts_deletepost",
+      "community": 2,
+      "norm_label": "deletepost()"
+    },
+    {
+      "label": "user.js",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L1",
+      "id": "server_controllers_user_js",
+      "community": 4,
+      "norm_label": "user.js"
+    },
+    {
+      "label": "createNewUser()",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L39",
+      "id": "controllers_user_createnewuser",
+      "community": 4,
+      "norm_label": "createnewuser()"
+    },
+    {
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L115",
+      "id": "controllers_user_login",
+      "community": 4,
+      "norm_label": "login()"
+    },
+    {
+      "label": "getUserById()",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L181",
+      "id": "controllers_user_getuserbyid",
+      "community": 4,
+      "norm_label": "getuserbyid()"
+    },
+    {
+      "label": "updateUserById()",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L217",
+      "id": "controllers_user_updateuserbyid",
+      "community": 4,
+      "norm_label": "updateuserbyid()"
+    },
+    {
+      "label": "deleteUser()",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L289",
+      "id": "controllers_user_deleteuser",
+      "community": 4,
+      "norm_label": "deleteuser()"
+    },
+    {
+      "label": "postLimiter.js",
+      "file_type": "code",
+      "source_file": "server/limiters/postLimiter.js",
+      "source_location": "L1",
+      "id": "server_limiters_postlimiter_js",
+      "community": 43,
+      "norm_label": "postlimiter.js"
+    },
+    {
+      "label": "userLimiter.js",
+      "file_type": "code",
+      "source_file": "server/limiters/userLimiter.js",
+      "source_location": "L1",
+      "id": "server_limiters_userlimiter_js",
+      "community": 44,
+      "norm_label": "userlimiter.js"
+    },
+    {
+      "label": "check-auth.js",
+      "file_type": "code",
+      "source_file": "server/middleware/check-auth.js",
+      "source_location": "L1",
+      "id": "server_middleware_check_auth_js",
+      "community": 45,
+      "norm_label": "check-auth.js"
+    },
+    {
+      "label": "file-upload.js",
+      "file_type": "code",
+      "source_file": "server/middleware/file-upload.js",
+      "source_location": "L1",
+      "id": "server_middleware_file_upload_js",
+      "community": 46,
+      "norm_label": "file-upload.js"
+    },
+    {
+      "label": "http-error.js",
+      "file_type": "code",
+      "source_file": "server/models/http-error.js",
+      "source_location": "L1",
+      "id": "server_models_http_error_js",
+      "community": 8,
+      "norm_label": "http-error.js"
+    },
+    {
+      "label": "HttpError",
+      "file_type": "code",
+      "source_file": "server/models/http-error.js",
+      "source_location": "L1",
+      "id": "models_http_error_httperror",
+      "community": 8,
+      "norm_label": "httperror"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "server/models/http-error.js",
+      "source_location": "L2",
+      "id": "models_http_error_httperror_constructor",
+      "community": 8,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": "post.js",
+      "file_type": "code",
+      "source_file": "server/models/post.js",
+      "source_location": "L1",
+      "id": "server_models_post_js",
+      "community": 47,
+      "norm_label": "post.js"
+    },
+    {
+      "label": "user.js",
+      "file_type": "code",
+      "source_file": "server/models/user.js",
+      "source_location": "L1",
+      "id": "server_models_user_js",
+      "community": 48,
+      "norm_label": "user.js"
+    },
+    {
+      "label": "posts-routes.js",
+      "file_type": "code",
+      "source_file": "server/routes/posts-routes.js",
+      "source_location": "L1",
+      "id": "server_routes_posts_routes_js",
+      "community": 49,
+      "norm_label": "posts-routes.js"
+    },
+    {
+      "label": "user-routes.js",
+      "file_type": "code",
+      "source_file": "server/routes/user-routes.js",
+      "source_location": "L1",
+      "id": "server_routes_user_routes_js",
+      "community": 50,
+      "norm_label": "user-routes.js"
+    },
+    {
+      "label": "MERN Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "mern stack",
+      "id": "readme_mern_stack"
+    },
+    {
+      "label": "Vite",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "vite",
+      "id": "readme_vite"
+    },
+    {
+      "label": "MongoDB",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "mongodb",
+      "id": "readme_mongodb"
+    },
+    {
+      "label": "Express.js",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "express.js",
+      "id": "readme_express"
+    },
+    {
+      "label": "React",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "react",
+      "id": "readme_react"
+    },
+    {
+      "label": "Node.js",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "node.js",
+      "id": "readme_nodejs"
+    },
+    {
+      "label": "TinyMCE Rich Text Editor",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "tinymce rich text editor",
+      "id": "readme_tinymce"
+    },
+    {
+      "label": "Authentication and Authorization",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "authentication and authorization",
+      "id": "readme_auth"
+    },
+    {
+      "label": "CRUD posts",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "crud posts",
+      "id": "readme_crud"
+    },
+    {
+      "label": "Picture Upload",
+      "file_type": "document",
+      "source_file": "README.md",
+      "community": 0,
+      "norm_label": "picture upload",
+      "id": "readme_upload"
+    },
+    {
+      "label": "Express App",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "community": 1,
+      "norm_label": "express app",
+      "id": "app_express"
+    },
+    {
+      "label": "Mongoose Connection",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "community": 1,
+      "norm_label": "mongoose connection",
+      "id": "app_mongoose"
+    },
+    {
+      "label": "Posts Routes",
+      "file_type": "code",
+      "source_file": "server/routes/posts-routes.js",
+      "community": 1,
+      "norm_label": "posts routes",
+      "id": "routes_posts"
+    },
+    {
+      "label": "Users Routes",
+      "file_type": "code",
+      "source_file": "server/routes/user-routes.js",
+      "community": 1,
+      "norm_label": "users routes",
+      "id": "routes_users"
+    },
+    {
+      "label": "Posts Controller",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js",
+      "community": 1,
+      "norm_label": "posts controller",
+      "id": "controller_posts"
+    },
+    {
+      "label": "Users Controller",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js",
+      "community": 1,
+      "norm_label": "users controller",
+      "id": "controller_users"
+    },
+    {
+      "label": "Auth Middleware",
+      "file_type": "code",
+      "source_file": "server/middleware/check-auth.js",
+      "community": 1,
+      "norm_label": "auth middleware",
+      "id": "middleware_auth"
+    },
+    {
+      "label": "File Upload Middleware",
+      "file_type": "code",
+      "source_file": "server/middleware/file-upload.js",
+      "community": 51,
+      "norm_label": "file upload middleware",
+      "id": "middleware_fileupload"
+    },
+    {
+      "label": "Global Rate Limiter",
+      "file_type": "code",
+      "source_file": "server/app.js",
+      "community": 1,
+      "norm_label": "global rate limiter",
+      "id": "limiter_global"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_app_jsx",
+      "target": "hooks_auth_hook_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_app_jsx",
+      "target": "src_app_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_app_jsx",
+      "target": "src_app_scrolltotop"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "hooks_auth_hook_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/AboutMe.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_aboutme_jsx",
+      "target": "components_aboutme_aboutme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ContactMe.jsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_contactme_jsx",
+      "target": "components_contactme_contactme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Footer.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_footer_jsx",
+      "target": "components_footer_footer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Privacy.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_privacy_jsx",
+      "target": "components_privacy_privacy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Terms.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_terms_jsx",
+      "target": "components_terms_terms"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Auth/Auth.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "auth_auth_reducer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Auth/Auth.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "auth_auth_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/hooks/auth-hook.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_hooks_auth_hook_js",
+      "target": "hooks_auth_hook_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Navbar/Navbar.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "navbar_navbar_navbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Navbar/NavItems.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "navbar_navitems_navitems"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Navbar/ProfileDropdown.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_navbar_profiledropdown_jsx",
+      "target": "navbar_profiledropdown_profiledropdown"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Navbar/ProfileFunctionalities.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_navbar_profilefunctionalities_jsx",
+      "target": "navbar_profilefunctionalities_profilefunctionalities"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/CreatePost.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "posts_createpost_createpost"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/FeaturedPost.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "posts_shortdesc_shortingdesc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/PostDetail.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "posts_postdetail_postdetail"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/PostItems.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "posts_shortdesc_shortingdesc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/PostList.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "posts_postlist_paginationcontrols"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/PostList.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "posts_postlist_postlist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/PostTagSelector.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_posttagselector_jsx",
+      "target": "posts_posttagselector_posttagselector"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/shortDesc.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_shortdesc_js",
+      "target": "posts_shortdesc_shortingdesc"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/User/Profile.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_user_profile_jsx",
+      "target": "posts_shortdesc_shortingdesc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Posts/UpdatePost.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "posts_updatepost_updatepost"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/AuthInputs.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_authinputs_jsx",
+      "target": "shared_authinputs_authinputs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/Button.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_button_jsx",
+      "target": "shared_button_button"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/Card.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_card_jsx",
+      "target": "shared_card_card"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/ComingSoonModal.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_comingsoonmodal_jsx",
+      "target": "shared_comingsoonmodal_comingsoonmodal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/FloatingCreateButton .jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "shared_floatingcreatebutton_floatingcreatebutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/ImageUpload.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_imageupload_jsx",
+      "target": "shared_imageupload_imageupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/LoadingSpinner.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_loadingspinner_jsx",
+      "target": "shared_loadingspinner_loadingspinner"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/Modal.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "shared_modal_modal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/NoPostFound.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_nopostfound_jsx",
+      "target": "shared_nopostfound_nopostfound"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/PostFilterTabs.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_shared_postfiltertabs_jsx",
+      "target": "shared_postfiltertabs_postfiltertabs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/User/Profile.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_src_components_user_profile_jsx",
+      "target": "user_profile_profile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getposts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getpostsbyid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getpostsbyuserid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_createposts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_updatepostbyid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/posts.js",
+      "source_location": "L250",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_deletepost"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_createnewuser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_login"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_getuserbyid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L217",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_updateuserbyid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/controllers/user.js",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_deleteuser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/models/http-error.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_models_http_error_js",
+      "target": "models_http_error_httperror"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "server/models/http-error.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_http_error_httperror",
+      "target": "models_http_error_httperror_constructor"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_mongodb"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_express"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_react"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_nodejs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_auth"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_crud"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_mern_stack",
+      "target": "readme_upload"
+    },
+    {
+      "relation": "uses_build_tool",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_react",
+      "target": "readme_vite"
+    },
+    {
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "readme_crud",
+      "target": "readme_tinymce"
+    },
+    {
+      "relation": "mounts",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "app_express",
+      "target": "routes_posts"
+    },
+    {
+      "relation": "mounts",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "app_express",
+      "target": "routes_users"
+    },
+    {
+      "relation": "connects_to_db",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "app_express",
+      "target": "app_mongoose"
+    },
+    {
+      "relation": "uses_middleware",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "app_express",
+      "target": "limiter_global"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "routes_posts",
+      "target": "controller_posts"
+    },
+    {
+      "relation": "requires_auth",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "routes_posts",
+      "target": "middleware_auth"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "manual",
+      "source": "routes_users",
+      "target": "controller_users"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "c55d4d426cf16cf275ed93258c9875d5fc60257f"
+}

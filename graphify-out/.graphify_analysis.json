@@ -1,0 +1,394 @@
+{
+  "communities": {
+    "0": [
+      "readme_auth",
+      "readme_crud",
+      "readme_express",
+      "readme_mern_stack",
+      "readme_mongodb",
+      "readme_nodejs",
+      "readme_react",
+      "readme_tinymce",
+      "readme_upload",
+      "readme_vite"
+    ],
+    "1": [
+      "app_express",
+      "app_mongoose",
+      "controller_posts",
+      "controller_users",
+      "limiter_global",
+      "middleware_auth",
+      "routes_posts",
+      "routes_users"
+    ],
+    "2": [
+      "controllers_posts_createposts",
+      "controllers_posts_deletepost",
+      "controllers_posts_getposts",
+      "controllers_posts_getpostsbyid",
+      "controllers_posts_getpostsbyuserid",
+      "controllers_posts_updatepostbyid",
+      "server_controllers_posts_js"
+    ],
+    "3": [
+      "client_src_components_posts_featuredpost_jsx",
+      "client_src_components_posts_postitems_jsx",
+      "client_src_components_posts_shortdesc_js",
+      "client_src_components_user_profile_jsx",
+      "posts_shortdesc_shortingdesc",
+      "user_profile_profile"
+    ],
+    "4": [
+      "controllers_user_createnewuser",
+      "controllers_user_deleteuser",
+      "controllers_user_getuserbyid",
+      "controllers_user_login",
+      "controllers_user_updateuserbyid",
+      "server_controllers_user_js"
+    ],
+    "5": [
+      "client_src_app_jsx",
+      "client_src_components_hooks_auth_hook_js",
+      "hooks_auth_hook_useauth",
+      "src_app_app",
+      "src_app_scrolltotop"
+    ],
+    "6": [
+      "auth_auth_auth",
+      "auth_auth_reducer",
+      "client_src_components_auth_auth_jsx"
+    ],
+    "7": [
+      "models_http_error_httperror",
+      "models_http_error_httperror_constructor",
+      "server_models_http_error_js"
+    ],
+    "8": [
+      "client_src_components_aboutme_jsx",
+      "components_aboutme_aboutme"
+    ],
+    "9": [
+      "client_src_components_contactme_jsx",
+      "components_contactme_contactme"
+    ],
+    "10": [
+      "client_src_components_footer_jsx",
+      "components_footer_footer"
+    ],
+    "11": [
+      "client_src_components_privacy_jsx",
+      "components_privacy_privacy"
+    ],
+    "12": [
+      "client_src_components_terms_jsx",
+      "components_terms_terms"
+    ],
+    "13": [
+      "client_src_components_navbar_navbar_jsx",
+      "navbar_navbar_navbar"
+    ],
+    "14": [
+      "client_src_components_navbar_navitems_jsx",
+      "navbar_navitems_navitems"
+    ],
+    "15": [
+      "client_src_components_navbar_profiledropdown_jsx",
+      "navbar_profiledropdown_profiledropdown"
+    ],
+    "16": [
+      "client_src_components_navbar_profilefunctionalities_jsx",
+      "navbar_profilefunctionalities_profilefunctionalities"
+    ],
+    "17": [
+      "client_src_components_posts_createpost_jsx",
+      "posts_createpost_createpost"
+    ],
+    "18": [
+      "client_src_components_posts_postdetail_jsx",
+      "posts_postdetail_postdetail"
+    ],
+    "19": [
+      "client_src_components_posts_postlist_jsx",
+      "posts_postlist_postlist"
+    ],
+    "20": [
+      "client_src_components_posts_posttagselector_jsx",
+      "posts_posttagselector_posttagselector"
+    ],
+    "21": [
+      "client_src_components_posts_updatepost_jsx",
+      "posts_updatepost_updatepost"
+    ],
+    "22": [
+      "client_src_components_shared_authinputs_jsx",
+      "shared_authinputs_authinputs"
+    ],
+    "23": [
+      "client_src_components_shared_button_jsx",
+      "shared_button_button"
+    ],
+    "24": [
+      "client_src_components_shared_card_jsx",
+      "shared_card_card"
+    ],
+    "25": [
+      "client_src_components_shared_comingsoonmodal_jsx",
+      "shared_comingsoonmodal_comingsoonmodal"
+    ],
+    "26": [
+      "client_src_components_shared_floatingcreatebutton_jsx",
+      "shared_floatingcreatebutton_floatingcreatebutton"
+    ],
+    "27": [
+      "client_src_components_shared_imageupload_jsx",
+      "shared_imageupload_imageupload"
+    ],
+    "28": [
+      "client_src_components_shared_loadingspinner_jsx",
+      "shared_loadingspinner_loadingspinner"
+    ],
+    "29": [
+      "client_src_components_shared_modal_jsx",
+      "shared_modal_modal"
+    ],
+    "30": [
+      "client_src_components_shared_nopostfound_jsx",
+      "shared_nopostfound_nopostfound"
+    ],
+    "31": [
+      "client_src_components_shared_postfiltertabs_jsx",
+      "shared_postfiltertabs_postfiltertabs"
+    ],
+    "32": [
+      "client_postcss_config_js"
+    ],
+    "33": [
+      "client_tailwind_config_js"
+    ],
+    "34": [
+      "client_vite_config_js"
+    ],
+    "35": [
+      "client_src_index_jsx"
+    ],
+    "36": [
+      "client_src_components_linksite_js"
+    ],
+    "37": [
+      "client_src_components_context_auth_context_js"
+    ],
+    "38": [
+      "client_src_components_context_searchcontext_js"
+    ],
+    "39": [
+      "client_src_components_shared_frontend_data_js"
+    ],
+    "40": [
+      "client_src_components_shared_input_jsx"
+    ],
+    "41": [
+      "client_src_components_shared_rte_jsx"
+    ],
+    "42": [
+      "server_app_js"
+    ],
+    "43": [
+      "server_limiters_postlimiter_js"
+    ],
+    "44": [
+      "server_limiters_userlimiter_js"
+    ],
+    "45": [
+      "server_middleware_check_auth_js"
+    ],
+    "46": [
+      "server_middleware_file_upload_js"
+    ],
+    "47": [
+      "server_models_post_js"
+    ],
+    "48": [
+      "server_models_user_js"
+    ],
+    "49": [
+      "server_routes_posts_routes_js"
+    ],
+    "50": [
+      "server_routes_user_routes_js"
+    ],
+    "51": [
+      "middleware_fileupload"
+    ]
+  },
+  "cohesion": {
+    "0": 0.2,
+    "1": 0.25,
+    "2": 0.29,
+    "3": 0.33,
+    "4": 0.33,
+    "5": 0.5,
+    "6": 0.67,
+    "7": 0.67,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0
+  },
+  "gods": [
+    {
+      "id": "readme_mern_stack",
+      "label": "MERN Stack",
+      "degree": 7
+    },
+    {
+      "id": "posts_shortdesc_shortingdesc",
+      "label": "shortingDesc()",
+      "degree": 4
+    },
+    {
+      "id": "app_express",
+      "label": "Express App",
+      "degree": 4
+    },
+    {
+      "id": "hooks_auth_hook_useauth",
+      "label": "useAuth()",
+      "degree": 3
+    },
+    {
+      "id": "routes_posts",
+      "label": "Posts Routes",
+      "degree": 3
+    },
+    {
+      "id": "src_app_app",
+      "label": "App()",
+      "degree": 2
+    },
+    {
+      "id": "models_http_error_httperror",
+      "label": "HttpError",
+      "degree": 2
+    },
+    {
+      "id": "readme_react",
+      "label": "React",
+      "degree": 2
+    },
+    {
+      "id": "readme_crud",
+      "label": "CRUD posts",
+      "degree": 2
+    },
+    {
+      "id": "routes_users",
+      "label": "Users Routes",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "App()",
+      "target": "useAuth()",
+      "source_files": [
+        "client/src/App.jsx",
+        "client/src/components/hooks/auth-hook.js"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "Express App",
+      "target": "Posts Routes",
+      "source_files": [
+        "server/app.js",
+        "server/routes/posts-routes.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "mounts",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "Express App",
+      "target": "Users Routes",
+      "source_files": [
+        "server/app.js",
+        "server/routes/user-routes.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "mounts",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "Posts Routes",
+      "target": "Posts Controller",
+      "source_files": [
+        "server/routes/posts-routes.js",
+        "server/controllers/posts.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "Posts Routes",
+      "target": "Auth Middleware",
+      "source_files": [
+        "server/routes/posts-routes.js",
+        "server/middleware/check-auth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "requires_auth",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Vite`, `MongoDB`, `Express.js` to the rest of the system?",
+      "why": "13 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}
