@@ -1,0 +1,235 @@
+{
+  "nodes": [
+    {
+      "id": "readme_mern_stack",
+      "label": "MERN Stack",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_vite",
+      "label": "Vite",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_mongodb",
+      "label": "MongoDB",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_express",
+      "label": "Express.js",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_react",
+      "label": "React",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_nodejs",
+      "label": "Node.js",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_tinymce",
+      "label": "TinyMCE Rich Text Editor",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_auth",
+      "label": "Authentication and Authorization",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_crud",
+      "label": "CRUD posts",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_upload",
+      "label": "Picture Upload",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "app_express",
+      "label": "Express App",
+      "file_type": "code",
+      "source_file": "server/app.js"
+    },
+    {
+      "id": "app_mongoose",
+      "label": "Mongoose Connection",
+      "file_type": "code",
+      "source_file": "server/app.js"
+    },
+    {
+      "id": "routes_posts",
+      "label": "Posts Routes",
+      "file_type": "code",
+      "source_file": "server/routes/posts-routes.js"
+    },
+    {
+      "id": "routes_users",
+      "label": "Users Routes",
+      "file_type": "code",
+      "source_file": "server/routes/user-routes.js"
+    },
+    {
+      "id": "controller_posts",
+      "label": "Posts Controller",
+      "file_type": "code",
+      "source_file": "server/controllers/posts.js"
+    },
+    {
+      "id": "controller_users",
+      "label": "Users Controller",
+      "file_type": "code",
+      "source_file": "server/controllers/user.js"
+    },
+    {
+      "id": "middleware_auth",
+      "label": "Auth Middleware",
+      "file_type": "code",
+      "source_file": "server/middleware/check-auth.js"
+    },
+    {
+      "id": "middleware_fileupload",
+      "label": "File Upload Middleware",
+      "file_type": "code",
+      "source_file": "server/middleware/file-upload.js"
+    },
+    {
+      "id": "limiter_global",
+      "label": "Global Rate Limiter",
+      "file_type": "code",
+      "source_file": "server/app.js"
+    }
+  ],
+  "edges": [
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_mongodb",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_express",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_react",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_nodejs",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_react",
+      "target": "readme_vite",
+      "relation": "uses_build_tool",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_crud",
+      "target": "readme_tinymce",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_auth",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_crud",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_mern_stack",
+      "target": "readme_upload",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "app_express",
+      "target": "routes_posts",
+      "relation": "mounts",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "app_express",
+      "target": "routes_users",
+      "relation": "mounts",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "routes_posts",
+      "target": "controller_posts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "routes_users",
+      "target": "controller_users",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "routes_posts",
+      "target": "middleware_auth",
+      "relation": "requires_auth",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "app_express",
+      "target": "app_mongoose",
+      "relation": "connects_to_db",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "app_express",
+      "target": "limiter_global",
+      "relation": "uses_middleware",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 2500,
+  "output_tokens": 1100
+}

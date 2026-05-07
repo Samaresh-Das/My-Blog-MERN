@@ -1,0 +1,2844 @@
+{
+  "nodes": [
+    {
+      "id": "client_postcss_config_js",
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "client\\postcss.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_tailwind_config_js",
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "client\\tailwind.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_vite_config_js",
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "client\\vite.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_app_jsx",
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_app",
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_app_scrolltotop",
+      "label": "ScrollToTop()",
+      "file_type": "code",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L105"
+    },
+    {
+      "id": "client_src_index_jsx",
+      "label": "index.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_aboutme_jsx",
+      "label": "AboutMe.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\AboutMe.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_aboutme_aboutme",
+      "label": "AboutMe()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\AboutMe.jsx",
+      "source_location": "L24"
+    },
+    {
+      "id": "client_src_components_contactme_jsx",
+      "label": "ContactMe.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\ContactMe.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_contactme_contactme",
+      "label": "ContactMe()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\ContactMe.jsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "client_src_components_footer_jsx",
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Footer.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_footer_footer",
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Footer.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_linksite_js",
+      "label": "linkSite.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\linkSite.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_privacy_jsx",
+      "label": "Privacy.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Privacy.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_privacy_privacy",
+      "label": "Privacy()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Privacy.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_terms_jsx",
+      "label": "Terms.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Terms.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_terms_terms",
+      "label": "Terms()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Terms.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_auth_auth_jsx",
+      "label": "Auth.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_auth_reducer",
+      "label": "reducer()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "auth_auth_auth",
+      "label": "Auth()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L51"
+    },
+    {
+      "id": "client_src_components_context_auth_context_js",
+      "label": "auth-context.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\context\\auth-context.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_context_searchcontext_js",
+      "label": "SearchContext.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\context\\SearchContext.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_hooks_auth_hook_js",
+      "label": "auth-hook.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\hooks\\auth-hook.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "hooks_auth_hook_useauth",
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\hooks\\auth-hook.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "client_src_components_navbar_navbar_jsx",
+      "label": "Navbar.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "navbar_navbar_navbar",
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "client_src_components_navbar_navitems_jsx",
+      "label": "NavItems.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "navbar_navitems_navitems",
+      "label": "NavItems()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "client_src_components_navbar_profiledropdown_jsx",
+      "label": "ProfileDropdown.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\ProfileDropdown.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "navbar_profiledropdown_profiledropdown",
+      "label": "ProfileDropdown()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\ProfileDropdown.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_navbar_profilefunctionalities_jsx",
+      "label": "ProfileFunctionalities.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\ProfileFunctionalities.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "navbar_profilefunctionalities_profilefunctionalities",
+      "label": "ProfileFunctionalities()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Navbar\\ProfileFunctionalities.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_posts_createpost_jsx",
+      "label": "CreatePost.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_createpost_createpost",
+      "label": "CreatePost()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L11"
+    },
+    {
+      "id": "client_src_components_posts_featuredpost_jsx",
+      "label": "FeaturedPost.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_posts_postdetail_jsx",
+      "label": "PostDetail.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_postdetail_postdetail",
+      "label": "PostDetail()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "client_src_components_posts_postitems_jsx",
+      "label": "PostItems.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_posts_postlist_jsx",
+      "label": "PostList.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_postlist_postlist",
+      "label": "PostList()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "client_src_components_posts_posttagselector_jsx",
+      "label": "PostTagSelector.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostTagSelector.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_posttagselector_posttagselector",
+      "label": "PostTagSelector()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\PostTagSelector.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_posts_shortdesc_js",
+      "label": "shortDesc.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\shortDesc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_shortdesc_shortingdesc",
+      "label": "shortingDesc()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\shortDesc.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "client_src_components_posts_updatepost_jsx",
+      "label": "UpdatePost.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "posts_updatepost_updatepost",
+      "label": "UpdatePost()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "client_src_components_shared_authinputs_jsx",
+      "label": "AuthInputs.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\AuthInputs.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_authinputs_authinputs",
+      "label": "AuthInputs()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\AuthInputs.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_shared_button_jsx",
+      "label": "Button.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Button.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_button_button",
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Button.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_shared_card_jsx",
+      "label": "Card.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Card.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_card_card",
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Card.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_shared_comingsoonmodal_jsx",
+      "label": "ComingSoonModal.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\ComingSoonModal.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_comingsoonmodal_comingsoonmodal",
+      "label": "ComingSoonModal()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\ComingSoonModal.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_shared_floatingcreatebutton_jsx",
+      "label": "FloatingCreateButton .jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_floatingcreatebutton_floatingcreatebutton",
+      "label": "FloatingCreateButton()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "client_src_components_shared_frontend_data_js",
+      "label": "frontend_data.js",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\frontend_data.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_shared_imageupload_jsx",
+      "label": "ImageUpload.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\ImageUpload.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_imageupload_imageupload",
+      "label": "ImageUpload()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\ImageUpload.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_shared_input_jsx",
+      "label": "Input.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Input.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_shared_loadingspinner_jsx",
+      "label": "LoadingSpinner.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\LoadingSpinner.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_loadingspinner_loadingspinner",
+      "label": "LoadingSpinner()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\LoadingSpinner.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "client_src_components_shared_modal_jsx",
+      "label": "Modal.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_modal_modal",
+      "label": "Modal()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L8"
+    },
+    {
+      "id": "client_src_components_shared_nopostfound_jsx",
+      "label": "NoPostFound.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\NoPostFound.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_nopostfound_nopostfound",
+      "label": "NoPostFound()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\NoPostFound.jsx",
+      "source_location": "L4"
+    },
+    {
+      "id": "client_src_components_shared_postfiltertabs_jsx",
+      "label": "PostFilterTabs.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\PostFilterTabs.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "shared_postfiltertabs_postfiltertabs",
+      "label": "PostFilterTabs()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\PostFilterTabs.jsx",
+      "source_location": "L26"
+    },
+    {
+      "id": "client_src_components_shared_rte_jsx",
+      "label": "RTE.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\shared\\RTE.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_user_profile_jsx",
+      "label": "Profile.jsx",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "user_profile_profile",
+      "label": "Profile()",
+      "file_type": "code",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "server_app_js",
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "server\\app.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_controllers_posts_js",
+      "label": "posts.js",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "controllers_posts_getposts",
+      "label": "getPosts()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "controllers_posts_getpostsbyid",
+      "label": "getPostsById()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L62"
+    },
+    {
+      "id": "controllers_posts_getpostsbyuserid",
+      "label": "getPostsByUserId()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L105"
+    },
+    {
+      "id": "controllers_posts_createposts",
+      "label": "createPosts()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L129"
+    },
+    {
+      "id": "controllers_posts_updatepostbyid",
+      "label": "updatePostById()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L215"
+    },
+    {
+      "id": "controllers_posts_deletepost",
+      "label": "deletePost()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L250"
+    },
+    {
+      "id": "server_controllers_user_js",
+      "label": "user.js",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "controllers_user_createnewuser",
+      "label": "createNewUser()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "controllers_user_login",
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L115"
+    },
+    {
+      "id": "controllers_user_getuserbyid",
+      "label": "getUserById()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L181"
+    },
+    {
+      "id": "controllers_user_updateuserbyid",
+      "label": "updateUserById()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L217"
+    },
+    {
+      "id": "controllers_user_deleteuser",
+      "label": "deleteUser()",
+      "file_type": "code",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L289"
+    },
+    {
+      "id": "server_limiters_postlimiter_js",
+      "label": "postLimiter.js",
+      "file_type": "code",
+      "source_file": "server\\limiters\\postLimiter.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_limiters_userlimiter_js",
+      "label": "userLimiter.js",
+      "file_type": "code",
+      "source_file": "server\\limiters\\userLimiter.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_middleware_check_auth_js",
+      "label": "check-auth.js",
+      "file_type": "code",
+      "source_file": "server\\middleware\\check-auth.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_middleware_file_upload_js",
+      "label": "file-upload.js",
+      "file_type": "code",
+      "source_file": "server\\middleware\\file-upload.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_models_http_error_js",
+      "label": "http-error.js",
+      "file_type": "code",
+      "source_file": "server\\models\\http-error.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "models_http_error_httperror",
+      "label": "HttpError",
+      "file_type": "code",
+      "source_file": "server\\models\\http-error.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "models_http_error_httperror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "server\\models\\http-error.js",
+      "source_location": "L2"
+    },
+    {
+      "id": "server_models_post_js",
+      "label": "post.js",
+      "file_type": "code",
+      "source_file": "server\\models\\post.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_models_user_js",
+      "label": "user.js",
+      "file_type": "code",
+      "source_file": "server\\models\\user.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_routes_posts_routes_js",
+      "label": "posts-routes.js",
+      "file_type": "code",
+      "source_file": "server\\routes\\posts-routes.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_routes_user_routes_js",
+      "label": "user-routes.js",
+      "file_type": "code",
+      "source_file": "server\\routes\\user-routes.js",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "client_vite_config_js",
+      "target": "vite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\vite.config.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_vite_config_js",
+      "target": "plugin_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\vite.config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_app_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_navbar_navbar",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_postlist",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_postdetail",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_createpost",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_auth_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_hooks_auth_hook",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "hooks_auth_hook_useauth",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_user_profile",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_updatepost",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_footer",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_contactme",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_aboutme",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_comingsoonmodal",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "src_app_app",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_privacy",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_terms",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_searchcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "context_searchcontext_searchcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "src_app_scrolltotop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_index_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_index_jsx",
+      "target": "client",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_index_jsx",
+      "target": "e_projects_blog_tech_client_src_index_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_index_jsx",
+      "target": "e_projects_blog_tech_client_src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_index_jsx",
+      "target": "react_helmet",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\index.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_aboutme_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\AboutMe.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_aboutme_jsx",
+      "target": "fa",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\AboutMe.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_aboutme_jsx",
+      "target": "components_aboutme_aboutme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\AboutMe.jsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_contactme_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\ContactMe.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_contactme_jsx",
+      "target": "fa",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\ContactMe.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_contactme_jsx",
+      "target": "components_contactme_contactme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\ContactMe.jsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_footer_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Footer.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_footer_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Footer.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_footer_jsx",
+      "target": "components_footer_footer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Footer.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_privacy_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Privacy.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_privacy_jsx",
+      "target": "components_privacy_privacy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Privacy.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_terms_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Terms.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_terms_jsx",
+      "target": "components_terms_terms",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Terms.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "io",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_authinputs",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_button",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_loadingspinner",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "auth_auth_reducer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_auth_auth_jsx",
+      "target": "auth_auth_auth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Auth\\Auth.jsx",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_context_auth_context_js",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\context\\auth-context.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_context_searchcontext_js",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\context\\SearchContext.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_hooks_auth_hook_js",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\hooks\\auth-hook.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_hooks_auth_hook_js",
+      "target": "hooks_auth_hook_useauth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\hooks\\auth-hook.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "e_projects_blog_tech_client_src_components_navbar_navitems",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "react_icons",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "hi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "fi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "e_projects_blog_tech_client_src_components_navbar_profilefunctionalities",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_searchcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "context_searchcontext_searchcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navbar_jsx",
+      "target": "navbar_navbar_navbar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\Navbar.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_navitems_jsx",
+      "target": "navbar_navitems_navitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\NavItems.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profiledropdown_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileDropdown.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profiledropdown_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileDropdown.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profiledropdown_jsx",
+      "target": "navbar_profiledropdown_profiledropdown",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileDropdown.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profilefunctionalities_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileFunctionalities.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profilefunctionalities_jsx",
+      "target": "e_projects_blog_tech_client_src_components_navbar_profiledropdown",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileFunctionalities.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_navbar_profilefunctionalities_jsx",
+      "target": "navbar_profilefunctionalities_profilefunctionalities",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Navbar\\ProfileFunctionalities.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_imageupload",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_input",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_rte",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_frontend_data",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "shared_frontend_data_createpost_dropdownlist",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_posttagselector",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_createpost_jsx",
+      "target": "posts_createpost_createpost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\CreatePost.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_shortdesc",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "posts_shortdesc_shortingdesc",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_featuredpost_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\FeaturedPost.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "html_react_parser",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "dompurify",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_loadingspinner",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postdetail_jsx",
+      "target": "posts_postdetail_postdetail",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostDetail.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_shortdesc",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "posts_shortdesc_shortingdesc",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postitems_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostItems.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_card",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_loadingspinner",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_featuredpost",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_postitems",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_postfiltertabs",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_floatingcreatebutton",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_nopostfound",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_searchcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "context_searchcontext_searchcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_postlist_jsx",
+      "target": "posts_postlist_postlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostList.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_posttagselector_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostTagSelector.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_posttagselector_jsx",
+      "target": "posts_posttagselector_posttagselector",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\PostTagSelector.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_shortdesc_js",
+      "target": "dompurify",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\shortDesc.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_shortdesc_js",
+      "target": "posts_shortdesc_shortingdesc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\shortDesc.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_button",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_input",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_loadingspinner",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_rte",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_posttagselector",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_frontend_data",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "shared_frontend_data_createpost_dropdownlist",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_posts_updatepost_jsx",
+      "target": "posts_updatepost_updatepost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\Posts\\UpdatePost.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_authinputs_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\AuthInputs.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_authinputs_jsx",
+      "target": "fi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\AuthInputs.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_authinputs_jsx",
+      "target": "shared_authinputs_authinputs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\AuthInputs.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_button_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Button.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_button_jsx",
+      "target": "shared_button_button",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Button.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_card_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Card.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_card_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Card.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_card_jsx",
+      "target": "shared_card_card",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Card.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_comingsoonmodal_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\ComingSoonModal.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_comingsoonmodal_jsx",
+      "target": "io",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\ComingSoonModal.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_comingsoonmodal_jsx",
+      "target": "shared_comingsoonmodal_comingsoonmodal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\ComingSoonModal.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "fi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "react_tooltip",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "react_tooltip_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_floatingcreatebutton_jsx",
+      "target": "shared_floatingcreatebutton_floatingcreatebutton",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\FloatingCreateButton .jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_imageupload_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\ImageUpload.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_imageupload_jsx",
+      "target": "shared_imageupload_imageupload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\ImageUpload.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_input_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Input.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_loadingspinner_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\LoadingSpinner.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_loadingspinner_jsx",
+      "target": "shared_loadingspinner_loadingspinner",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\LoadingSpinner.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "react_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "framer_motion",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_modal_jsx",
+      "target": "shared_modal_modal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\Modal.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_nopostfound_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\NoPostFound.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_nopostfound_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\NoPostFound.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_nopostfound_jsx",
+      "target": "shared_nopostfound_nopostfound",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\NoPostFound.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_postfiltertabs_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\PostFilterTabs.jsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_postfiltertabs_jsx",
+      "target": "shared_postfiltertabs_postfiltertabs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\PostFilterTabs.jsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_shared_rte_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\shared\\RTE.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_context_auth_context",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "context_auth_context_authcontext",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_loadingspinner",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_button",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_input",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_modal",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_linksite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "components_linksite_linksite",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_posts_shortdesc",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "posts_shortdesc_shortingdesc",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "e_projects_blog_tech_client_src_components_shared_nopostfound",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_user_profile_jsx",
+      "target": "user_profile_profile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client\\src\\components\\User\\Profile.jsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getposts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getpostsbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_getpostsbyuserid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_createposts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_updatepostbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_posts_js",
+      "target": "controllers_posts_deletepost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\posts.js",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_createnewuser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_login",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_getuserbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_updateuserbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "server_controllers_user_js",
+      "target": "controllers_user_deleteuser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\controllers\\user.js",
+      "source_location": "L289",
+      "weight": 1.0
+    },
+    {
+      "source": "server_models_http_error_js",
+      "target": "models_http_error_httperror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\models\\http-error.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "models_http_error_httperror",
+      "target": "models_http_error_httperror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "server\\models\\http-error.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_app",
+      "target": "hooks_auth_hook_useauth",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client\\src\\App.jsx",
+      "source_location": "L21",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

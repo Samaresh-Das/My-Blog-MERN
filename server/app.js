@@ -7,6 +7,7 @@ const path = require("path");
 const rateLimit = require('express-rate-limit');
 
 const HttpError = require("./models/http-error");
+const Post = require("./models/post");
 
 const postsRoute = require("./routes/posts-routes");
 const usersRoute = require("./routes/user-routes");
@@ -48,6 +49,56 @@ app.use("/api/user", usersRoute);
 // });
 app.get("/ping", (req, res, next) => {
   res.json({ message: "Pong!CI/CD WORKING 🚀" });
+});
+
+app.get("/sitemap.xml", async (req, res, next) => {
+  let posts = [];
+  try {
+    posts = await Post.find({}, "createdAt").sort({ createdAt: -1 });
+  } catch (err) {
+    return res.status(500).send("Unable to generate sitemap at this time.");
+  }
+
+  const hostUrl = `${req.protocol}://${req.get("host")}`;
+  const staticUrls = [
+    { loc: `${hostUrl}/`, priority: "1.0", changefreq: "daily" },
+    { loc: `${hostUrl}/about`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${hostUrl}/contact`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${hostUrl}/privacy`, priority: "0.6", changefreq: "monthly" },
+    { loc: `${hostUrl}/terms`, priority: "0.6", changefreq: "monthly" },
+  ];
+
+  const urlsXml = staticUrls
+    .map(
+      (url) => `
+    <url>
+      <loc>${url.loc}</loc>
+      <changefreq>${url.changefreq}</changefreq>
+      <priority>${url.priority}</priority>
+    </url>`
+    )
+    .join("");
+
+  const postsXml = posts
+    .map(
+      (post) => `
+    <url>
+      <loc>${hostUrl}/post/${post.id}</loc>
+      <lastmod>${new Date(post.createdAt).toISOString()}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+    </url>`
+    )
+    .join("");
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${urlsXml}
+  ${postsXml}
+</urlset>`;
+
+  res.header("Content-Type", "application/xml");
+  res.send(sitemap);
 });
 
 app.use((req, res, next) => {
