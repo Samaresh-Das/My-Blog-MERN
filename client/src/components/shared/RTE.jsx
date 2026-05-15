@@ -1,5 +1,75 @@
 import React, { useState, useRef, useEffect, memo } from "react";
 
+const cleanHTML = (html) => {
+    if (!html) return "";
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    
+    const walk = (node) => {
+        if (node.nodeType === 3) return document.createTextNode(node.textContent);
+        if (node.nodeType !== 1) return null;
+
+        let tag = node.tagName.toLowerCase();
+        
+        const fontWeight = node.style?.fontWeight || "";
+        const fontStyle = node.style?.fontStyle || "";
+        const textDecoration = node.style?.textDecoration || "";
+        
+        let isBold = tag === 'b' || tag === 'strong' || fontWeight === '700' || fontWeight === 'bold' || parseInt(fontWeight, 10) >= 600;
+        let isItalic = tag === 'i' || tag === 'em' || fontStyle === 'italic';
+        let isUnderline = tag === 'u' || textDecoration.includes('underline');
+        let isStrike = tag === 'strike' || tag === 's' || textDecoration.includes('line-through');
+
+        if (tag === 'h1') tag = 'h2';
+
+        const allowed = ['p', 'h2', 'h3', 'h4', 'ul', 'ol', 'li', 'blockquote', 'pre', 'a', 'img', 'br'];
+        
+        let el;
+        if (allowed.includes(tag)) {
+            el = document.createElement(tag);
+            if (tag === 'a' && node.href) {
+                el.href = node.href;
+                el.target = '_blank';
+                el.rel = 'noopener noreferrer';
+            }
+            if (tag === 'img' && node.src) {
+                el.src = node.src;
+                if (node.alt) el.alt = node.alt;
+            }
+        } else {
+            el = document.createDocumentFragment();
+        }
+
+        let contentContainer = document.createDocumentFragment();
+        
+        for (const child of Array.from(node.childNodes)) {
+            const cleanChild = walk(child);
+            if (cleanChild) contentContainer.appendChild(cleanChild);
+        }
+
+        if (isStrike) { const w = document.createElement('s'); w.appendChild(contentContainer); contentContainer = w; }
+        if (isUnderline) { const w = document.createElement('u'); w.appendChild(contentContainer); contentContainer = w; }
+        if (isItalic) { const w = document.createElement('em'); w.appendChild(contentContainer); contentContainer = w; }
+        if (isBold) { const w = document.createElement('strong'); w.appendChild(contentContainer); contentContainer = w; }
+
+        if (allowed.includes(tag)) {
+            el.appendChild(contentContainer);
+            return el;
+        } else {
+            return contentContainer;
+        }
+    };
+
+    const cleanFrag = document.createDocumentFragment();
+    for (const child of Array.from(doc.body.childNodes)) {
+        const cleanChild = walk(child);
+        if (cleanChild) cleanFrag.appendChild(cleanChild);
+    }
+
+    const tempDiv = document.createElement('div');
+    tempDiv.appendChild(cleanFrag);
+    return tempDiv.innerHTML;
+};
+
 const RTE = memo(function RTE({ value, description }) {
     const editorRef = useRef(null);
     const imageInputRef = useRef(null);
@@ -15,7 +85,11 @@ const RTE = memo(function RTE({ value, description }) {
 
     useEffect(() => {
         if (editorRef.current && value && editorRef.current.innerHTML !== value) {
-            editorRef.current.innerHTML = value;
+            const cleanedValue = cleanHTML(value);
+            if (editorRef.current.innerHTML !== cleanedValue) {
+                editorRef.current.innerHTML = cleanedValue;
+                handleInput();
+            }
         }
     }, [value]);
 
@@ -39,6 +113,26 @@ const RTE = memo(function RTE({ value, description }) {
         if (description) description(html);
         const words = (editorRef.current?.innerText || "").trim().split(/\s+/).filter(Boolean).length;
         setWordCount(words);
+    };
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        let html = e.clipboardData.getData("text/html");
+        let text = e.clipboardData.getData("text/plain");
+
+        // If the plain text looks like an HTML string, use it as HTML to auto-format source code
+        const isHtmlString = /<\s*(?:p|h[1-6]|div|span|strong|em|ul|ol|li|a|img|blockquote|pre|br|b|i|u|s)[^>]*>/i.test(text);
+        if (isHtmlString) {
+            html = text;
+        }
+
+        if (html) {
+            const clean = cleanHTML(html);
+            document.execCommand("insertHTML", false, clean);
+        } else if (text) {
+            document.execCommand("insertText", false, text);
+        }
+        handleInput();
     };
 
     const saveRange = () => {
@@ -345,7 +439,8 @@ const RTE = memo(function RTE({ value, description }) {
                 contentEditable
                 suppressContentEditableWarning
                 onInput={handleInput}
-                className="min-h-[420px] p-6 text-sm text-neoBorder font-semibold outline-none leading-relaxed rh-editor bg-white"
+                onPaste={handlePaste}
+                className="h-[400px] md:h-[500px] overflow-y-auto p-6 text-sm text-neoBorder font-semibold outline-none leading-relaxed rh-editor bg-white"
                 style={{ caretColor: "#111827" }}
                 data-placeholder="Start writing your post content here…"
             />
