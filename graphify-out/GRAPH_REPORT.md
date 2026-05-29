@@ -1,16 +1,16 @@
-# Graph Report - BLOG TECH  (2026-05-07)
+# Graph Report - BLOG TECH  (2026-05-29)
 
 ## Corpus Check
-- 53 files · ~242,714 words
+- 56 files · ~244,049 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 117 nodes · 66 edges · 52 communities (48 shown, 4 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
+- 122 nodes · 68 edges · 55 communities (51 shown, 4 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c55d4d42`
+- Built from commit: `480ae03e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,7 @@
 - [[_COMMUNITY_Client Posts & User UI|Client Posts & User UI]]
 - [[_COMMUNITY_Auth Hook & App Root|Auth Hook & App Root]]
 - [[_COMMUNITY_About Me Component|About Me Component]]
-- [[_COMMUNITY_Upload Handler|Upload Handler]]
+- [[_COMMUNITY_Community 54|Community 54]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `MERN Stack` - 7 edges
@@ -46,7 +46,7 @@
 - `Posts Routes` --requires_auth--> `Auth Middleware`  [EXTRACTED]
   server/routes/posts-routes.js → server/middleware/check-auth.js
 
-## Communities (52 total, 4 thin omitted)
+## Communities (55 total, 4 thin omitted)
 
 ### Community 0 - "Project Overview & Tech Stack"
 Cohesion: 0.2

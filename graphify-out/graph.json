@@ -9,7 +9,7 @@
       "source_file": "client/postcss.config.js",
       "source_location": "L1",
       "id": "client_postcss_config_js",
-      "community": 32,
+      "community": 34,
       "norm_label": "postcss.config.js"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "client/tailwind.config.js",
       "source_location": "L1",
       "id": "client_tailwind_config_js",
-      "community": 33,
+      "community": 35,
       "norm_label": "tailwind.config.js"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "client/vite.config.js",
       "source_location": "L1",
       "id": "client_vite_config_js",
-      "community": 34,
+      "community": 36,
       "norm_label": "vite.config.js"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "client/src/index.jsx",
       "source_location": "L1",
       "id": "client_src_index_jsx",
-      "community": 35,
+      "community": 37,
       "norm_label": "index.jsx"
     },
     {
@@ -79,7 +79,7 @@
       "label": "AboutMe()",
       "file_type": "code",
       "source_file": "client/src/components/AboutMe.jsx",
-      "source_location": "L24",
+      "source_location": "L26",
       "id": "components_aboutme_aboutme",
       "community": 9,
       "norm_label": "aboutme()"
@@ -97,7 +97,7 @@
       "label": "ContactMe()",
       "file_type": "code",
       "source_file": "client/src/components/ContactMe.jsx",
-      "source_location": "L38",
+      "source_location": "L39",
       "id": "components_contactme_contactme",
       "community": 10,
       "norm_label": "contactme()"
@@ -126,7 +126,7 @@
       "source_file": "client/src/components/linkSite.js",
       "source_location": "L1",
       "id": "client_src_components_linksite_js",
-      "community": 36,
+      "community": 38,
       "norm_label": "linksite.js"
     },
     {
@@ -142,10 +142,19 @@
       "label": "Privacy()",
       "file_type": "code",
       "source_file": "client/src/components/Privacy.jsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "id": "components_privacy_privacy",
       "community": 12,
       "norm_label": "privacy()"
+    },
+    {
+      "label": "seoConfig.js",
+      "file_type": "code",
+      "source_file": "client/src/components/seoConfig.js",
+      "source_location": "L1",
+      "id": "client_src_components_seoconfig_js",
+      "community": 39,
+      "norm_label": "seoconfig.js"
     },
     {
       "label": "Terms.jsx",
@@ -160,7 +169,7 @@
       "label": "Terms()",
       "file_type": "code",
       "source_file": "client/src/components/Terms.jsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "id": "components_terms_terms",
       "community": 13,
       "norm_label": "terms()"
@@ -198,7 +207,7 @@
       "source_file": "client/src/components/context/auth-context.js",
       "source_location": "L1",
       "id": "client_src_components_context_auth_context_js",
-      "community": 37,
+      "community": 40,
       "norm_label": "auth-context.js"
     },
     {
@@ -207,7 +216,7 @@
       "source_file": "client/src/components/context/SearchContext.js",
       "source_location": "L1",
       "id": "client_src_components_context_searchcontext_js",
-      "community": 38,
+      "community": 41,
       "norm_label": "searchcontext.js"
     },
     {
@@ -340,7 +349,7 @@
       "label": "PostDetail()",
       "file_type": "code",
       "source_file": "client/src/components/Posts/PostDetail.jsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "id": "posts_postdetail_postdetail",
       "community": 19,
       "norm_label": "postdetail()"
@@ -367,7 +376,7 @@
       "label": "PaginationControls()",
       "file_type": "code",
       "source_file": "client/src/components/Posts/PostList.jsx",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "posts_postlist_paginationcontrols",
       "community": 7,
       "norm_label": "paginationcontrols()"
@@ -376,7 +385,7 @@
       "label": "PostList()",
       "file_type": "code",
       "source_file": "client/src/components/Posts/PostList.jsx",
-      "source_location": "L56",
+      "source_location": "L58",
       "id": "posts_postlist_postlist",
       "community": 7,
       "norm_label": "postlist()"
@@ -531,7 +540,7 @@
       "source_file": "client/src/components/shared/frontend_data.js",
       "source_location": "L1",
       "id": "client_src_components_shared_frontend_data_js",
-      "community": 39,
+      "community": 42,
       "norm_label": "frontend_data.js"
     },
     {
@@ -558,7 +567,7 @@
       "source_file": "client/src/components/shared/Input.jsx",
       "source_location": "L1",
       "id": "client_src_components_shared_input_jsx",
-      "community": 40,
+      "community": 43,
       "norm_label": "input.jsx"
     },
     {
@@ -639,8 +648,35 @@
       "source_file": "client/src/components/shared/RTE.jsx",
       "source_location": "L1",
       "id": "client_src_components_shared_rte_jsx",
-      "community": 41,
+      "community": 32,
       "norm_label": "rte.jsx"
+    },
+    {
+      "label": "cleanHTML()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/RTE.jsx",
+      "source_location": "L3",
+      "id": "shared_rte_cleanhtml",
+      "community": 32,
+      "norm_label": "cleanhtml()"
+    },
+    {
+      "label": "SEOHead.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/SEOHead.jsx",
+      "source_location": "L1",
+      "id": "client_src_components_shared_seohead_jsx",
+      "community": 33,
+      "norm_label": "seohead.jsx"
+    },
+    {
+      "label": "SEOHead()",
+      "file_type": "code",
+      "source_file": "client/src/components/shared/SEOHead.jsx",
+      "source_location": "L16",
+      "id": "shared_seohead_seohead",
+      "community": 33,
+      "norm_label": "seohead()"
     },
     {
       "label": "Profile.jsx",
@@ -666,7 +702,7 @@
       "source_file": "server/app.js",
       "source_location": "L1",
       "id": "server_app_js",
-      "community": 42,
+      "community": 44,
       "norm_label": "app.js"
     },
     {
@@ -792,7 +828,7 @@
       "source_file": "server/limiters/postLimiter.js",
       "source_location": "L1",
       "id": "server_limiters_postlimiter_js",
-      "community": 43,
+      "community": 45,
       "norm_label": "postlimiter.js"
     },
     {
@@ -801,7 +837,7 @@
       "source_file": "server/limiters/userLimiter.js",
       "source_location": "L1",
       "id": "server_limiters_userlimiter_js",
-      "community": 44,
+      "community": 46,
       "norm_label": "userlimiter.js"
     },
     {
@@ -810,7 +846,7 @@
       "source_file": "server/middleware/check-auth.js",
       "source_location": "L1",
       "id": "server_middleware_check_auth_js",
-      "community": 45,
+      "community": 47,
       "norm_label": "check-auth.js"
     },
     {
@@ -819,7 +855,7 @@
       "source_file": "server/middleware/file-upload.js",
       "source_location": "L1",
       "id": "server_middleware_file_upload_js",
-      "community": 46,
+      "community": 48,
       "norm_label": "file-upload.js"
     },
     {
@@ -855,7 +891,7 @@
       "source_file": "server/models/post.js",
       "source_location": "L1",
       "id": "server_models_post_js",
-      "community": 47,
+      "community": 49,
       "norm_label": "post.js"
     },
     {
@@ -864,7 +900,7 @@
       "source_file": "server/models/user.js",
       "source_location": "L1",
       "id": "server_models_user_js",
-      "community": 48,
+      "community": 50,
       "norm_label": "user.js"
     },
     {
@@ -873,8 +909,17 @@
       "source_file": "server/routes/posts-routes.js",
       "source_location": "L1",
       "id": "server_routes_posts_routes_js",
-      "community": 49,
+      "community": 51,
       "norm_label": "posts-routes.js"
+    },
+    {
+      "label": "sitemap-routes.js",
+      "file_type": "code",
+      "source_file": "server/routes/sitemap-routes.js",
+      "source_location": "L1",
+      "id": "server_routes_sitemap_routes_js",
+      "community": 52,
+      "norm_label": "sitemap-routes.js"
     },
     {
       "label": "user-routes.js",
@@ -882,7 +927,7 @@
       "source_file": "server/routes/user-routes.js",
       "source_location": "L1",
       "id": "server_routes_user_routes_js",
-      "community": 50,
+      "community": 53,
       "norm_label": "user-routes.js"
     },
     {
@@ -1025,7 +1070,7 @@
       "label": "File Upload Middleware",
       "file_type": "code",
       "source_file": "server/middleware/file-upload.js",
-      "community": 51,
+      "community": 54,
       "norm_label": "file upload middleware",
       "id": "middleware_fileupload"
     },
@@ -1407,6 +1452,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/RTE.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "client_src_components_shared_rte_jsx",
+      "target": "shared_rte_cleanhtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/shared/SEOHead.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "client_src_components_shared_seohead_jsx",
+      "target": "shared_seohead_seohead",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "client/src/components/User/Profile.jsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -1674,5 +1739,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c55d4d426cf16cf275ed93258c9875d5fc60257f"
+  "built_at_commit": "480ae03e22ddc719b3787080abef4a902af7271d"
 }

@@ -16,16 +16,16 @@
     "hash": "a6aac9560a94e0b33ece289536c5c95c"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\index.jsx": {
-    "mtime": 1778166509.0950222,
-    "hash": "ad013b29774dd9bd512987e3ade9e6bb"
+    "mtime": 1780068977.9618416,
+    "hash": "a5b9cc0d434761ef9604485e64d8efe8"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\AboutMe.jsx": {
-    "mtime": 1776712424.2580373,
-    "hash": "da1b355f0eb0ea873a917b5aa0bf339f"
+    "mtime": 1780068894.1457324,
+    "hash": "a503654356d21da0a78aa99bd25e9c2c"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\ContactMe.jsx": {
-    "mtime": 1776712424.2597504,
-    "hash": "01ce09c2cc8e3627cbc02135f416e60a"
+    "mtime": 1780068894.1457324,
+    "hash": "15afabf5e9e1a2d39e8e5e3ee52c537c"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Footer.jsx": {
     "mtime": 1776712424.2610533,
@@ -36,12 +36,16 @@
     "hash": "a20bed21af8ff064848ff43a07f9d1b5"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Privacy.jsx": {
-    "mtime": 1776712424.26851,
-    "hash": "e8ca90bec1061b649348d2bf22512825"
+    "mtime": 1780068894.1503804,
+    "hash": "94a09f1046ad9fa589d4be7a8099f79d"
+  },
+  "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\seoConfig.js": {
+    "mtime": 1780068894.2026985,
+    "hash": "e576a05315630c9f67adc6abad84319c"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Terms.jsx": {
-    "mtime": 1776712424.2695298,
-    "hash": "c0f8549ddbfc5bcef16d01f51a665d17"
+    "mtime": 1780068894.1503804,
+    "hash": "e5d9e5ad4d5143850821f36189cf5b55"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Auth\\Auth.jsx": {
     "mtime": 1776712424.2586253,
@@ -84,16 +88,16 @@
     "hash": "06b7c893a1678fd1e9b6dcbb6759f979"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Posts\\PostDetail.jsx": {
-    "mtime": 1776928112.2243323,
-    "hash": "69ad01f6987b023ebefae40452cf191f"
+    "mtime": 1780068894.1457324,
+    "hash": "8164fddf16b29fbafc61b3a53d54ef4e"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Posts\\PostItems.jsx": {
-    "mtime": 1778167054.837236,
+    "mtime": 1780068883.7001553,
     "hash": "2048292ac785bfd8377969fc5cee34dd"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Posts\\PostList.jsx": {
-    "mtime": 1778167237.9174953,
-    "hash": "3ecb0c0d14063db7d4682274703c90cb"
+    "mtime": 1780068958.313613,
+    "hash": "2a52b2d8f99a992d53077a193c2b5ccb"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\Posts\\PostTagSelector.jsx": {
     "mtime": 1776954512.5652196,
@@ -124,7 +128,7 @@
     "hash": "c4a5effd29234f617f8e6d0042e8092a"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\shared\\FloatingCreateButton.jsx": {
-    "mtime": 1776712424.273923,
+    "mtime": 1780068883.705059,
     "hash": "821ed1d10b8810b9f38bf44dd7b9c722"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\shared\\frontend_data.js": {
@@ -152,23 +156,27 @@
     "hash": "5f9cc7e4c8a6a5d72aabb098ec19ff9d"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\shared\\PostFilterTabs.jsx": {
-    "mtime": 1778167054.837236,
+    "mtime": 1780068883.723022,
     "hash": "61b39e2349732438089a5a090d62283b"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\shared\\RTE.jsx": {
-    "mtime": 1776712424.2779813,
-    "hash": "0ccf45fbc48094fd61225ca6d8476730"
+    "mtime": 1780068883.725055,
+    "hash": "4a91f973f16f9bd143a57e8610c9a541"
+  },
+  "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\shared\\SEOHead.jsx": {
+    "mtime": 1780068894.2907026,
+    "hash": "9e4f43e5be9ff5c6d75f4c900ecfb644"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\src\\components\\User\\Profile.jsx": {
     "mtime": 1776954864.3111446,
     "hash": "1c6840550e1c4ba5d4658043e07a3845"
   },
   "E:\\PROJECTS\\BLOG TECH\\server\\app.js": {
-    "mtime": 1778167014.108024,
-    "hash": "0433ceb2f4c5d865ce952fe55e0b690e"
+    "mtime": 1780068894.152375,
+    "hash": "ad4f2017f0e405ae1bfd81d4fcfe3288"
   },
   "E:\\PROJECTS\\BLOG TECH\\server\\controllers\\posts.js": {
-    "mtime": 1778167054.3166,
+    "mtime": 1780068884.6078112,
     "hash": "b43ad86fc29240cc5aaf2721cffc944b"
   },
   "E:\\PROJECTS\\BLOG TECH\\server\\controllers\\user.js": {
@@ -207,6 +215,10 @@
     "mtime": 1754206306.2050488,
     "hash": "a5e4621f40ea16ffc6945df190190be9"
   },
+  "E:\\PROJECTS\\BLOG TECH\\server\\routes\\sitemap-routes.js": {
+    "mtime": 1780068894.291254,
+    "hash": "26f9b40a80203eaa2f47f25c81636481"
+  },
   "E:\\PROJECTS\\BLOG TECH\\server\\routes\\user-routes.js": {
     "mtime": 1754325902.8090453,
     "hash": "42aec92b3b5f243fe6bca5b1649e4c49"
@@ -216,16 +228,16 @@
     "hash": "a09042851ad37058f4e09f3686de0488"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\index.html": {
-    "mtime": 1778166508.9530678,
-    "hash": "63de912aeaf929d18268be1b144e4160"
+    "mtime": 1780068914.8144324,
+    "hash": "52eb0af14dc217be2cdca349d7956dbe"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\README.md": {
     "mtime": 1676991827.5094206,
     "hash": "33822368bfb3ad3de6fceb9cd76aa0dd"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\public\\robots.txt": {
-    "mtime": 1778166507.97831,
-    "hash": "d0570c5b111064375a668a174330b8a2"
+    "mtime": 1780068929.128192,
+    "hash": "d605e4d6c56dad9eb1534f84c3653948"
   },
   "E:\\PROJECTS\\BLOG TECH\\client\\public\\logo192.png": {
     "mtime": 1754047237.2440126,
