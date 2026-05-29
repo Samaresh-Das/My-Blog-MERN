@@ -6,5 +6,5 @@ Disallow: /create
 Disallow: /update/
 Disallow: /profile
 
-# Dynamic sitemap generated from the API
-Sitemap: https://api.samsdev.xyz/sitemap.xml
+# Dynamic sitemap generated from the API (proxied via Vercel)
+Sitemap: https://sams-dev-blog.vercel.app/sitemap.xml
