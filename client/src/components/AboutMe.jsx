@@ -6,6 +6,8 @@ import {
   FaCarAlt,
   FaGamepad,
 } from "react-icons/fa";
+import SEOHead from "./shared/SEOHead";
+import { SEO } from "./seoConfig";
 
 const hobbies = [
   { icon: <FaLaptopCode />, label: "Coding things for fun" },
@@ -23,7 +25,26 @@ const imageStack = [
 
 const AboutMe = () => {
   return (
-    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto text-neoBorder flex items-center justify-center min-h-[calc(100vh-80px)] overflow-hidden">
+    <>
+      <SEOHead
+        title="About Me"
+        description="Hey there! I'm Samaresh, a web developer who finds beauty in pixel-perfect UIs and the chaos of backend logic. Learn more about me and my hobbies."
+        url="/about"
+        type="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: SEO.author.name,
+          url: SEO.author.url,
+          jobTitle: "Web Developer",
+          sameAs: [
+            "https://github.com/Samaresh-Das",
+            "https://www.linkedin.com/in/samaresh-d-ab9621212/",
+            "https://www.instagram.com/samaresh.d/",
+          ],
+        }}
+      />
+      <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto text-neoBorder flex items-center justify-center min-h-[calc(100vh-80px)] overflow-hidden">
       <div className="bg-white border-4 border-neoBorder shadow-neoLg rounded-xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between relative mt-10">
         
         {/* Background Decorative Blocks */}
@@ -121,6 +142,7 @@ const AboutMe = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ const Post = require("./models/post");
 
 const postsRoute = require("./routes/posts-routes");
 const usersRoute = require("./routes/user-routes");
+const sitemapRoute = require("./routes/sitemap-routes");
 
 const app = express();
 
@@ -21,7 +22,7 @@ const globalLimiter = rateLimit({
   limit: 100, // Limit each IP to 200 requests per windowMs
   standardHeaders: true, // send `RateLimit-*` headers
   legacyHeaders: false,  // disable `X-RateLimit-*` headers
-  skip: (req, res) => req.path === '/ping', //keep the ping route unprotected for the cron job
+  skip: (req, res) => ['/ping', '/sitemap.xml', '/robots.txt'].includes(req.path), //keep ping + SEO routes unprotected
   message: "Too many requests, please try again later.",
 });
 
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 
 app.use("/api/posts", postsRoute);
 app.use("/api/user", usersRoute);
+app.use("/", sitemapRoute); // Sitemap & robots.txt — no auth required
 
 // app.get("/places", (req, res, next) => {
 //   res.json("server working");

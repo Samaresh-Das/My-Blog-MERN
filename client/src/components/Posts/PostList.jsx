@@ -10,6 +10,8 @@ import FloatingCreateButton from "../shared/FloatingCreateButton";
 import { AuthContext } from "../context/auth-context";
 import NoPostFound from "../shared/NoPostFound";
 import { SearchContext } from "../context/SearchContext";
+import SEOHead from "../shared/SEOHead";
+import { SEO } from "../seoConfig";
 
 const PAGE_SIZE = 6;
 
@@ -190,6 +192,29 @@ const PostList = () => {
 
   return (
     <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <SEOHead
+        title={null}
+        description={SEO.defaultDescription}
+        url="/"
+        type="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SEO.siteName,
+          url: SEO.siteUrl,
+          description: SEO.defaultDescription,
+          author: {
+            "@type": "Person",
+            name: SEO.author.name,
+            url: SEO.author.url,
+          },
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${SEO.siteUrl}/?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <PostFilterTabs
         tabs={[
           { label: "All", value: "all" },

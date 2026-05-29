@@ -1,8 +1,16 @@
 import React from "react";
+import SEOHead from "./shared/SEOHead";
 
 const Terms = () => {
   return (
-    <div className="px-6 py-12 md:px-16 text-neoBorder max-w-4xl mx-auto bg-white rounded-xl shadow-neoLg border-4 border-neoBorder mt-16 mb-20 relative overflow-hidden">
+    <>
+      <SEOHead
+        title="Terms & Conditions"
+        description="Terms and conditions for using Sam's Dev Blog. By accessing the site, you agree to these terms."
+        url="/terms"
+        type="website"
+      />
+      <div className="px-6 py-12 md:px-16 text-neoBorder max-w-4xl mx-auto bg-white rounded-xl shadow-neoLg border-4 border-neoBorder mt-16 mb-20 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-neoPink rounded-bl-full -z-10 border-b-4 border-l-4 border-neoBorder hidden md:block"></div>
       
       <h1 className="text-3xl md:text-4xl font-black text-neoBorder mb-8 pb-4 border-b-4 border-neoBorder inline-block">
@@ -60,6 +68,7 @@ const Terms = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

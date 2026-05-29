@@ -6,6 +6,7 @@ import {
   FaUser,
   FaQuestionCircle,
 } from "react-icons/fa";
+import SEOHead from "./shared/SEOHead";
 
 const contactLinks = [
   {
@@ -37,7 +38,14 @@ const contactLinks = [
 
 const ContactMe = () => {
   return (
-    <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto mt-10">
+    <>
+      <SEOHead
+        title="Contact Me"
+        description="Get in touch with Samaresh — whether it's for a collaboration, feedback, or just to say hello. Find me on GitHub, LinkedIn, and Instagram."
+        url="/contact"
+        type="website"
+      />
+      <section className="relative z-10 px-6 py-16 max-w-6xl mx-auto mt-10">
       <div className="bg-white border-4 border-neoBorder shadow-neoLg rounded-xl p-10 flex flex-col md:flex-row gap-10 items-center justify-between relative overflow-hidden">
         {/* Background Decorative Blocks */}
         <div className="absolute -top-4 -left-4 w-20 h-20 bg-neoYellow border-b-4 border-r-4 border-neoBorder rounded-br-full z-0"></div>
@@ -114,6 +122,7 @@ const ContactMe = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

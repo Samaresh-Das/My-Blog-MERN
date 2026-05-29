@@ -5,6 +5,8 @@ import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import { linkSite } from "../linkSite";
+import SEOHead from "../shared/SEOHead";
+import { SEO } from "../seoConfig";
 
 const PostDetail = () => {
   const [postDetails, setPostDetails] = useState({ post: {} });
@@ -46,6 +48,41 @@ const PostDetail = () => {
   const formattedDate = date.toLocaleDateString("en-US", options);
 
   const sanitizedDescription = DOMPurify.sanitize(description);
+
+  // Extract plain text from HTML for meta description (max 160 chars)
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = sanitizedDescription;
+  const plainTextDesc = (tempDiv.textContent || tempDiv.innerText || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .substring(0, 160);
+
+  // JSON-LD structured data for this blog post
+  const blogPostJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: headline,
+    description: plainTextDesc,
+    image: image,
+    datePublished: createdAt,
+    dateModified: createdAt,
+    author: {
+      "@type": "Person",
+      name: creatorName,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SEO.siteName,
+      logo: {
+        "@type": "ImageObject",
+        url: SEO.defaultImage,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SEO.siteUrl}/post/${postId}`,
+    },
+  };
 
   const parseOptions = {
     replace: (domNode) => {
@@ -141,6 +178,16 @@ const PostDetail = () => {
 
   return (
     <Fragment>
+      <SEOHead
+        title={headline}
+        description={plainTextDesc}
+        url={`/post/${postId}`}
+        image={image}
+        type="article"
+        jsonLd={blogPostJsonLd}
+        publishedTime={createdAt}
+        author={creatorName}
+      />
       <div className="h-full relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

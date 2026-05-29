@@ -1,4 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
-Sitemap: /sitemap.xml
+Allow: /
+Disallow: /auth
+Disallow: /create
+Disallow: /update/
+Disallow: /profile
+
+# Dynamic sitemap generated from the API
+Sitemap: https://api.samsdev.xyz/sitemap.xml

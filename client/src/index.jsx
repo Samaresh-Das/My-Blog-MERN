@@ -9,28 +9,10 @@ root.render(
   <React.StrictMode>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Tech Blog</title>
+      <title>Sam's Dev Blog — Web Development, DSA & DevOps</title>
       <meta
         name="description"
-        content="Explore full-stack tech articles, tutorials, and developer guides on a modern blog built for readability and discovery."
-      />
-      <meta
-        name="keywords"
-        content="tech blog, frontend, backend, devops, programming, tutorial, web development"
-      />
-      <meta name="robots" content="index, follow" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Tech Blog" />
-      <meta
-        property="og:description"
-        content="Explore full-stack tech articles, tutorials, and developer guides on a modern blog built for readability and discovery."
-      />
-      <meta property="og:image" content="/Assets/blog.png" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Tech Blog" />
-      <meta
-        name="twitter:description"
-        content="Explore full-stack tech articles, tutorials, and developer guides on a modern blog built for readability and discovery."
+        content="Explore in-depth articles on frontend, backend, databases, DevOps, and data structures & algorithms. Written by a developer, for developers."
       />
     </Helmet>
     <App />
