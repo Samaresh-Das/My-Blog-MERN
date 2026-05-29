@@ -1455,9 +1455,9 @@
       "source_file": "client/src/components/shared/RTE.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "client_src_components_shared_rte_jsx",
-      "target": "shared_rte_cleanhtml",
-      "confidence_score": 1.0
+      "target": "shared_rte_cleanhtml"
     },
     {
       "relation": "contains",
@@ -1465,9 +1465,9 @@
       "source_file": "client/src/components/shared/SEOHead.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "client_src_components_shared_seohead_jsx",
-      "target": "shared_seohead_seohead",
-      "confidence_score": 1.0
+      "target": "shared_seohead_seohead"
     },
     {
       "relation": "contains",
@@ -1739,5 +1739,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "480ae03e22ddc719b3787080abef4a902af7271d"
+  "built_at_commit": "75b610724d09a99cd506b9ceaa073d40b8691de9"
 }
